@@ -1,0 +1,38 @@
+{
+  "name": "dlimeb.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:styles": "node-sass assets/styles/src/styles.scss --include-path ./node_modules/normalize.scss/ --stdout --output-style compressed | postcss --use autoprefixer -o assets/styles/styles.css",
+    "watch:styles": "watch 'npm run -s build:styles & DEBUG=1' assets/styles/src",
+    "watch": "npm run -s watch:styles",
+    "server": "browser-sync start --config bs-config.js",
+    "dev": "npm run server -s & npm run watch -s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlimeb/dlimeb.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "postcss-cli": "2.6.0",
+    "autoprefixer": "6.6.1",
+    "browser-sync": "2.12.5",
+    "node-sass": "3.7.0",
+    "watch": "0.16.0",
+    "normalize.scss": "0.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/dlimeb/dlimeb.github.io/issues"
+  },
+  "homepage": "https://github.com/dlimeb/dlimeb.github.io#readme",
+  "browserslist": [
+    "last 2 versions",
+    "safari >= 8",
+    "ie 11",
+    "not ie 10",
+    "not ie_mob 10"
+  ]
+}
