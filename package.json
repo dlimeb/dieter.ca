@@ -1,14 +1,15 @@
 {
   "name": "dlimeb.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal website at dieter.ca",
   "main": "index.js",
   "scripts": {
     "build:styles": "node-sass assets/styles/src/styles.scss --include-path ./node_modules/normalize.scss/ --stdout --output-style compressed | postcss --use autoprefixer -o assets/styles/styles.css",
-    "watch:styles": "watch 'npm run -s build:styles & DEBUG=1' assets/styles/src",
+    "watch:styles": "watch 'npm run -s build:styles & DEBUG=1 && npm run -s bust-cache' assets/styles/src",
     "watch": "npm run -s watch:styles",
     "server": "browser-sync start --config bs-config.js",
-    "dev": "npm run server -s & npm run watch -s"
+    "start": "npm run server -s & npm run watch -s",
+    "bust-cache": "asset-cache-bust *.html"
   },
   "repository": {
     "type": "git",
@@ -17,12 +18,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "postcss-cli": "2.6.0",
-    "autoprefixer": "6.6.1",
-    "browser-sync": "2.12.5",
-    "node-sass": "3.7.0",
-    "watch": "0.16.0",
-    "normalize.scss": "0.1.0"
+    "postcss-cli": "6.0.0",
+    "autoprefixer": "9.0.1",
+    "browser-sync": "2.24.6",
+    "node-sass": "4.9.2",
+    "watch": "1.0.2",
+    "normalize.scss": "0.1.0",
+    "asset-cache-bust": "^2.2.0"
   },
   "bugs": {
     "url": "https://github.com/dlimeb/dlimeb.github.io/issues"
