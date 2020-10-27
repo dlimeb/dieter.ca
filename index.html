@@ -19,17 +19,21 @@
     body {
       background-color: lightgray;
       margin: 0;
-      padding: 4vw;
+      padding: 6vw;
       box-sizing: border-box;
       height: 100vh;
-      border: 2vw solid white;
     }
     p {
       font-family: "Self Modern", serif;
       font-size: 3.5vw;
       color: #111;
       line-height: 1.6;
-      margin: 0;
+      margin: 0 0 3.5vw;
+    }
+    @media screen and (max-width: 414px) {
+      p {
+        font-size: 6vw;
+      }
     }
     a {
       color: blue;
