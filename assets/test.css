@@ -1,0 +1,4546 @@
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.BackButton {
+  transition: 180ms ease;
+  opacity: 0;
+  outline: none;
+  height: 40px;
+  min-width: 160px;
+  border-radius: 0 6px 6px 0;
+  padding: 0;
+  position: fixed;
+  top: 96px;
+  left: 370px;
+  border: none;
+  cursor: pointer;
+  z-index: 10; }
+  .BackButton--show {
+    opacity: 1;
+    top: 104px; }
+  .BackButton:active .BackButton__text-container {
+    background-color: #F3F3F5; }
+  .BackButton:active:before {
+    background: linear-gradient(-45deg, #F3F3F5 50%, transparent 50%); }
+  .BackButton:after {
+    content: "";
+    width: 34px;
+    height: 34px;
+    border-radius: 0 10px 6px 10px;
+    transform: rotate(135deg);
+    background: linear-gradient(-45deg, #E8E8EB 50%, transparent 50%);
+    box-shadow: 1px 0px 2px rgba(2, 14, 29, 0.08);
+    position: absolute;
+    left: -17px;
+    top: 3px; }
+  .BackButton:before {
+    content: "";
+    width: 32px;
+    height: 32px;
+    border-radius: 0 9px 5px 9px;
+    transform: rotate(135deg);
+    background: linear-gradient(-45deg, #FFFFFF 50%, transparent 50%);
+    position: absolute;
+    left: -16px;
+    top: 4px;
+    z-index: 1; }
+  .BackButton__text-container {
+    padding: 0 8px 0 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0 6px 6px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFFFFF;
+    z-index: 3;
+    border: 1px solid #E8E8EB;
+    box-shadow: 1px 1px 2px rgba(2, 14, 29, 0.08);
+    border-left: none; }
+    .BackButton__text-container__back-to {
+      text-align: left;
+      font-size: 10px;
+      color: #656568; }
+    .BackButton__text-container__button-text {
+      text-align: left;
+      color: #101820;
+      font-size: 16px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.Label {
+  font-size: 12px;
+  color: #FFFFFF;
+  padding: 0 8px;
+  background: #3BC379;
+  border-radius: 4px;
+  cursor: default;
+  display: inline-flex;
+  height: 16px;
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08) inset;
+  text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
+  font-weight: 500; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseFlowItem {
+  position: relative; }
+  .ResponseFlowItem::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    left: -19px;
+    top: 0;
+    bottom: -2px;
+    background: #E8E8EB;
+    border-radius: 6px;
+    z-index: 1; }
+  .ResponseFlowItem__last::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    left: -19px;
+    top: 0;
+    bottom: 26px;
+    background: #E8E8EB;
+    border-radius: 6px;
+    z-index: 1; }
+  .ResponseFlowItem--selected:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -200px;
+    bottom: 0;
+    right: -8px;
+    background: #F3F3F5;
+    z-index: 0; }
+  .ResponseFlowItem__dropdown-line {
+    position: absolute;
+    left: -21px;
+    top: 10px;
+    width: 13px;
+    z-index: 9; }
+  .ResponseFlowItem--selected .ResponseFlowItem__dropdown-arrow:active {
+    background-color: #FFFFFF; }
+  .ResponseFlowItem__dropdown-arrow {
+    cursor: pointer;
+    position: absolute;
+    background: none;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    left: -8px;
+    top: 11px;
+    min-width: 20px;
+    height: 20px;
+    transform: rotate(-90deg);
+    z-index: 2;
+    opacity: 1;
+    transition: opacity ease-in-out 1s; }
+    .ResponseFlowItem__dropdown-arrow:active {
+      background: none; }
+    .ResponseFlowItem__dropdown-arrow:active {
+      background-color: #F3F3F5; }
+    .ResponseFlowItem__dropdown-arrow svg {
+      width: 9px !important;
+      height: 9px !important; }
+    .ResponseFlowItem__dropdown-arrow--is-loading {
+      cursor: auto;
+      padding: 6px;
+      -webkit-animation: flickerAnimation 1s infinite;
+      animation: flickerAnimation 1s infinite;
+      animation-timing-function: ease-in-out; }
+    .ResponseFlowItem__dropdown-arrow--dead-end {
+      cursor: auto;
+      padding: 7.5px; }
+  .ResponseFlowItem__dropdown-arrow--open {
+    transform: rotate(0); }
+  .ResponseFlowItem__handle {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: #101820;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    padding: 12px 0 12px 16px;
+    cursor: pointer;
+    z-index: 1; }
+    .ResponseFlowItem__handle__text {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-right: 4px; }
+    .ResponseFlowItem__handle--light, .ResponseFlowItem__handle__number-of-qrs {
+      cursor: auto;
+      color: #C4C4CA; }
+  .ResponseFlowItem__jump-to {
+    margin-left: auto;
+    margin-right: 8px; }
+    .ResponseFlowItem__jump-to svg {
+      width: 11px !important; }
+  .ResponseFlowItem__children {
+    padding-left: 20px; }
+    .ResponseFlowItem__children::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      left: -19px;
+      top: 0;
+      bottom: 0;
+      background: #E8E8EB;
+      border-radius: 6px;
+      z-index: 1; }
+    .ResponseFlowItem__children:last-of-type::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      left: 0;
+      background: #FFFFFF;
+      border-radius: 6px;
+      z-index: 1; }
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 0.2; }
+  50% {
+    opacity: 0.8; }
+  100% {
+    opacity: 0.2; } }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseFlowView {
+  position: relative;
+  padding: 8px 8px 8px 20px;
+  margin-left: 16px; }
+  .ResponseFlowView__selected-response {
+    position: relative;
+    background-color: #F3F3F5;
+    padding: 16px 8px 16px 40px; }
+    .ResponseFlowView__selected-response__connecting-line {
+      position: absolute;
+      width: 1.5px;
+      left: 23px;
+      top: 36px;
+      bottom: -2px;
+      background: #E8E8EB;
+      border-radius: 6px; }
+    .ResponseFlowView__selected-response__handle {
+      position: relative;
+      color: #101820;
+      font-size: 16px;
+      font-weight: 500; }
+      .ResponseFlowView__selected-response__handle__icon {
+        position: absolute;
+        left: -21px;
+        top: 5px;
+        width: 8px; }
+    .ResponseFlowView__selected-response__description {
+      color: #656568;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 4px; }
+  .ResponseFlowView__footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
+    border-top: 1px solid #E8E8EB; }
+    .ResponseFlowView__footer label {
+      margin-right: 8px;
+      font-size: 14px;
+      color: #656568; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseListItem {
+  overflow: hidden;
+  padding: 8px 16px 16px !important; }
+  .ResponseListItem--flow-expanded {
+    border-bottom: 5px solid #E8E8EB; }
+  .ResponseListItem__tags {
+    overflow: hidden; }
+    .ResponseListItem__tags__tag {
+      margin: 8px 8px 4px 0; }
+      .ResponseListItem__tags__tag--selector-list {
+        border: 0.5px solid rgba(0, 0, 0, 0.08);
+        box-sizing: border-box;
+        border-radius: 3px;
+        height: 16px;
+        font-size: 12px;
+        font-weight: 500; }
+  .ResponseListItem__variable {
+    background-color: #E8E8EB;
+    font-size: 12px;
+    display: inline-block;
+    border-radius: 100px;
+    padding: 0px 8px;
+    line-height: 16px;
+    height: 16px;
+    font-weight: 500; }
+  .ResponseListItem__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left; }
+    .ResponseListItem__content__description {
+      line-height: 16px;
+      color: #535358 !important; }
+      .ResponseListItem__content__description--sidebar {
+        color: #656568 !important; }
+  .ResponseListItem__label {
+    color: #101820;
+    display: flex;
+    align-items: center;
+    min-height: 23px;
+    margin-right: 5px;
+    margin-bottom: 4px; }
+    .ResponseListItem__label--sidebar {
+      color: inherit;
+      margin-right: 0; }
+    .ResponseListItem__label label {
+      margin-right: 5px; }
+    .ResponseListItem__label__status {
+      flex: 1;
+      align-items: left;
+      color: #3C3C3F; }
+  .ResponseListItem__label-new {
+    margin-left: 8px; }
+  .ResponseListItem__icons {
+    margin-bottom: auto;
+    color: #656568; }
+    .ResponseListItem__icons--sidebar {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .ResponseListItem__icons__icon {
+      width: 20px;
+      display: inline-block;
+      margin-right: 0;
+      fill: #FB9804;
+      margin-top: 2px; }
+      .ResponseListItem__icons__icon--sidebar {
+        margin-top: 0; }
+    .ResponseListItem__icons__button {
+      transition: 0ms;
+      opacity: 0.4; }
+      .ResponseListItem__icons__button__expand-collapse {
+        background: none;
+        border: none;
+        box-shadow: none;
+        min-width: 24px !important;
+        height: 28px; }
+        .ResponseListItem__icons__button__expand-collapse:active {
+          background: none;
+          box-shadow: 0 1px 2px 0 rgba(31, 34, 36, 0.04); }
+        .ResponseListItem__icons__button__expand-collapse--expanded {
+          opacity: 1; }
+        .ResponseListItem__icons__button__expand-collapse svg {
+          height: 14px !important;
+          width: 14px !important; }
+  .ResponseListItem:hover .ResponseListItem__icons__button {
+    opacity: 1; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.TagSelector__button {
+  background-color: #FFFFFF;
+  padding: 0 8px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid #E8E8EB;
+  cursor: pointer;
+  padding-right: 24px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 14px;
+  outline: none; }
+  .TagSelector__button:focus-within {
+    border: 2px solid #0975EF;
+    padding: 0 23px 0 7px;
+    outline: none; }
+  .TagSelector__button__icon-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    pointer-events: none; }
+    .TagSelector__button__icon-container__icon {
+      height: 20px; }
+
+.TagSelector__options {
+  opacity: 1;
+  transition: opacity 200ms ease;
+  z-index: 9998;
+  position: absolute;
+  margin: 0;
+  left: 0;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 10px 0 rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  overflow: auto;
+  padding: 0;
+  margin-top: 8px;
+  width: 287px; }
+  .TagSelector__options--hidden {
+    opacity: 0; }
+  .TagSelector__options__search-block {
+    margin: 8px 8px 0 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E8E8EB; }
+  .TagSelector__options__tags {
+    max-height: 448px;
+    overflow: auto; }
+    .TagSelector__options__tags__list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+      display: flex;
+      flex-direction: column; }
+      .TagSelector__options__tags__list__item--no-result {
+        padding: 8px 12px; }
+      .TagSelector__options__tags__list__item--hidden {
+        display: none; }
+      .TagSelector__options__tags__list__item__button {
+        border: none;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #FFFFFF;
+        overflow: hidden;
+        cursor: pointer; }
+        .TagSelector__options__tags__list__item__button__checkbox {
+          padding-left: 8px; }
+        .TagSelector__options__tags__list__item__button__tag {
+          max-width: 90%; }
+        .TagSelector__options__tags__list__item__button:focus {
+          outline: none;
+          background-color: #F3F3F5; }
+        .TagSelector__options__tags__list__item__button:hover {
+          background-color: #F3F3F5; }
+  .TagSelector__options__all-tags-wrapper {
+    position: relative;
+    border: 1px solid #E8E8EB;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+    z-index: 1; }
+    .TagSelector__options__all-tags-wrapper:empty {
+      display: none; }
+    .TagSelector__options__all-tags-wrapper__gradient {
+      height: 50px;
+      width: 100%;
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(rgba(255, 255, 255, 0), white);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: none; }
+      .TagSelector__options__all-tags-wrapper__gradient--show-gradient {
+        opacity: 1;
+        display: block; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseSideBar {
+  overflow: visible; }
+  .ResponseSideBar__list {
+    flex: 1;
+    overflow-y: scroll;
+    position: relative; }
+    .ResponseSideBar__list__loader {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      min-height: 50px;
+      background: linear-gradient(rgba(255, 255, 255, 0), #FFFFFF);
+      pointer-events: none; }
+      .ResponseSideBar__list__loader--show {
+        opacity: 1; }
+  .ResponseSideBar__input {
+    width: 100%;
+    margin-right: 8px; }
+  .ResponseSideBar__menu__filter__button {
+    width: 48px; }
+    .ResponseSideBar__menu__filter__button__icon {
+      color: #FFFFFF;
+      font-size: 22px;
+      position: absolute;
+      top: 3px;
+      left: 7px; }
+  .ResponseSideBar__sorting {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    border-bottom: 1px solid #E8E8EB; }
+    .ResponseSideBar__sorting__title {
+      font-size: 14px;
+      color: #656568; }
+      .ResponseSideBar__sorting__title--tag {
+        margin-left: 6px;
+        margin-right: 6px; }
+    .ResponseSideBar__sorting__select {
+      margin-left: 6px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseParentDropdown {
+  position: absolute;
+  width: 315px;
+  left: calc(50% - 157px);
+  top: 30px;
+  padding: 12px 0 8px 0;
+  background: #FFFFFF;
+  border: 1px solid rgba(6, 6, 48, 0.04);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.0775306);
+  border-radius: 8px; }
+  .ResponseParentDropdown__handle {
+    display: flex;
+    justify-content: center; }
+    .ResponseParentDropdown__handle__text {
+      color: #101820;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: center; }
+      .ResponseParentDropdown__handle__text--clickable {
+        cursor: pointer; }
+    .ResponseParentDropdown__handle__dropdown-arrow {
+      cursor: pointer;
+      width: 20px;
+      height: 20px; }
+  .ResponseParentDropdown__label {
+    padding: 0 12px;
+    margin-bottom: 4px;
+    color: #C4C4CA;
+    font-size: 12px;
+    line-height: 16px; }
+  .ResponseParentDropdown__item {
+    display: block;
+    align-items: center;
+    padding: 0 12px;
+    color: #101820;
+    font-size: 14px;
+    height: 32px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    .ResponseParentDropdown__item:hover {
+      background-color: #F3F3F5; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponsesHeader {
+  padding: 8px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E8E8EB;
+  display: flex;
+  flex-shrink: 0;
+  z-index: 999999;
+  align-items: center; }
+  .ResponsesHeader__block {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    min-width: 0; }
+    .ResponsesHeader__block--side-left {
+      justify-content: flex-start; }
+    .ResponsesHeader__block--side-right {
+      justify-content: flex-end; }
+    .ResponsesHeader__block--side-left, .ResponsesHeader__block--side-right {
+      display: flex;
+      align-items: center;
+      min-width: 131px; }
+  .ResponsesHeader__title-label {
+    margin-left: 8px; }
+  .ResponsesHeader__inner {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .ResponsesHeader__checkbox {
+    padding: 0 8px; }
+  .ResponsesHeader__response-status--on {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease; }
+  .ResponsesHeader__block--side-right:hover .ResponsesHeader__response-status--on {
+    opacity: 1;
+    pointer-events: all; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponsesActionBar {
+  padding: 8px 0;
+  background-color: #FFFFFF;
+  border-top: 1px solid #E8E8EB;
+  margin-top: auto;
+  z-index: 999999; }
+  .ResponsesActionBar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .ResponsesActionBar__inner-button-container {
+    display: flex; }
+  .ResponsesActionBar__inner-button--margin-left {
+    margin-left: 8px; }
+  .ResponsesActionBar__inner-button--margin-right {
+    margin-right: 8px; }
+  .ResponsesActionBar__left-container {
+    display: flex; }
+  .ResponsesActionBar__tooltip {
+    bottom: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.AnswerBlockLinear {
+  min-height: 24px; }
+  .AnswerBlockLinear--icon-clickable {
+    cursor: pointer; }
+  .AnswerBlockLinear__block {
+    margin-top: 4px;
+    padding-bottom: 8px;
+    padding-left: 20px;
+    margin-left: 11.5px;
+    border-left: 1px solid #E8E8EB; }
+  .AnswerBlockLinear__block--last-child {
+    border-left: none; }
+  .AnswerBlockLinear:first-child {
+    margin-top: -3px; }
+  .AnswerBlockLinear:last-child > .AnswerBlockLinear__block {
+    padding-bottom: 0;
+    border-left: none; }
+  .AnswerBlockLinear__icon {
+    background-color: #2AA7D9;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    font-weight: bold;
+    z-index: 9;
+    font-size: 8px;
+    color: #FFFFFF;
+    text-transform: uppercase; }
+    .AnswerBlockLinear__icon__wrapper {
+      display: flex;
+      overflow: hidden;
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      border-top: 4px solid #FFFFFF;
+      border-bottom: 4px solid #FFFFFF;
+      border-left: 4px solid rgba(0, 0, 0, 0);
+      border-right: 4px solid rgba(0, 0, 0, 0);
+      border-radius: 8px;
+      z-index: 1; }
+    .AnswerBlockLinear__icon--green {
+      background-color: #39C379; }
+    .AnswerBlockLinear__icon--grey {
+      background-color: #656568; }
+    .AnswerBlockLinear__icon--red {
+      background-color: #E81641; }
+  .AnswerBlockLinear__icon-no-border {
+    width: 24px;
+    height: 24px;
+    background-color: #FFFFFF; }
+    .AnswerBlockLinear__icon-no-border:active {
+      fill: #656568 !important; }
+  .AnswerBlockLinear--nested {
+    margin-top: -5px !important; }
+    .AnswerBlockLinear--nested > .AnswerBlockLinear__icon__wrapper {
+      top: 13px !important; }
+    .AnswerBlockLinear--nested:last-child {
+      margin-top: -28px !important; }
+      .AnswerBlockLinear--nested:last-child > .AnswerBlockLinear__icon__wrapper {
+        top: 5px !important; }
+      .AnswerBlockLinear--nested:last-child .ResponsesEditor__block__droppable {
+        padding-top: 0;
+        padding-bottom: 0; }
+    .AnswerBlockLinear--nested .AnswerBlockLinear__block {
+      padding-bottom: 16px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariableCreationDialog__input-area {
+  padding: 8px; }
+
+.VariableCreationDialog__button-area {
+  box-shadow: 0px 0px 0px 1px #E8E8EB;
+  padding: 8px;
+  margin-top: 16px; }
+
+.VariableCreationDialog__label {
+  margin-top: 8px; }
+
+.VariableCreationDialog .g-input__label {
+  display: block; }
+
+.VariableCreationDialog__select {
+  width: 100%; }
+
+.VariableCreationDialog__button {
+  margin: 8px 0; }
+  .VariableCreationDialog__button:last-child {
+    margin: 0; }
+
+.VariableCreationDialog__validation {
+  font-size: 10px;
+  color: #FB9804;
+  position: absolute;
+  bottom: -20px;
+  right: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.SearchList__results {
+  display: block;
+  z-index: 9998;
+  position: absolute;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 10px 0 rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  width: 100%;
+  min-height: 196px;
+  top: 39px; }
+  .SearchList__results__search {
+    margin: 8px; }
+  .SearchList__results__variables {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 160px;
+    padding: 0;
+    margin: 0; }
+    .SearchList__results__variables--no-results {
+      display: flex;
+      flex-direction: column; }
+    .SearchList__results__variables__item__variable-container {
+      overflow: hidden;
+      padding: 6px; }
+    .SearchList__results__variables__item__button {
+      border: none;
+      outline: none;
+      background: none;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      display: flex;
+      cursor: pointer; }
+    .SearchList__results__variables__item__icon-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      visibility: hidden; }
+      .SearchList__results__variables__item__icon-container--visible {
+        visibility: visible; }
+      .SearchList__results__variables__item__icon-container__icon {
+        height: 16px; }
+    .SearchList__results__variables__item--selected {
+      background-color: #EBF3FE;
+      color: #0975EF; }
+      .SearchList__results__variables__item--selected:after {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #EBF3FE 30px, #EBF3FE) !important; }
+    .SearchList__results__variables__item:last-child {
+      border-bottom: none; }
+    .SearchList__results__variables__item:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 40px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), #FFFFFF 30px, #FFFFFF); }
+
+.SearchList ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.SearchList li[aria-selected="true"] {
+  background-color: #EBF3FE; }
+
+.SearchList__no-results {
+  padding: 8px;
+  color: #C4C4CA;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.Variable {
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-flex;
+  cursor: pointer;
+  background-repeat: no-repeat; }
+  .Variable--orphaned {
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #E81641 !important;
+    border: 1px solid #E81641;
+    background-color: transparent !important;
+    border-radius: 100px; }
+    .Variable--orphaned:active {
+      background-color: #E81641 !important;
+      color: #FFFFFF !important; }
+  .Variable--choose-open-dialog.Variable--choose-open-dialog {
+    background-color: #656568;
+    color: #F3F3F5; }
+  .Variable--create-new {
+    vertical-align: middle; }
+  .Variable--create-new .Variable__inner {
+    background-color: #E8E8EB; }
+  .Variable--left-icon .Variable__inner {
+    padding-left: 25px; }
+  .Variable--right-icon .Variable__inner {
+    padding-right: 23px; }
+  .Variable .Tooltip {
+    margin-left: 4px;
+    color: #FB9804;
+    fill: currentColor; }
+  .Variable__name {
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .Variable__arrow-down {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -4px;
+    width: 8px; }
+  .Variable__left-icon {
+    width: 16px;
+    position: absolute;
+    left: 6px;
+    top: 2px; }
+  .Variable__inner--local .Variable__no-name-text {
+    color: rgba(0, 46, 102, 0.5); }
+  .Variable__inner--global .Variable__no-name-text {
+    color: rgba(0, 66, 21, 0.5); }
+  .Variable__inner {
+    max-width: 100%;
+    border-radius: 100px;
+    padding: 0 10px;
+    font-size: 14px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    line-height: 18px;
+    vertical-align: top;
+    white-space: nowrap; }
+    .Variable__inner > span {
+      font-size: 14px; }
+    .Variable__inner--global {
+      color: #004215;
+      background-color: #C7F6DC; }
+      .Variable__inner--global:active {
+        color: #FFFFFF;
+        background-color: #004215; }
+    .Variable__inner--local, .Variable__inner--internal {
+      color: #002E66;
+      background-color: #C6E3FF; }
+      .Variable__inner--local:active, .Variable__inner--internal:active {
+        color: #FFFFFF;
+        background-color: #002E66; }
+    .Variable__inner--oauth {
+      color: #C5072D;
+      padding-right: 8px;
+      background-color: #FCE1E7; }
+      .Variable__inner--oauth:active:not(.variableEntity--open) {
+        color: #FFFFFF;
+        background-color: #C5072D; }
+    .Variable__inner--sensitive {
+      color: #3F3815;
+      background-color: #F8E585; }
+      .Variable__inner--sensitive:active {
+        color: #FFFFFF;
+        background-color: #3F3815; }
+    .Variable__inner--meta, .Variable__inner--headers {
+      color: #5D47AA;
+      background-color: #D7D0F0; }
+      .Variable__inner--meta:active, .Variable__inner--headers:active {
+        color: #FFFFFF;
+        background-color: #301E71; }
+  .Variable--presentational {
+    pointer-events: none; }
+  .Variable .Dialog {
+    top: 100%;
+    margin-top: 4px; }
+
+.ResponseEditorEditableMessage__body__variables .Variable {
+  padding: 2px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariablesDropdownTrigger .variableEntity--error {
+  padding-left: 25px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M55.0064,52.0079H9.0234a3.0009,3.0009,0,0,1-2.5655-4.5547L29.4494,9.4424a2.9977,2.9977,0,0,1,5.1309,0L57.5719,47.4532A3.0009,3.0009,0,0,1,55.0064,52.0079ZM32.0148,48.0207a3,3,0,1,0-3-3A3,3,0,0,0,32.0148,48.0207Zm1.9985-28H30.0344a1.01,1.01,0,0,0-1.0209,1.0526l.9147,17a1.0127,1.0127,0,0,0,1.021.9474h2.1493a1.013,1.013,0,0,0,1.0211-.9474l.9147-17A1.01,1.01,0,0,0,34.0133,20.0208Z' fill-rule='evenodd' fill='%23E81641'/%3E%3C/svg%3E");
+  background-position: 7px 50%;
+  background-size: 14px; }
+
+.VariablesDropdownTrigger__variable-pill {
+  overflow: hidden; }
+
+.VariablesDropdownTrigger__variable-input {
+  max-width: 100%;
+  background-color: #FFFFFF !important;
+  display: flex !important;
+  align-items: center;
+  overflow: hidden;
+  padding: 4px 6px !important;
+  cursor: pointer !important;
+  outline: none; }
+  .VariablesDropdownTrigger__variable-input__clear-button {
+    visibility: hidden; }
+  .VariablesDropdownTrigger__variable-input:hover .VariablesDropdownTrigger__variable-input__clear-button {
+    visibility: visible; }
+  .VariablesDropdownTrigger__variable-input__icon-container {
+    margin-left: auto;
+    margin-right: 10px;
+    top: 0;
+    right: 0;
+    padding-right: 4px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .VariablesDropdownTrigger__variable-input__icon-container__invalid {
+      color: #FB9804; }
+      .VariablesDropdownTrigger__variable-input__icon-container__invalid:hover, .VariablesDropdownTrigger__variable-input__icon-container__invalid:active {
+        color: #DB7C00; }
+    .VariablesDropdownTrigger__variable-input__icon-container__icon {
+      height: 20px; }
+  .VariablesDropdownTrigger__variable-input:focus {
+    box-shadow: inset 0 0 0 2px #0975EF !important;
+    border: 1px solid transparent !important; }
+  .VariablesDropdownTrigger__variable-input--open .Variable__inner--local {
+    background: #002E66;
+    color: #FFFFFF; }
+    .VariablesDropdownTrigger__variable-input--open .Variable__inner--local .Variable__no-name-text {
+      color: rgba(255, 255, 255, 0.5); }
+  .VariablesDropdownTrigger__variable-input--open .Variable__inner--global {
+    background: #004215;
+    color: #FFFFFF; }
+    .VariablesDropdownTrigger__variable-input--open .Variable__inner--global .Variable__no-name-text {
+      color: rgba(255, 255, 255, 0.5); }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariablesDropdown__results {
+  max-height: 208px;
+  display: flex;
+  flex-direction: column; }
+
+.VariablesDropdown__results__list {
+  min-height: 0;
+  overflow-y: scroll; }
+  .VariablesDropdown__results__list li {
+    padding: 6px 8px; }
+
+.VariablesDropdown__create-new__add {
+  margin-right: 8px;
+  color: #656568;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 20px; }
+
+.VariablesDropdown__results__search {
+  margin: 6px 8px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariablePill {
+  display: inline-flex;
+  vertical-align: bottom;
+  align-items: center;
+  position: relative;
+  /**
+   * This height is needed because if the variable pill is any larger than
+   * the text nodes, the cursor will move around when arrowing
+   */
+  height: 18px;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", Roboto, Helvetica, Arial, sans-serif;
+  border-radius: 100px;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  margin: 0 1px;
+  cursor: pointer; }
+  .VariablePill:focus {
+    outline: none; }
+  .VariablePill__variable-name {
+    margin: 0 4px; }
+  .VariablePill--global {
+    color: #004215;
+    border-color: #C7F6DC;
+    background-color: #C7F6DC; }
+  .VariablePill--global.VariablePill--focused, .VariablePill--global:focus, .VariablePill--global:active {
+    color: #FFFFFF;
+    border-color: #004215;
+    background-color: #004215; }
+  .VariablePill--local {
+    color: #002E66;
+    border-color: #C6E3FF;
+    background-color: #C6E3FF; }
+  .VariablePill--local.VariablePill--focused, .VariablePill--local:focus, .VariablePill--local:active {
+    color: #FFFFFF;
+    border-color: #002E66;
+    background-color: #002E66; }
+  .VariablePill--oauth {
+    color: #C5072D;
+    border-color: #FCE1E7;
+    background-color: #FCE1E7; }
+  .VariablePill--oauth.VariablePill--focused, .VariablePill--oauth:focus, .VariablePill--oauth:active {
+    color: #FFFFFF;
+    border-color: #C5072D;
+    background-color: #C5072D; }
+  .VariablePill--meta {
+    color: #5D47AA;
+    border-color: #D7D0F0;
+    background-color: #D7D0F0; }
+  .VariablePill--meta.VariablePill--focused, .VariablePill--meta:focus, .VariablePill--meta:active {
+    color: #FFFFFF;
+    border-color: #301E71;
+    background-color: #301E71; }
+  .VariablePill--sensitive {
+    color: #3F3815;
+    border-color: #F8E585;
+    background-color: #F8E585; }
+  .VariablePill--sensitive.VariablePill--focused, .VariablePill--sensitive:focus, .VariablePill--sensitive:active {
+    color: #FFFFFF;
+    border-color: #3F3815;
+    background-color: #3F3815; }
+  .VariablePill--internal {
+    color: #002E66;
+    border-color: #C6E3FF;
+    background-color: #C6E3FF; }
+  .VariablePill--internal.VariablePill--focused, .VariablePill--internal:focus, .VariablePill--internal:active {
+    color: #FFFFFF;
+    border-color: #002E66;
+    background-color: #002E66; }
+  .VariablePill--headers {
+    color: #5D47AA;
+    border-color: #D7D0F0;
+    background-color: #D7D0F0; }
+  .VariablePill--headers.VariablePill--focused, .VariablePill--headers:focus, .VariablePill--headers:active {
+    color: #FFFFFF;
+    border-color: #5D47AA;
+    background-color: #5D47AA; }
+  .VariablePill--orphaned {
+    box-shadow: inset 0 0 0 1px #E81641;
+    color: #E81641;
+    background: transparent; }
+  .VariablePill--focused.VariablePill--orphaned, .VariablePill--focused.VariablePill--orphaned {
+    background-color: #E81641;
+    color: #FFFFFF; }
+  .VariablePill__icon, .VariablePill__caret {
+    user-select: none;
+    pointer-events: none; }
+  .VariablePill__icon {
+    margin-top: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariablePicker {
+  display: flex;
+  flex-flow: row wrap;
+  max-height: 70px;
+  overflow-y: auto;
+  padding-top: 4px;
+  margin-top: 2px; }
+  .VariablePicker__label, .VariablePicker__variable {
+    margin: 0 4px 4px 0; }
+  .VariablePicker__label {
+    color: #656568;
+    font-size: 14px; }
+  .VariablePicker .VariablePill {
+    margin-bottom: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.InlineVariableSearch {
+  top: -9999px;
+  left: -9999px;
+  position: absolute;
+  z-index: 1;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  width: 260px;
+  overflow: hidden; }
+  .InlineVariableSearch--active {
+    background: #EBF3FE; }
+  .InlineVariableSearch__label {
+    color: #656568;
+    font-size: 14px; }
+  .InlineVariableSearch .VariablePill {
+    margin: 4px; }
+  .InlineVariableSearch ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariablePillWithFlyout {
+  position: relative;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  line-height: 18px; }
+  .VariablePillWithFlyout__variable-pill {
+    margin: 0 2px; }
+  .VariablePillWithFlyout__dialog {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 20;
+    width: 200px;
+    margin-top: 8px; }
+  .VariablePillWithFlyout__bad-reference-message {
+    font-weight: 500;
+    color: #3C3C3F;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.SlateTag {
+  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", Roboto, Helvetica, Arial, sans-serif;
+  border-radius: 100px;
+  padding: 1px 10px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+  background-size: 14px;
+  background-position: calc(100% - 3px) center;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  cursor: pointer;
+  color: #101820;
+  background-color: #FFFFFF;
+  border: 1px solid #E8E8EB;
+  margin: 0 1px; }
+  .SlateTag--focused {
+    background: #C4C4CA; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.SlateEditor {
+  border-radius: 6px;
+  transition: 150ms ease;
+  background-color: #F3F3F5;
+  padding: 4px 6px;
+  position: relative;
+  cursor: text;
+  border: 0;
+  min-height: 32px;
+  line-height: 24px;
+  font-size: 14px; }
+  .SlateEditor span[contenteditable="false"] {
+    line-height: 18px; }
+  .SlateEditor--smallish {
+    min-height: 28px;
+    line-height: 20px; }
+  .SlateEditor--invalid {
+    box-shadow: inset #FB9804 0px 0px 0px 2px; }
+  .SlateEditor--focused {
+    background-color: #E8E8EB;
+    box-shadow: inset #0975EF 0px 0px 0px 2px; }
+  .SlateEditor::-webkit-input-placeholder {
+    color: #656568; }
+  .SlateEditor--multiline {
+    min-height: 56px;
+    padding: 6px;
+    font-size: 16px;
+    line-height: 22px; }
+  .SlateEditor__characters-remaining {
+    right: 7px;
+    bottom: 0;
+    position: absolute;
+    font-family: -apple-system, BlinkMacSystemFont;
+    font-size: 10px;
+    font-weight: 600;
+    color: #656568;
+    pointer-events: none; }
+  .SlateEditor--invalid .SlateEditor__characters-remaining {
+    color: #FB9804; }
+  .SlateEditor--focused .SlateEditor__characters-remaining {
+    color: #656568; }
+  .SlateEditor.g-input--type-textarea {
+    overflow: visible; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ActionIntegrationBlock__tooltip-icon {
+  display: inline-block;
+  vertical-align: middle; }
+
+.ActionIntegrationBlock__action-description {
+  font-size: 12px;
+  margin: 4px 0; }
+
+.ActionIntegrationBlock__inputs {
+  margin-left: 7px; }
+  .ActionIntegrationBlock__inputs__row {
+    display: flex;
+    border-bottom: 1px solid #E8E8EB;
+    padding: 4px 0; }
+    .ActionIntegrationBlock__inputs__row__label {
+      margin-left: 8px;
+      flex: 1;
+      display: flex;
+      margin-top: 8px;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", Roboto, Helvetica, Arial, sans-serif;
+      color: #101820; }
+  .ActionIntegrationBlock__inputs .SlateTextEditor__container {
+    flex: 1;
+    max-width: calc(50%); }
+  .ActionIntegrationBlock__inputs .SlateEditor {
+    margin-left: 4px; }
+
+.ActionIntegrationBlock__outputs {
+  margin-left: 7px; }
+
+.ActionIntegrationBlock__output-row {
+  display: flex;
+  border-bottom: 1px solid #E8E8EB; }
+  .ActionIntegrationBlock__output-row__label {
+    margin-left: 8px;
+    flex: 1; }
+    .ActionIntegrationBlock__output-row__label__text {
+      display: flex;
+      margin-top: 10px;
+      font-size: 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", Roboto, Helvetica, Arial, sans-serif;
+      color: #101820; }
+  .ActionIntegrationBlock__output-row__variables-dropdown {
+    flex: 1; }
+    .ActionIntegrationBlock__output-row__variables-dropdown .VariablesDropdownTrigger__variable-input {
+      border: 1px solid transparent; }
+  .ActionIntegrationBlock__output-row__remove-row-button {
+    margin-left: auto;
+    transition: none;
+    visibility: hidden; }
+  .ActionIntegrationBlock__output-row:hover .ActionIntegrationBlock__output-row__remove-row-button, .ActionIntegrationBlock__output-row__remove-row-button:focus {
+    visibility: visible; }
+
+.ActionIntegrationBlock__output-dropdown {
+  padding-top: 4px; }
+
+.ActionIntegrationBlock__invalid-message {
+  font-size: 14px;
+  margin-top: 4px;
+  color: #FB9804; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseMessageContainer__action-tooltip-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -28px;
+  display: flex;
+  justify-content: center;
+  z-index: 99;
+  pointer-events: none; }
+  .ResponseMessageContainer__action-tooltip-container__tooltip {
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    height: 36px;
+    background: #3D444B;
+    z-index: 99;
+    pointer-events: all; }
+    .ResponseMessageContainer__action-tooltip-container__tooltip__button, .ResponseMessageContainer__action-tooltip-container__tooltip__message {
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      padding: 0 16px; }
+    .ResponseMessageContainer__action-tooltip-container__tooltip__button:focus, .ResponseMessageContainer__action-tooltip-container__tooltip__message:focus {
+      outline: none !important; }
+    .ResponseMessageContainer__action-tooltip-container__tooltip__label {
+      margin-left: 8px; }
+
+
+.MessageBlockLabel {
+  display: flex; }
+  .MessageBlockLabel label {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 500; }
+  .MessageBlockLabel__label-container {
+    flex: 1; }
+  .MessageBlockLabel .Tooltip {
+    display: inline-block;
+    vertical-align: middle; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.JavascriptEventBlock__generate-preview-text__checkbox {
+  margin-left: 30px;
+  height: 26px; }
+
+.JavascriptEventBlock__bottom {
+  transition: 0.2s;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 0; }
+  .JavascriptEventBlock__bottom__top-row {
+    padding-top: 8px; }
+  .JavascriptEventBlock__bottom--show {
+    opacity: 1;
+    max-height: 128px;
+    margin-bottom: 16px; }
+
+.JavascriptEventBlock__tooltip-icon {
+  display: inline-block;
+  vertical-align: middle; }
+
+.JavascriptEventBlock__group {
+  display: flex;
+  align-items: center; }
+  .JavascriptEventBlock__group:only-child {
+    width: 50%;
+    flex-grow: 0;
+    padding-right: 4px; }
+
+.JavascriptEventBlock__label-container {
+  display: flex;
+  align-items: center; }
+
+.JavascriptEventBlock__helper {
+  color: #656568;
+  font-size: 12px; }
+
+.CountAsHandoffToggle__container {
+  max-width: 50% !important;
+  display: flex;
+  padding-right: 4px;
+  align-items: center;
+  justify-content: space-between; }
+
+.CountAsHandoffToggle__tooltip-icon {
+  display: inline-block;
+  vertical-align: middle; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorMediaUploader {
+  background-color: rgba(232, 232, 235, 0);
+  transition: background-color 0.25s; }
+  .ResponseEditorMediaUploader__buttons-wrap {
+    right: 2px;
+    top: 0;
+    position: absolute;
+    z-index: 1; }
+  .ResponseEditorMediaUploader--loading {
+    height: 32px;
+    background-color: #e8e8eb;
+    border-radius: 8px; }
+  .ResponseEditorMediaUploader--loading .ResponseEditorMediaUploader__input-wrap {
+    opacity: 0;
+    pointer-events: none; }
+  .ResponseEditorMediaUploader__progress-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.25s;
+    pointer-events: none; }
+    .ResponseEditorMediaUploader__progress-bar--hide {
+      opacity: 0;
+      transition: opacity 0.25s; }
+  .ResponseEditorMediaUploader__input-wrap {
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.25s; }
+  .ResponseEditorMediaUploader__dropzone__input {
+    padding-right: 64px !important; }
+  .ResponseEditorMediaUploader__buttons__button, .ResponseEditorMediaUploader__upload-button {
+    color: #656568 !important; }
+    .ResponseEditorMediaUploader__buttons__button:active, .ResponseEditorMediaUploader__upload-button:active {
+      color: #101820 !important; }
+
+.g-input.g-input--media-url:focus + .ResponseEditorMediaUploader__focus-description {
+  display: none; }
+
+.dropzone--active .g-input.g-input--media-url {
+  box-shadow: #0975EF 0 0 0 1px inset; }
+
+.LinkBlock__generate-preview-text__checkbox {
+  margin-left: 2px;
+  height: 26px; }
+
+.LinkBlock__bottom {
+  transition: 0.2s;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin-bottom: 0; }
+  .LinkBlock__bottom__top-row {
+    padding-top: 8px; }
+  .LinkBlock__bottom--show {
+    opacity: 1;
+    max-height: 128px;
+    margin-bottom: 16px; }
+
+.LinkBlock__tooltip-icon {
+  display: inline-block;
+  vertical-align: middle; }
+
+.LinkBlock__group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .LinkBlock__group:only-child {
+    width: 50%;
+    flex-grow: 0;
+    padding-right: 4px; }
+
+.PictureBlock__image-uploader {
+  margin-bottom: 8px; }
+
+.VideoBlock__alt-text {
+  margin-top: 8px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.CaptureBlock__block {
+  display: flex; }
+  .CaptureBlock__block__variables, .CaptureBlock__block__variable-picker {
+    flex: 1; }
+  .CaptureBlock__block_variables {
+    flex-direction: column; }
+
+.CaptureBlock__always-ask-tooltip {
+  display: inline-block;
+  vertical-align: middle; }
+
+.CaptureBlock__input {
+  flex: 1; }
+  .CaptureBlock__input__row-add-variable {
+    display: flex; }
+  .CaptureBlock__input:first-child {
+    padding-right: 8px; }
+  .CaptureBlock__input__text-area {
+    flex: 1;
+    width: 100%; }
+  .CaptureBlock__input .Variable {
+    padding: 0;
+    margin: 0;
+    max-width: 100%; }
+  .CaptureBlock__input__button {
+    position: absolute;
+    right: 1px;
+    top: 12px;
+    width: 32px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .CaptureBlock__input .g-input--invalid {
+    padding-right: 28px; }
+
+.CaptureBlock__create-variable {
+  color: #0975EF !important;
+  background-color: white !important; }
+  .CaptureBlock__create-variable:active {
+    color: #0869d6 !important; }
+
+.CaptureBlock__validation {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #FB9804; }
+
+.CaptureBlock__variable-picker-options {
+  flex: 1; }
+  .CaptureBlock__variable-picker-options__label {
+    padding-bottom: 8px; }
+
+.CaptureBlock__variable-picker {
+  padding-right: 8px; }
+
+.CaptureBlock__toggle-switch {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end; }
+  .CaptureBlock__toggle-switch:not(:last-child) {
+    margin-bottom: 8px; }
+  .CaptureBlock__toggle-switch .g-input__label {
+    flex: 1;
+    font-weight: 400; }
+
+.CaptureBlock .AnswerBlockLinear:last-child {
+  margin-bottom: 8px; }
+
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.NonPersonalizationCaptureBlock__block {
+  display: flex; }
+
+.NonPersonalizationCaptureBlock__select {
+  flex: 1;
+  width: 100%; }
+
+.NonPersonalizationCaptureBlock__input {
+  flex: 1; }
+  .NonPersonalizationCaptureBlock__input__row-add-variable {
+    display: flex; }
+  .NonPersonalizationCaptureBlock__input:first-child {
+    margin-right: 8px; }
+  .NonPersonalizationCaptureBlock__input__text-area {
+    flex: 1;
+    width: 100%; }
+  .NonPersonalizationCaptureBlock__input__button {
+    position: absolute;
+    right: 1px;
+    top: 12px;
+    width: 32px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .NonPersonalizationCaptureBlock__input .g-input--invalid {
+    padding-right: 28px; }
+
+.NonPersonalizationCaptureBlock__create-variable {
+  color: #0975EF !important;
+  background-color: white !important; }
+  .NonPersonalizationCaptureBlock__create-variable:active {
+    color: #0869d6 !important; }
+
+.NonPersonalizationCaptureBlock .AnswerBlockLinear:last-child {
+  margin-bottom: 8px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ShuffleBlock__message {
+  padding: 8px;
+  border: 1px solid #E8E8EB;
+  border-radius: 8px;
+  margin-bottom: 8px; }
+
+.ShuffleBlock__delete-message-button {
+  display: inline-flex;
+  float: right;
+  margin: -4px 0 4px 0; }
+
+.ShuffleBlock__label-bar {
+  display: flex; }
+
+.ShuffleBlock__label {
+  flex: 1;
+  margin-right: 5px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.InputIcon {
+  position: relative; }
+  .InputIcon--selected .InputIcon__input {
+    padding-left: 40px; }
+  .InputIcon--selected .InputIcon__search-icon-container {
+    opacity: 1; }
+  .InputIcon__search-icon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .InputIcon__search-icon-container svg {
+      width: 26px; }
+
+.HandoffBlock__row {
+  display: flex; }
+  .HandoffBlock__row__toggle {
+    flex: 1;
+    margin-right: 8px;
+    display: flex; }
+    .HandoffBlock__row__toggle__live-switch {
+      align-self: flex-start; }
+  .HandoffBlock__row__input {
+    flex: 1; }
+  .HandoffBlock__row__schedule {
+    flex: 1; }
+    .HandoffBlock__row__schedule__selectors {
+      display: flex;
+      justify-content: space-between; }
+      .HandoffBlock__row__schedule__selectors__inner {
+        display: flex; }
+      .HandoffBlock__row__schedule__selectors__selector {
+        margin-right: 8px; }
+      .HandoffBlock__row__schedule__selectors__hyphen {
+        margin-right: 4px;
+        margin-left: -4px;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+
+.MessageBlockRowFieldLabel {
+  display: inline-flex;
+  height: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.LiveHandoffBlock__active-responses {
+  width: 256px;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+  @media (min-width: 1200px) {
+    .LiveHandoffBlock__active-responses {
+      width: 350px; } }
+
+.LiveHandoffBlock__label-container {
+  display: flex; }
+  .LiveHandoffBlock__label-container label {
+    flex: 1; }
+
+.ResponseEditorEditableMessage--live_handoff .AnswerBlockLinear__icon--grey {
+  background-color: #656568; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ZendeskLiveHandoffBlock__active-responses {
+  width: 50%;
+  min-width: 350px; }
+
+.ZendeskLiveHandoffBlock__label-container {
+  display: flex; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.AdaMessengerHandoff__active-responses {
+  width: 256px;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+  @media (min-width: 1200px) {
+    .AdaMessengerHandoff__active-responses {
+      width: 350px; } }
+
+.AdaMessengerHandoff__label-container {
+  display: flex; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorEditableMessage--zendesk_agent_workspace_handoff .ResponseEditorEditableMessage__top-bar__icon-container__icon {
+  width: 24px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.CollapsibleBlock__answer {
+  margin-top: 8px;
+  width: -webkit-fill-available; }
+
+.CollapsibleBlock__answer-top {
+  cursor: pointer; }
+  .CollapsibleBlock__answer-top .Tooltip {
+    display: inline-block;
+    vertical-align: middle; }
+    .CollapsibleBlock__answer-top .Tooltip svg {
+      height: auto !important; }
+
+.CollapsibleBlock__collapsible-top {
+  display: flex;
+  align-items: center; }
+  .CollapsibleBlock__collapsible-top .heading {
+    flex-grow: 1; }
+
+.CollapsibleBlock__left-bar {
+  cursor: pointer;
+  background-color: #C4C4CA;
+  height: calc(100% - 6px);
+  width: 18px;
+  position: absolute;
+  left: -30px;
+  border-radius: 100px;
+  margin-top: 4px;
+  transition: height 0.3s ease-out;
+  outline: 2px solid #fff; }
+  .CollapsibleBlock__left-bar:focus-within {
+    outline: none;
+    box-shadow: 0 0 0 2px #0975EF; }
+  .CollapsibleBlock__left-bar__icon {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 16px;
+    z-index: 100; }
+
+.CollapsibleBlock__left-bar--collapsed {
+  height: 18px; }
+
+.CollapsibleBlock__label--collapsed {
+  color: #C4C4CA; }
+
+.CollapsibleBlock__left-collapse-button {
+  position: absolute;
+  width: 20px;
+  height: 20px !important;
+  left: -1px;
+  top: -1px; }
+  .CollapsibleBlock__left-collapse-button svg {
+    fill: #FFFFFF !important;
+    max-height: 100%;
+    max-width: 100%; }
+
+.CollapsibleBlock__collapse-button {
+  transition: transform 180ms ease;
+  min-width: initial !important;
+  flex: 1; }
+  .CollapsibleBlock__collapse-button svg {
+    margin: 0 !important;
+    z-index: 1; }
+  .CollapsibleBlock__collapse-button--collapsed {
+    transform: rotate(180deg); }
+
+.CollapsibleBlock__left-bar--collapsed {
+  height: 18px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.LiveAgentBlock__active-responses {
+  width: 256px;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+  @media (min-width: 1200px) {
+    .LiveAgentBlock__active-responses {
+      width: 350px; } }
+
+.LiveAgentBlock__label-container {
+  display: flex !important;
+  align-items: center; }
+
+.LiveAgentBlock__warning {
+  color: #FB9804;
+  font-size: 12px;
+  line-height: 16px; }
+
+.LiveAgentBlock__input {
+  display: flex; }
+  .LiveAgentBlock__input > :first-child {
+    margin-right: 8px; }
+  .LiveAgentBlock__input > :only-child {
+    flex: 0.5; }
+  .LiveAgentBlock__input--full {
+    display: flex; }
+    .LiveAgentBlock__input--full > :first-child {
+      flex: 1; }
+
+.LiveAgentBlock__link {
+  width: 100%;
+  font-size: 14px;
+  color: #656568;
+  margin-left: 4px; }
+
+.AnswerBlockLinear__icon {
+  background-color: #656568; }
+
+.HandoffEmailBlock__input {
+  margin-bottom: 8px; }
+  .HandoffEmailBlock__input:last-child {
+    margin-bottom: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.HandoffZendeskBlock input,
+.HandoffZendeskBlock textarea {
+  color: #3C3C3F; }
+
+.HandoffZendeskBlock__empty {
+  background-color: rgba(232, 232, 235, 0.75);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border-radius: 4px;
+  text-align: center; }
+
+.HandoffZendeskBlock__input {
+  margin-bottom: 8px; }
+  .HandoffZendeskBlock__input-short {
+    margin-right: 8px;
+    flex: 1; }
+  .HandoffZendeskBlock__input__description {
+    margin: 4px 0 0 0 !important; }
+
+.HandoffZendeskBlock__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .HandoffZendeskBlock__row-checkboxes {
+    display: flex;
+    align-items: center;
+    margin-top: 8px; }
+    .HandoffZendeskBlock__row-checkboxes__checkbox {
+      margin: 0 16px 0 8px; }
+  .HandoffZendeskBlock__row__checkbox {
+    margin-left: 8px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.JSONViewer {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+  .JSONViewer__invalid {
+    padding: 8px 0; }
+  .JSONViewer__inner {
+    padding-left: 26px;
+    margin-left: 3px;
+    border-left: 1px solid #E8E8EB; }
+  .JSONViewer__block {
+    margin: 4px 0; }
+  .JSONViewer__key-array {
+    color: #656568; }
+  .JSONViewer__key-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 1px 0 1px 8px;
+    margin-left: -1px;
+    background-color: #C6E3FF;
+    color: #002E66;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    user-select: none;
+    cursor: pointer;
+    font-weight: 500; }
+    .JSONViewer__key-button svg {
+      width: 16px;
+      margin-left: 6px;
+      margin-right: 1px;
+      display: inline-block;
+      vertical-align: middle; }
+    .JSONViewer__key-button:active {
+      color: #FFFFFF;
+      background-color: #002E66; }
+  .JSONViewer__colon {
+    display: inline-block; }
+  .JSONViewer__object, .JSONViewer__array {
+    display: block;
+    border-left: 1px solid #E8E8EB;
+    padding-left: 26px;
+    margin-left: 3px; }
+  .JSONViewer__boolean {
+    color: #BA2DA3; }
+  .JSONViewer__string {
+    color: #D82E1A; }
+  .JSONViewer__number {
+    color: #2729D8; }
+  .JSONViewer__triangle-container {
+    transform: rotateZ(180deg);
+    display: inline-block;
+    position: relative;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    margin-left: -1px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    height: 7px; }
+    .JSONViewer__triangle-container--rotate {
+      height: 17px;
+      transform: rotateZ(90deg); }
+  .JSONViewer__triangle {
+    position: absolute;
+    background-color: #E8E8EB;
+    text-align: left;
+    transform: rotate(-60deg) skewX(-30deg) scale(1, 0.866);
+    font-size: 0.5px;
+    display: inline-block; }
+    .JSONViewer__triangle:before, .JSONViewer__triangle:after {
+      content: '';
+      position: absolute;
+      background-color: inherit; }
+    .JSONViewer__triangle:before {
+      transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707) translate(0, -50%); }
+    .JSONViewer__triangle:after {
+      transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%); }
+  .JSONViewer__ellipsis {
+    color: #D82E1A; }
+  .JSONViewer__triangle, .JSONViewer__triangle:before, .JSONViewer__triangle:after {
+    width: 8px;
+    height: 8px;
+    border-top-right-radius: 30%; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.KeyValueRow__Select {
+  display: flex;
+  align-items: center; }
+
+.KeyValueRow__key {
+  border: 0;
+  flex-shrink: 0;
+  width: 45%;
+  border-radius: 4px;
+  margin: 2px 0; }
+  .KeyValueRow__key--invalid {
+    box-shadow: inset 0 0 0 2px #FB9804;
+    padding: 2px 6px; }
+
+.KeyValueRow__inputs {
+  display: flex;
+  border-bottom: 1px solid #E8E8EB; }
+  .KeyValueRow__inputs__null {
+    border: 0;
+    padding: 6px 8px; }
+  .KeyValueRow__inputs .IconSelect {
+    flex-shrink: 0; }
+  .KeyValueRow__inputs .b-select {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .KeyValueRow__inputs .ResponseEditorEnhancedTextInput {
+    background-color: #FFFFFF; }
+    .KeyValueRow__inputs .ResponseEditorEnhancedTextInput.g-input--focus {
+      border-color: #FFFFFF; }
+  .KeyValueRow__inputs .HTTPBlock__add-button {
+    width: 32px; }
+  .KeyValueRow__inputs__row-controls {
+    flex: 1;
+    text-align: right; }
+  .KeyValueRow__inputs__delete-row {
+    background-color: transparent !important;
+    visibility: hidden;
+    border: 0;
+    box-shadow: none; }
+  .KeyValueRow__inputs:hover .KeyValueRow__inputs__delete-row {
+    visibility: visible; }
+
+.KeyValueRow .HTTPBlock__add-button.Button.KeyValueRow--glyph {
+  justify-content: flex-end;
+  padding-right: 4px;
+  height: 32px !important; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.IconSelect {
+  width: 44px;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0; }
+  .IconSelect__selected-icon, .IconSelect__select {
+    position: absolute;
+    width: 24px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .IconSelect__selected-icon svg, .IconSelect__select svg {
+      max-height: 100%; }
+  .IconSelect__select {
+    background-color: #FFFFFF;
+    -webkit-appearance: none;
+    padding: 0 8px;
+    border-radius: 8px;
+    border: 1px solid #E8E8EB;
+    outline: 0;
+    cursor: pointer;
+    width: 100%;
+    padding-right: 32px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 0; }
+    .IconSelect__select__placeholder {
+      color: #656568; }
+    .IconSelect__select:disabled {
+      color: #656568;
+      background-color: rgba(232, 232, 235, 0.75);
+      border: none;
+      cursor: default; }
+    .IconSelect__select:focus {
+      border: 2px solid #0975EF;
+      padding: 0 31px 0 7px; }
+  .IconSelect__icon-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    pointer-events: none; }
+    .IconSelect__icon-container__icon {
+      height: 20px; }
+  .IconSelect--size_small .IconSelect__select {
+    padding-right: 24px;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 6px; }
+    .IconSelect--size_small .IconSelect__select:focus {
+      padding-right: 23px; }
+  .IconSelect--size_small .IconSelect__icon-container {
+    width: 24px; }
+  .IconSelect--size_small .IconSelect__icon-container__icon {
+    height: 16px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.HTTPBlock__enhanced-text-input, .HTTPBlock input[type="text"] {
+  font-size: 14px; }
+
+.HTTPBlock__enhanced-text-input:not(.SlateEditor) {
+  border: 0 !important;
+  padding: 0 !important;
+  border-radius: 6px; }
+  .HTTPBlock__enhanced-text-input:not(.SlateEditor).g-input--focus.g-input--focus {
+    box-shadow: inset 0px 0px 0px 2px #0975EF; }
+  .HTTPBlock__enhanced-text-input:not(.SlateEditor).g-input--invalid {
+    box-shadow: inset 0px 0px 0px 2px #FB9804; }
+  .HTTPBlock__enhanced-text-input:not(.SlateEditor) .DraftEditor-root {
+    padding: 2px 6px; }
+
+.HTTPBlock__create-variables .HTTPBlock__label:first-child {
+  max-width: calc((100% - 44px)/2); }
+
+.HTTPBlock__variables-dropdown .VariablesDropdownTrigger__variable-input {
+  border: 1px solid transparent; }
+
+.HTTPBlock__key-value {
+  font-size: 14px; }
+
+.HTTPBlock__key-input {
+  flex: 1; }
+
+.HTTPBlock__response-block {
+  margin-top: -8px; }
+  .HTTPBlock__response-block .AnswerBlockLinear__icon__wrapper {
+    top: 5px; }
+
+.HTTPBlock__error-answer {
+  margin-top: 8px;
+  max-width: 320px;
+  width: 100%; }
+
+.HTTPBlock__error-answer-top .Tooltip {
+  display: inline-block;
+  vertical-align: middle; }
+
+.HTTPBlock__left-bar {
+  background-color: #C4C4CA;
+  height: calc(100% - 6px);
+  width: 18px;
+  position: absolute;
+  left: -30px;
+  border-radius: 100px;
+  margin-top: 4px;
+  transition: height 0.3s ease-out; }
+  .HTTPBlock__left-bar__icon {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 16px;
+    z-index: 100; }
+
+.HTTPBlock__left-bar--collapsed {
+  height: 18px; }
+
+.HTTPBlock__label--collapsed {
+  color: #C4C4CA; }
+
+.HTTPBlock__left-collapse-button {
+  position: absolute;
+  width: 20px;
+  height: 20px !important;
+  left: -1px;
+  top: -1px; }
+  .HTTPBlock__left-collapse-button svg {
+    fill: #FFFFFF !important;
+    max-height: 100%;
+    max-width: 100%; }
+
+.HTTPBlock__settings, .HTTPBlock__response, .HTTPBlock__error-answer, .HTTPBlock__create-variables {
+  position: relative;
+  min-height: 30px; }
+
+.HTTPBlock__section-icon {
+  padding: 2px 0;
+  background-color: #FFFFFF;
+  position: absolute;
+  top: 0;
+  left: -12px; }
+  .HTTPBlock__section-icon__svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    padding: 2px;
+    background-color: #656568;
+    fill: #FFFFFF; }
+
+.HTTPBlock .Button svg {
+  z-index: auto; }
+
+.HTTPBlock__collapsable-top {
+  display: flex;
+  align-items: center; }
+  .HTTPBlock__collapsable-top h3 {
+    flex-grow: 1; }
+
+.HTTPBlock__delete-header.Button {
+  display: none;
+  position: absolute;
+  right: 0; }
+  .HTTPBlock__delete-header.Button svg {
+    fill: #C4C4CA !important; }
+
+.HTTPBlock__collapse-button {
+  transition: transform 180ms ease;
+  min-width: initial !important;
+  flex: 1; }
+  .HTTPBlock__collapse-button svg {
+    margin: 0 !important; }
+  .HTTPBlock__collapse-button--collapsed {
+    transform: rotate(180deg); }
+
+.HTTPBlock__add-button {
+  margin: 0;
+  width: 24px;
+  height: 24px !important;
+  min-width: initial !important;
+  flex: 1; }
+  .HTTPBlock__add-button:active svg {
+    fill: #33af6d !important; }
+  .HTTPBlock__add-button svg {
+    color: #FFFFFF;
+    margin: 0 !important;
+    fill: #39C379 !important;
+    transition: all 180ms ease; }
+  .HTTPBlock__add-button--disabled {
+    color: #E8E8EB !important; }
+
+.HTTPBlock__request {
+  margin-top: 8px;
+  padding-top: 1px;
+  /* Wait for new design ...
+    &__test-button {
+      background-color: $color-grey-1;
+      height: 40px;
+      border-radius: 12px;
+      line-height: 24px;
+      font-size: 12px;
+      text-align: center;
+      width: 100%;
+      display: block;
+      color: $color-grey-4;
+      border: 0;
+      cursor: pointer;
+    }
+    */ }
+  .HTTPBlock__request__select-container {
+    margin-right: 8px;
+    width: 192px; }
+    .HTTPBlock__request__select-container__input {
+      width: 100%; }
+  .HTTPBlock__request__body {
+    margin-bottom: 8px; }
+  .HTTPBlock__request__input-container {
+    display: flex; }
+  .HTTPBlock__request__variables-bar {
+    margin-bottom: 8px; }
+  .HTTPBlock__request__top {
+    position: absolute;
+    top: 4px;
+    display: flex;
+    color: #FFFFFF;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 8px;
+    align-items: center; }
+    .HTTPBlock__request__top__button {
+      color: #FFFFFF !important; }
+  .HTTPBlock__request__result {
+    border-radius: 8px;
+    z-index: 0;
+    margin-top: 4px; }
+    .HTTPBlock__request__result--success {
+      border: 2px solid #39C379;
+      border-top: 24px solid #39C379; }
+    .HTTPBlock__request__result--failure {
+      border: 2px solid #FB9804;
+      border-top: 24px solid #FB9804; }
+    .HTTPBlock__request__result__json {
+      overflow: scroll;
+      max-height: 600px;
+      padding: 8px 0 8px 16px; }
+    .HTTPBlock__request__result__xml {
+      margin-bottom: 8px; }
+    .HTTPBlock__request__result--hidden {
+      display: none; }
+  .HTTPBlock__request__url-container {
+    flex: 1;
+    max-width: calc(100% - 119px); }
+    .HTTPBlock__request__url-container--full-width {
+      max-width: 100%; }
+  .HTTPBlock__request__select-container {
+    flex-grow: 0;
+    width: auto;
+    margin: 0 8px; }
+
+.HTTPBlock__headers__controls .HTTPBlock__collapse-button {
+  width: 24px;
+  height: 24px !important; }
+  .HTTPBlock__headers__controls .HTTPBlock__collapse-button svg {
+    fill: #C4C4CA !important; }
+
+.HTTPBlock__headers__delete-header {
+  background-color: transparent !important;
+  visibility: hidden;
+  border: 0;
+  box-shadow: none;
+  height: 28px; }
+
+.HTTPBlock__headers__controls {
+  display: flex;
+  width: 64px;
+  height: 24px;
+  align-items: center;
+  justify-content: flex-end; }
+  .HTTPBlock__headers__controls button {
+    max-width: 32px; }
+  .HTTPBlock__headers__controls--no-plus {
+    width: 32px; }
+
+.HTTPBlock__headers__key-values__inputs {
+  display: flex;
+  align-items: flex-start;
+  margin: 2px 0; }
+  .HTTPBlock__headers__key-values__inputs .ResponseEditorEnhancedTextInput {
+    flex: 1;
+    font-size: 14px;
+    margin-left: 4px; }
+
+.HTTPBlock__headers__key-values__key-input {
+  border: 0;
+  padding: 2px 0;
+  height: 32px; }
+  .HTTPBlock__headers__key-values__key-input--invalid {
+    box-shadow: inset 0 0 0 2px #FB9804;
+    padding: 2px 6px; }
+
+.HTTPBlock__headers__key-values__row {
+  border-bottom: 1px solid #E8E8EB;
+  position: relative; }
+  .HTTPBlock__headers__key-values__row:hover .HTTPBlock__delete-header {
+    display: block; }
+  .HTTPBlock__headers__key-values__row:hover .HTTPBlock__headers__delete-header,
+  .HTTPBlock__headers__key-values__row .HTTPBlock__headers__delete-header:focus {
+    visibility: visible; }
+  .HTTPBlock__headers__key-values__row input {
+    flex: 1; }
+
+.HTTPBlock__headers__key-values__row:first-child {
+  border-top: 1px solid #E8E8EB; }
+
+.HTTPBlock__headers__inputs-container {
+  flex: 1;
+  margin-bottom: 8px;
+  width: calc(100% - 32px); }
+
+.HTTPBlock__headers__icon-container {
+  flex-shrink: 0;
+  z-index: 1;
+  margin-right: 8px;
+  height: 24px;
+  width: 24px;
+  border-bottom: 4px solid #FFFFFF;
+  box-sizing: content-box; }
+
+.HTTPBlock__headers__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2AA7D9;
+  border-radius: 6px;
+  height: 100%; }
+  .HTTPBlock__headers__icon__svg {
+    height: 20px;
+    width: 20px;
+    color: #FFFFFF; }
+
+.HTTPBlock__headers__inputs {
+  display: flex;
+  flex: 1; }
+  .HTTPBlock__headers__inputs__input-container {
+    flex: 1; }
+    .HTTPBlock__headers__inputs__input-container__input {
+      width: 100%; }
+
+.HTTPBlock__body-content {
+  margin-top: 16px; }
+
+.HTTPBlock__edit-raw-json-button {
+  margin-right: 8px; }
+
+.HTTPBlock__error {
+  display: flex; }
+  .HTTPBlock__error__icon-container {
+    flex-shrink: 0;
+    z-index: 1;
+    margin-right: 8px;
+    height: 24px;
+    width: 24px;
+    border-bottom: 4px solid #FFFFFF;
+    border-top: 4px solid #FFFFFF;
+    box-sizing: content-box;
+    margin-top: -4px; }
+  .HTTPBlock__error__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #656568;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    height: 100%; }
+    .HTTPBlock__error__icon__svg {
+      height: 20px;
+      width: 20px;
+      color: #656568; }
+  .HTTPBlock__error__container {
+    flex: 1; }
+  .HTTPBlock__error__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px; }
+    .HTTPBlock__error__header__checkbox {
+      margin-left: auto; }
+  .HTTPBlock__error__input__selector {
+    max-width: 100% !important; }
+  .HTTPBlock__error__input__description {
+    margin-top: 4px !important; }
+
+.HTTPBlock__data {
+  display: flex; }
+  .HTTPBlock__data__container {
+    flex: 1; }
+  .HTTPBlock__data__icon-container {
+    flex-shrink: 0;
+    z-index: 1;
+    margin-right: 8px;
+    border-top: 4px solid #FFFFFF;
+    background-color: #FFFFFF;
+    margin-top: -4px; }
+  .HTTPBlock__data__icon {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #656568;
+    border-radius: 6px; }
+    .HTTPBlock__data__icon__svg {
+      height: 20px;
+      width: 20px;
+      color: #FFFFFF; }
+  .HTTPBlock__data__inputs {
+    display: flex; }
+  .HTTPBlock__data__name {
+    width: 192px;
+    margin-right: 8px; }
+  .HTTPBlock__data__response-key {
+    flex: 1;
+    margin-right: 8px; }
+  .HTTPBlock__data__add-button {
+    width: 32px;
+    flex: none;
+    margin: auto 0 4px 8px; }
+
+.HTTPBlock__list:not(:first-child) {
+  margin-top: 4px; }
+
+.HTTPBlock__list__cell {
+  display: flex;
+  align-items: center; }
+  .HTTPBlock__list__cell .VariablesDropdown {
+    flex: 1;
+    max-width: calc((100% - 54px)/2);
+    margin-right: 4px; }
+  .HTTPBlock__list__cell__button {
+    margin-left: auto;
+    transition: none;
+    visibility: hidden; }
+  .HTTPBlock__list__cell__key {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 8px;
+    width: 185px; }
+    .HTTPBlock__list__cell__key__inner {
+      border-radius: 100px;
+      padding: 1px 8px;
+      font-size: 14px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      line-height: 18px;
+      vertical-align: top;
+      white-space: nowrap; }
+      .HTTPBlock__list__cell__key__inner > span {
+        font-size: 14px; }
+      .HTTPBlock__list__cell__key__inner--cosmetic {
+        pointer-events: none; }
+      .HTTPBlock__list__cell__key__inner--color-global {
+        color: #004215;
+        background-color: #C7F6DC; }
+        .HTTPBlock__list__cell__key__inner--color-global:active {
+          color: #FFFFFF;
+          background-color: #004215; }
+      .HTTPBlock__list__cell__key__inner--color-local {
+        color: #002E66;
+        background-color: #C6E3FF; }
+        .HTTPBlock__list__cell__key__inner--color-local:active {
+          color: #FFFFFF;
+          background-color: #002E66; }
+      .HTTPBlock__list__cell__key__inner--color-oauth {
+        color: #C5072D;
+        background-color: #FCE1E7;
+        padding-left: 22px; }
+        .HTTPBlock__list__cell__key__inner--color-oauth svg {
+          right: initial;
+          left: 4px; }
+      .HTTPBlock__list__cell__key__inner--color-meta, .HTTPBlock__list__cell__key__inner--color-headers {
+        color: #5D47AA;
+        background-color: #D7D0F0;
+        padding-left: 22px; }
+        .HTTPBlock__list__cell__key__inner--color-meta svg, .HTTPBlock__list__cell__key__inner--color-headers svg {
+          right: initial;
+          left: 4px; }
+        .HTTPBlock__list__cell__key__inner--color-meta:active, .HTTPBlock__list__cell__key__inner--color-headers:active {
+          color: #FFFFFF;
+          background-color: #5D47AA; }
+      .HTTPBlock__list__cell__key__inner--color-internal {
+        color: #002E66;
+        background-color: #C6E3FF;
+        padding-left: 22px; }
+        .HTTPBlock__list__cell__key__inner--color-internal:active {
+          color: #FFFFFF;
+          background-color: #002E66; }
+        .HTTPBlock__list__cell__key__inner--color-internal svg {
+          right: initial;
+          left: 4px; }
+      .HTTPBlock__list__cell__key__inner--color-oauth__clickable:active {
+        color: #FFFFFF;
+        background-color: #C5072D; }
+      .HTTPBlock__list__cell__key__inner--color-choose {
+        background-color: #E8E8EB;
+        color: #656568; }
+  .HTTPBlock__list__cell__value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    padding-left: 25px; }
+  .HTTPBlock__list__cell {
+    border-top: 1px solid #E8E8EB; }
+  .HTTPBlock__list__cell:last-child {
+    border-bottom: 1px solid #E8E8EB; }
+  .HTTPBlock__list__cell:hover .HTTPBlock__list__cell__button, .HTTPBlock__list__cell__button:focus {
+    visibility: visible; }
+
+.HTTPBlock__list:empty {
+  display: none; }
+
+.HTTPBlock .react-json-view {
+  max-height: 400px;
+  margin-bottom: 8px;
+  overflow: auto; }
+  .HTTPBlock .react-json-view .variable-row {
+    border-left: 1px solid #E8E8EB !important; }
+  .HTTPBlock .react-json-view .pretty-json-container > .object-content > .object-key-val {
+    border: none !important; }
+  .HTTPBlock .react-json-view .object-key-val {
+    border-left: 1px solid #E8E8EB !important; }
+  .HTTPBlock .react-json-view .variable-value {
+    pointer-events: none; }
+    .HTTPBlock .react-json-view .variable-value .data-type-label {
+      opacity: 1 !important;
+      pointer-events: all; }
+      .HTTPBlock .react-json-view .variable-value .data-type-label:active::before {
+        background-color: #add6ff; }
+      .HTTPBlock .react-json-view .variable-value .data-type-label:before {
+        content: "+";
+        background-color: #C6E3FF;
+        color: #002E66;
+        border-radius: 50%;
+        height: 16px;
+        width: 16px;
+        display: inline-block;
+        text-decoration: none;
+        text-align: center;
+        margin-right: 8px;
+        font-size: 15px;
+        line-height: 13px;
+        font-weight: 600;
+        font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI", "Segoe UI Emoji", "Segoe UI Symbol", Roboto, Helvetica, Arial, sans-serif; }
+
+.HTTPBlock__headers__key-values__inputs .SlateTextEditor__container {
+  flex: 1;
+  max-width: calc(50% - 32px); }
+
+.HTTPBlock__headers__key-values__inputs .SlateEditor {
+  margin-left: 4px; }
+
+.HTTPBlock__body-content .KeyValueRow__key {
+  max-width: calc(50% - 44px);
+  width: 100%; }
+
+.HTTPBlock__body-content .SlateTextEditor__container {
+  max-width: calc(50% - 32px);
+  width: 100%; }
+
+.HTTPBlock__body-content .SlateEditor {
+  background-color: #FFF; }
+
+.HTTPBlock__body-content .SlateEditor--focused {
+  box-shadow: none; }
+
+.WebWindowBlock__window-title {
+  margin-top: 8px; }
+
+.WebWindowBlock__bottom {
+  margin-top: 8px;
+  display: flex; }
+
+.WebWindowBlock__button-label-container {
+  margin-right: 8px;
+  flex: 1; }
+
+.WebWindowBlock__dimensions-container {
+  display: flex;
+  flex: 1; }
+
+.WebWindowBlock__dimensions-container-width {
+  margin-right: 8px; }
+
+.WebWindowBlock__row {
+  margin-top: 8px; }
+
+.MessageBlockRow {
+  display: flex;
+  margin-bottom: 8px; }
+
+.MessageBlockRowField {
+  flex: 1 1 50%;
+  margin-right: 8px;
+  max-width: 100%; }
+  .MessageBlockRowField:last-child {
+    margin-right: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.AuthenticationBlock__disabled {
+  text-align: center;
+  max-width: 480px;
+  padding: 8px 0;
+  margin: 0 auto; }
+
+.AuthenticationBlock__input-description {
+  margin-top: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.DeauthenticationBlock__data__type__select {
+  width: 100%; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.RedirectBlock__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #101820;
+  line-height: 24px; }
+
+.RedirectBlock__response-selector {
+  max-width: 320px;
+  background: whitesmoke;
+  border-radius: 1em; }
+
+.RedirectBlock__warning {
+  color: #656568;
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: .5em;
+  display: flex; }
+
+.RedirectBlock__warning-icon {
+  line-height: inherit;
+  display: inline-block;
+  margin-right: .25em;
+  vertical-align: middle; }
+
+.RedirectBlock__warning-text {
+  flex: 1 1;
+  line-height: 16px;
+  vertical-align: middle; }
+
+.RedirectBlock__link {
+  width: 100%;
+  font-size: 14px;
+  color: #656568;
+  margin-left: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.EmptyRecord {
+  height: 40px;
+  flex: 1;
+  border: dashed 1px #E8E8EB;
+  border-radius: 8px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ZendeskChatHandoverBlock__active-responses {
+  width: 350px;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+
+.ZendeskChatHandoverBlock__label-container {
+  display: flex; }
+  .ZendeskChatHandoverBlock__label-container label {
+    flex: 1; }
+
+.ResponseEditorEditableMessage__top-bar__icon-container--zendesk {
+  background-color: #30AABC !important; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariableSearchSelect__variable-input {
+  display: flex !important;
+  align-items: center;
+  overflow: hidden;
+  padding: 2px !important;
+  cursor: pointer !important;
+  outline: none; }
+  .VariableSearchSelect__variable-input .variableEntity--error {
+    background: none; }
+  .VariableSearchSelect__variable-input__icon-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 4px;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    background: linear-gradient(to left, #FFFFFF, #FFFFFF 28px, rgba(255, 255, 255, 0)); }
+    .VariableSearchSelect__variable-input__icon-container__invalid {
+      color: #FB9804; }
+      .VariableSearchSelect__variable-input__icon-container__invalid:hover, .VariableSearchSelect__variable-input__icon-container__invalid:active {
+        color: #DB7C00; }
+    .VariableSearchSelect__variable-input__icon-container__icon {
+      height: 20px; }
+
+.VariableSearchSelect__results {
+  display: block;
+  z-index: 9998;
+  position: absolute;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 10px 0 rgba(0, 0, 0, 0.18);
+  border-radius: 4px;
+  padding-top: 8px;
+  overflow: hidden; }
+  .VariableSearchSelect__results__search {
+    margin: 0 8px 8px 8px; }
+  .VariableSearchSelect__results__variables {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 160px;
+    padding: 0;
+    margin: 0; }
+    .VariableSearchSelect__results__variables__item__button {
+      border: none;
+      outline: none;
+      background: none;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
+      display: flex;
+      cursor: pointer; }
+      .VariableSearchSelect__results__variables__item__button__variable-container {
+        overflow: hidden; }
+    .VariableSearchSelect__results__variables__item__icon-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      visibility: hidden; }
+      .VariableSearchSelect__results__variables__item__icon-container--visible {
+        visibility: visible; }
+      .VariableSearchSelect__results__variables__item__icon-container__icon {
+        height: 16px; }
+    .VariableSearchSelect__results__variables__item--selected {
+      background-color: #EBF3FE;
+      color: #0975EF; }
+      .VariableSearchSelect__results__variables__item--selected:after {
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0), #EBF3FE 30px, #EBF3FE) !important; }
+    .VariableSearchSelect__results__variables__item:last-child {
+      border-bottom: none; }
+    .VariableSearchSelect__results__variables__item:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 40px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0), #FFFFFF 30px, #FFFFFF); }
+
+.VariableSearchSelect--small .VariableSearchSelect__variable-input__icon-container__icon {
+  height: 16px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.SelectionOptions {
+  margin-bottom: 16px;
+  font-size: 14px; }
+  .SelectionOptions__label-container {
+    display: flex;
+    align-items: center; }
+  .SelectionOptions__input-label {
+    cursor: pointer; }
+  .SelectionOptions__options {
+    border-top: 1px solid #E8E8EB; }
+  .SelectionOptions__option-row {
+    display: flex;
+    padding: 4px 0;
+    border-bottom: 1px solid #E8E8EB; }
+  .SelectionOptions__option-input {
+    flex: 1;
+    max-width: calc(100% - 32px); }
+  .SelectionOptions__variable-picker .g-input {
+    background: #fff; }
+  .SelectionOptions__variable-picker .VariableSearchSelect__variable-input {
+    border-color: #E8E8EB;
+    border-width: 1px; }
+  .SelectionOptions__variable-picker .VariableSearchSelect__variable-input__icon-container {
+    background: transparent; }
+  .SelectionOptions__variable-picker .Tooltip__icon svg {
+    height: 20px;
+    width: 20px; }
+  .SelectionOptions__option-actions {
+    display: flex;
+    margin-left: 4px;
+    min-width: 32px; }
+  .SelectionOptions__footer-actions {
+    padding: 4px 0;
+    border-bottom: 1px solid #E8E8EB; }
+  .SelectionOptions__delete-row-button {
+    flex: 1;
+    opacity: 0;
+    transition: .3s opacity; }
+  .SelectionOptions__option-row:hover .SelectionOptions__delete-row-button {
+    opacity: 1; }
+  .SelectionOptions__field-type {
+    flex: 1;
+    margin-top: 4px; }
+    .SelectionOptions__field-type ul {
+      padding: 8px 0; }
+    .SelectionOptions__field-type .Select__list__item--sub-header {
+      padding-top: 4px; }
+  .SelectionOptions__add-row-button {
+    position: relative;
+    padding-left: 35px;
+    line-height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #656568;
+    margin: 1px 0 0 0;
+    display: flex;
+    width: 100%;
+    border-radius: 6px; }
+    .SelectionOptions__add-row-button:hover {
+      background: #F3F3F5; }
+    .SelectionOptions__add-row-button:active {
+      background: #E8E8EB; }
+    .SelectionOptions__add-row-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #0975EF; }
+  .SelectionOptions__add-row-icon {
+    position: absolute;
+    top: 4px;
+    left: 8px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.SelectionBlock__input-label {
+  cursor: pointer; }
+
+.SelectionBlock__input-group {
+  margin-bottom: 8px; }
+
+.SelectionBlock__collapsible-block {
+  margin: -12px 0 0 33px; }
+
+.SelectionBlock__response-selector, .SelectionBlock__variable-picker-wrapper {
+  max-width: 320px; }
+
+.SelectionBlock__checkbox-group {
+  display: flex;
+  margin-right: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 0; }
+
+.SelectionBlock__checkbox-tooltip {
+  margin-top: 2px; }
+
+.SelectionBlock__spacer {
+  height: 16px;
+  border-left: 1px solid #E8E8EB;
+  margin: 0 0 4px 11.5px; }
+
+.SelectionBlock__variable-type-warning-message {
+  margin: 4px 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FB9804; }
+
+.SelectionBlock__variable-type-error .VariablesDropdownTrigger__variable-input {
+  border-color: #FB9804;
+  box-shadow: 0 0 0 1px #FB9804; }
+
+.SelectionBlock__variable-type-error .Tooltip__icon svg {
+  height: 20px;
+  width: 20px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.CustomVariableMapper__row {
+  display: flex;
+  border-top: 1px solid #E8E8EB;
+  padding: 4px 0; }
+
+.CustomVariableMapper__name, .CustomVariableMapper__value {
+  flex: 1 1; }
+
+.CustomVariableMapper__value {
+  margin-left: 4px; }
+
+.CustomVariableMapper__field-type {
+  padding: 4px;
+  display: flex;
+  align-items: center; }
+
+.CustomVariableMapper__header {
+  display: flex;
+  align-items: center; }
+
+.CustomVariableMapper__title {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center; }
+
+.CustomVariableMapper__remove {
+  min-width: 32px;
+  opacity: 0; }
+  .CustomVariableMapper__remove:hover {
+    opacity: 1; }
+
+.CustomVariableMapper__header-actions {
+  margin-left: auto;
+  margin-right: 4px; }
+
+.CustomVariableMapper__collapse-button {
+  transition: transform .3s ease;
+  min-width: initial !important;
+  flex: 1;
+  color: #C4C4CA; }
+  .CustomVariableMapper__collapse-button--collapsed {
+    transform: rotate(180deg); }
+
+.CustomVariableMapper__footer {
+  border-top: 1px solid #E8E8EB;
+  border-bottom: 1px solid #E8E8EB;
+  padding: 4px 0; }
+
+.CustomVariableMapper__add-row-button {
+  position: relative;
+  padding-left: 35px;
+  line-height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #656568;
+  margin: 0 1px 0 0;
+  display: flex;
+  width: 100%;
+  border-radius: 6px; }
+  .CustomVariableMapper__add-row-button:hover {
+    background: #F3F3F5; }
+  .CustomVariableMapper__add-row-button:active {
+    background: #E8E8EB; }
+  .CustomVariableMapper__add-row-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #0975EF; }
+
+.CustomVariableMapper__add-row-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(8px, 8px); }
+
+.CustomVariableMapper__variable-picker .VariableSearchSelect__variable-input {
+  border: 1px solid #E8E8EB; }
+
+.CustomVariableMapper__variable-picker :not(.VariableSearchSelect__results__variables) .Variable {
+  padding-left: 4px; }
+
+.CustomVariableMapper__variable-picker :not(.VariableSearchSelect__results__variables) .HTTPBlock__list__cell__key__inner {
+  margin-left: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorSalesforceLiveAgent__chat-button-wrapper {
+  max-width: 250px; }
+
+.ResponseEditorSalesforceLiveAgent__fallback-response-wrapper {
+  max-width: 300px; }
+
+.ResponseEditorSalesforceLiveAgent__checkboxes {
+  padding: 8px 0; }
+
+.ResponseEditorSalesforceLiveAgent__checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+  font-size: 14px;
+  font-weight: 500; }
+
+.ResponseEditorSalesforceLiveAgent__checkbox-label {
+  line-height: 23px;
+  padding-left: 8px; }
+
+.ResponseEditorSalesforceLiveAgent__tooltip {
+  display: inline-block;
+  vertical-align: middle; }
+
+.ResponseEditorSalesforceLiveAgent__checkboxes {
+  display: flex; }
+
+.ResponseEditorSalesforceLiveAgent__checkbox-wrapper {
+  display: flex; }
+
+.ResponseEditorSalesforceLiveAgent__collapsible-block {
+  margin: -12px 0 0 33px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.VariableOverrideBlock__content {
+  width: 100%;
+  font-size: 14px; }
+  .VariableOverrideBlock__content__variable-dropdown {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #E8E8EB;
+    border-radius: 6px; }
+  .VariableOverrideBlock__content__null-placeholder {
+    width: 100%;
+    font-size: 14px;
+    padding: 4px 24px;
+    border-top: 1px solid #E8E8EB;
+    border-bottom: 1px solid #E8E8EB;
+    color: #656568;
+    line-height: 20px; }
+
+.VariableOverrideBlock__footer-actions {
+  padding: 6px 0;
+  border-bottom: 1px solid #E8E8EB; }
+
+.VariableOverrideBlock__field-type {
+  flex: 1;
+  display: flex;
+  margin-top: 4px; }
+
+.VariableOverrideBlock__group {
+  display: flex;
+  align-items: top; }
+
+.VariableOverrideBlock__row {
+  display: flex; }
+
+.VariableOverrideBlock__variable-dropdown {
+  width: 100%; }
+
+.VariableOverrideBlock__variable-type-warning-message {
+  margin: 4px 0 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #FB9804; }
+
+.VariableOverrideBlock__add-row-button {
+  position: relative;
+  padding-left: 35px;
+  line-height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #656568;
+  margin: 8px 1px 0 0;
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 6px; }
+  .VariableOverrideBlock__add-row-button:hover {
+    background: #F3F3F5; }
+  .VariableOverrideBlock__add-row-button:active {
+    background: #E8E8EB; }
+  .VariableOverrideBlock__add-row-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #0975EF; }
+
+.VariableOverrideBlock__add-row-icon {
+  position: absolute;
+  top: 4px;
+  left: 8px; }
+
+.VariableOverrideBlock__delete-row-icon {
+  flex: 1;
+  min-width: 24px;
+  opacity: 0;
+  transition: .3s opacity; }
+  .VariableOverrideBlock__delete-row-icon:hover {
+    opacity: 1; }
+
+.VariableOverrideBlock__equal-icon {
+  margin-left: 8px;
+  margin-top: 4px;
+  fill: #656568; }
+
+.VariableOverrideBlock__is-null-icon {
+  color: #C4C4CA;
+  position: absolute;
+  top: 4px;
+  left: 0; }
+
+.VariableOverrideBlock__tooltip-icon {
+  display: inline-block;
+  vertical-align: middle; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.WidgetBlock__enhanced-text-input, .WidgetBlock input[type="text"] {
+  font-size: 14px; }
+
+.WidgetBlock__settings, .WidgetBlock__create-variables {
+  position: relative;
+  min-height: 30px; }
+
+.WidgetBlock__url {
+  flex: 1;
+  max-width: calc(100% - 32px); }
+  .WidgetBlock__url__variables-bar {
+    margin-bottom: 8px; }
+  .WidgetBlock__url__description {
+    margin-top: 4px; }
+    .WidgetBlock__url__description--invalid {
+      color: #FB9804; }
+
+.WidgetBlock__key-input {
+  flex: 1; }
+
+.WidgetBlock__tooltip-icon {
+  display: inline-block;
+  vertical-align: middle; }
+
+.WidgetBlock__add-button:active svg {
+  fill: #33af6d !important; }
+
+.WidgetBlock__add-button svg {
+  fill: #39C379 !important;
+  transition: all 180ms ease; }
+
+.WidgetBlock__collapsable-top {
+  display: flex;
+  align-items: center; }
+  .WidgetBlock__collapsable-top h3 {
+    flex-grow: 1; }
+
+.WidgetBlock__collapse-button {
+  transition: transform 180ms ease;
+  min-width: initial !important;
+  flex: 1; }
+  .WidgetBlock__collapse-button svg {
+    margin: 0 !important;
+    fill: #C4C4CA !important; }
+  .WidgetBlock__collapse-button--collapsed {
+    transform: rotate(180deg); }
+
+.WidgetBlock__controls {
+  display: flex;
+  width: 64px;
+  height: 24px;
+  align-items: center;
+  justify-content: flex-end; }
+
+.WidgetBlock__variables-dropdown .VariablesDropdownTrigger__variable-input {
+  border: 1px solid transparent; }
+
+.WidgetBlock__input-data__delete {
+  background-color: transparent !important;
+  visibility: hidden;
+  border: 0;
+  box-shadow: none; }
+
+.WidgetBlock__input-data__key-values__inputs {
+  display: flex;
+  align-items: flex-start;
+  margin: 2px 0; }
+  .WidgetBlock__input-data__key-values__inputs .ResponseEditorEnhancedTextInput {
+    flex: 1;
+    font-size: 14px;
+    margin-left: 4px; }
+
+.WidgetBlock__input-data__key-values__row {
+  border-bottom: 1px solid #E8E8EB;
+  position: relative; }
+  .WidgetBlock__input-data__key-values__row:hover .WidgetBlock__input-data__delete,
+  .WidgetBlock__input-data__key-values__row .WidgetBlock__input-data__delete:focus {
+    visibility: visible; }
+  .WidgetBlock__input-data__key-values__row input {
+    flex: 1; }
+
+.WidgetBlock__input-data__key-values__row:first-child {
+  border-top: 1px solid #E8E8EB; }
+
+.WidgetBlock__data {
+  display: flex; }
+  .WidgetBlock__data__container {
+    flex: 1; }
+
+.WidgetBlock__list:not(:first-child) {
+  margin-top: 4px; }
+
+.WidgetBlock__list__cell {
+  display: flex;
+  align-items: center; }
+  .WidgetBlock__list__cell .VariablesDropdown {
+    flex: 1;
+    max-width: 50%;
+    margin-right: 4px;
+    border: 1px solid transparent; }
+  .WidgetBlock__list__cell__button {
+    margin-left: auto;
+    transition: none;
+    visibility: hidden; }
+  .WidgetBlock__list__cell {
+    border-top: 1px solid #E8E8EB; }
+  .WidgetBlock__list__cell:last-child {
+    border-bottom: 1px solid #E8E8EB; }
+  .WidgetBlock__list__cell:hover .WidgetBlock__list__cell__button, .WidgetBlock__list__cell__button:focus {
+    visibility: visible; }
+
+.WidgetBlock__create-variables .WidgetBlock__label:first-child {
+  max-width: calc((100% - 44px)/2); }
+
+.WidgetBlock__button-label {
+  width: 50%; }
+
+.WidgetBlock__input-data__key-values__inputs .SlateTextEditor__container {
+  flex: 1;
+  max-width: calc(50% - 32px); }
+
+.WidgetBlock__input-data__key-values__inputs .SlateEditor {
+  margin-left: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.LivepersonChatHandover__active-responses {
+  width: 50%;
+  background-color: #FFFFFF;
+  border-radius: 8px; }
+
+.LivepersonChatHandover__label-container {
+  display: flex; }
+  .LivepersonChatHandover__label-container label {
+    flex: 1; }
+
+.ScheduledCallbackMessage__error-unavailable {
+  margin-bottom: 8px; }
+
+.ScheduledCallbackMessage__error-selector {
+  max-width: 100% !important;
+  margin-bottom: 4px; }
+
+.BookMeetingMessage__dialog-message {
+  margin-bottom: 8px; }
+
+.BookMeetingMessage__meeting-settings {
+  display: flex;
+  margin-bottom: 8px; }
+  .BookMeetingMessage__meeting-settings__calendar {
+    flex-grow: 1;
+    margin-right: 8px; }
+  .BookMeetingMessage__meeting-settings__duration {
+    width: 33%; }
+
+.BookMeetingMessage__errors__unavailable {
+  margin-bottom: 8px; }
+
+.BookMeetingMessage__errors__selector {
+  max-width: 100% !important;
+  margin-bottom: 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.Condition__right-op-placeholder {
+  flex: 1;
+  background-color: #F3F3F5; }
+
+.Condition__field-type-placeholder {
+  visibility: hidden;
+  pointer-events: none; }
+
+.Condition__conditional {
+  padding-bottom: 2px;
+  margin-bottom: 2px;
+  border-bottom: 1px solid #E8E8EB; }
+  .Condition__conditional__row {
+    display: flex;
+    height: 28px; }
+    .Condition__conditional__row__variable-select {
+      min-width: 110px;
+      flex: 1; }
+    .Condition__conditional__row__input-wrapper {
+      flex: 1; }
+    .Condition__conditional__row__select {
+      margin: 0 8px;
+      width: initial; }
+      .Condition__conditional__row__select--expanded .Select__list {
+        max-height: 400px !important; }
+    .Condition__conditional__row__remove {
+      visibility: hidden;
+      height: 100%;
+      border: none;
+      min-width: 26px; }
+    .Condition__conditional__row__remove-placeholder {
+      width: 26px; }
+    .Condition__conditional__row__field-selector {
+      display: flex;
+      align-items: center; }
+    .Condition__conditional__row:hover .Condition__conditional__row__remove {
+      visibility: visible; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ConditionalMessage {
+  margin-bottom: 8px; }
+  .ConditionalMessage__statements__else-if-add {
+    height: 30px;
+    margin-bottom: 16px;
+    z-index: 0; }
+    .ConditionalMessage__statements__else-if-add svg {
+      width: 48px; }
+  .ConditionalMessage__messages:empty {
+    height: 40px;
+    border: 1px dashed #E8E8EB;
+    border-radius: 6px; }
+  .ConditionalMessage__icon {
+    width: 24px;
+    height: 24px;
+    position: absolute; }
+  .ConditionalMessage__group-title {
+    display: flex;
+    border-bottom: 1px solid #E8E8EB;
+    padding-bottom: 2px;
+    margin-bottom: 2px; }
+    .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__hoverable {
+      opacity: 1;
+      visibility: visible; }
+    .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__hoverable__delete, .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__collapse-button {
+      color: #656568 !important; }
+      .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__hoverable__delete svg, .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__collapse-button svg {
+        fill: #656568 !important; }
+      .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__hoverable__delete:active, .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__collapse-button:active {
+        color: #101820 !important; }
+        .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__hoverable__delete:active svg, .ConditionalMessage__group-title:hover .ConditionalMessage__group-title__collapse-button:active svg {
+          fill: #101820 !important; }
+    .ConditionalMessage__group-title__hoverable {
+      margin-left: auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 180ms ease; }
+      .ConditionalMessage__group-title__hoverable__delete {
+        height: 24px; }
+        .ConditionalMessage__group-title__hoverable__delete svg {
+          transition: fill 180ms ease; }
+    .ConditionalMessage__group-title__add {
+      height: 24px;
+      min-width: 26px; }
+      .ConditionalMessage__group-title__add:active {
+        color: #23A45F !important; }
+        .ConditionalMessage__group-title__add:active svg {
+          fill: #23A45F !important; }
+    .ConditionalMessage__group-title__collapse-button {
+      transition: transform 400ms ease;
+      min-width: 26px;
+      height: 24px; }
+      .ConditionalMessage__group-title__collapse-button svg {
+        transition: fill 180ms ease; }
+      .ConditionalMessage__group-title__collapse-button--collapse {
+        transform: rotate(0deg); }
+        .ConditionalMessage__group-title__collapse-button--collapse--active {
+          transform: rotate(180deg); }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.BotSwitchMessage__warning-message {
+  display: flex;
+  align-items: top; }
+
+.BotSwitchMessage__button-label-input {
+  width: 150px !important;
+  font-size: 16px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.SurveyBlock {
+  padding: 8px; }
+  .SurveyBlock__loader {
+    text-align: center;
+    font-size: 14px;
+    color: #656568; }
+  .SurveyBlock__spinner {
+    margin-right: 8px;
+    vertical-align: middle; }
+  .SurveyBlock__step {
+    font-size: 12px;
+    margin-bottom: 8px;
+    padding-left: 24px; }
+    .SurveyBlock__step::before {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 5px;
+      background: #C4C4CA;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 0; }
+    .SurveyBlock__step::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 14px;
+      left: 2px;
+      bottom: -9px;
+      border-right: 1px solid #E8E8EB; }
+    .SurveyBlock__step:last-child::after {
+      content: none; }
+  .SurveyBlock__step-property {
+    color: #535358;
+    font-weight: 500;
+    margin-bottom: 4px; }
+  .SurveyBlock__step-value {
+    color: #ADADB3; }
+  .SurveyBlock__footer {
+    font-size: 10px;
+    text-align: right;
+    color: #ADADB3; }
+  .SurveyBlock__footer-link {
+    color: inherit; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.UnsupportedMessage {
+  text-align: center; }
+  .UnsupportedMessage__details {
+    background-color: #F3F3F5;
+    margin-top: 10px;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: left; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.QuickRepliesOption {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: grab !important;
+  cursor: -webkit-grab !important;
+  padding: 8px;
+  border: 1px solid #E8E8EB;
+  border-radius: 6px; }
+  .QuickRepliesOption--dragging {
+    pointer-events: none; }
+  .QuickRepliesOption__content {
+    flex: 1; }
+    .QuickRepliesOption__content__input {
+      margin-bottom: 4px; }
+    .QuickRepliesOption__content__references {
+      width: 100%;
+      font-size: 14px;
+      color: #656568; }
+      .QuickRepliesOption__content__references__link {
+        margin-left: 4px;
+        font-size: inherit;
+        color: inherit; }
+      .QuickRepliesOption__content__references__status {
+        display: inline-block; }
+  .QuickRepliesOption__remove {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    margin-right: -7px;
+    opacity: 0;
+    height: 32px; }
+  .QuickRepliesOption:hover .QuickRepliesOption__remove {
+    opacity: 1; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.QuickRepliesBlock {
+  padding-bottom: 0; }
+  .QuickRepliesBlock-option {
+    border-bottom: none !important; }
+  .QuickRepliesBlock__ResponseSelector {
+    margin-bottom: 8px; }
+  .QuickRepliesBlock__active-responses {
+    background-color: #FFFFFF; }
+    .QuickRepliesBlock__active-responses--highlighted {
+      border: 2px solid #FFE560; }
+    .QuickRepliesBlock__active-responses__list {
+      border-radius: 8px; }
+      .QuickRepliesBlock__active-responses__list__item {
+        padding-bottom: 8px;
+        background-color: #FFFFFF; }
+  .QuickRepliesBlock strong {
+    font-weight: 700; }
+  .QuickRepliesBlock__tooltip {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, -1px, 0);
+    z-index: 1; }
+  .QuickRepliesBlock__warning {
+    color: #656568;
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: .5em;
+    display: flex; }
+  .QuickRepliesBlock__warning-icon {
+    line-height: inherit;
+    display: inline-block;
+    margin-right: .25em;
+    vertical-align: middle; }
+  .QuickRepliesBlock__warning-text {
+    flex: 1 1;
+    line-height: 16px;
+    vertical-align: middle; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorEditableMessage {
+  user-select: none;
+  outline: none;
+  cursor: default; }
+  .ResponseEditorEditableMessage--in-side-bar {
+    transition: transform cubic-bezier(0.23, 1.54, 0.71, 1.06) 0.18s; }
+  .ResponseEditorEditableMessage__draggable {
+    width: 100%;
+    margin-bottom: 8px;
+    cursor: auto; }
+    .ResponseEditorEditableMessage__draggable--is-dragging {
+      transition: width 180ms ease;
+      padding-bottom: 8px;
+      margin-bottom: 0px; }
+  .ResponseEditorEditableMessage__content {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E8E8EB;
+    border-bottom-width: 2px; }
+  .ResponseEditorEditableMessage--note:not(.ResponseEditorEditableMessage__content--in-side-bar) {
+    background-color: transparent;
+    border-radius: 0px;
+    border: transparent; }
+  .ResponseEditorEditableMessage__opacity-overlay {
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    border-radius: 8px; }
+    .ResponseEditorEditableMessage__opacity-overlay--active {
+      background-color: rgba(255, 255, 255, 0.8); }
+    .ResponseEditorEditableMessage__opacity-overlay--has-needle {
+      border-radius: 8px;
+      box-shadow: 0 0 0 2px #FFE560; }
+    .ResponseEditorEditableMessage__opacity-overlay--selected {
+      border-radius: 8px;
+      box-shadow: 0 0 0 2px #0975EF; }
+  .ResponseEditorEditableMessage__content--dragging {
+    pointer-events: none; }
+  .ResponseEditorEditableMessage__top-bar {
+    padding: 8px;
+    color: #C4C4CA;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    transition: color 180ms ease;
+    cursor: -webkit-grab; }
+    .ResponseEditorEditableMessage__top-bar:focus {
+      outline: none; }
+    .ResponseEditorEditableMessage__top-bar__no-drag {
+      cursor: auto; }
+    .ResponseEditorEditableMessage__top-bar__right-side {
+      margin-left: auto;
+      display: flex;
+      align-items: center; }
+    .ResponseEditorEditableMessage__top-bar .Button {
+      z-index: 0; }
+    .ResponseEditorEditableMessage__top-bar:hover, .ResponseEditorEditableMessage__top-bar--dragging {
+      color: #656568; }
+    .ResponseEditorEditableMessage__top-bar__no-drag:hover, .ResponseEditorEditableMessage__top-bar__no-drag--dragging {
+      color: #C4C4CA; }
+    .ResponseEditorEditableMessage__top-bar:hover .ResponseEditorEditableMessage__top-bar__button,
+    .ResponseEditorEditableMessage__top-bar--dragging .ResponseEditorEditableMessage__top-bar__button {
+      color: #656568 !important; }
+      .ResponseEditorEditableMessage__top-bar:hover .ResponseEditorEditableMessage__top-bar__button svg,
+      .ResponseEditorEditableMessage__top-bar--dragging .ResponseEditorEditableMessage__top-bar__button svg {
+        fill: #656568 !important; }
+      .ResponseEditorEditableMessage__top-bar:hover .ResponseEditorEditableMessage__top-bar__button:active,
+      .ResponseEditorEditableMessage__top-bar--dragging .ResponseEditorEditableMessage__top-bar__button:active {
+        color: #101820 !important; }
+        .ResponseEditorEditableMessage__top-bar:hover .ResponseEditorEditableMessage__top-bar__button:active svg,
+        .ResponseEditorEditableMessage__top-bar--dragging .ResponseEditorEditableMessage__top-bar__button:active svg {
+          fill: #101820 !important; }
+    .ResponseEditorEditableMessage__top-bar:hover .ResponseEditorEditableMessage__top-bar__collapsed-label-button {
+      color: #656568 !important; }
+    .ResponseEditorEditableMessage__top-bar:active {
+      cursor: -webkit-grabbing; }
+    .ResponseEditorEditableMessage__top-bar__no-drag:active {
+      cursor: auto; }
+    .ResponseEditorEditableMessage__top-bar__button {
+      min-width: 24px;
+      min-height: 24px;
+      transition: transform 400ms ease; }
+      .ResponseEditorEditableMessage__top-bar__button svg {
+        fill: #C4C4CA !important;
+        transition: fill 180ms ease; }
+      .ResponseEditorEditableMessage__top-bar__button__collapse {
+        transform: rotate(0deg);
+        margin: -4px 0; }
+        .ResponseEditorEditableMessage__top-bar__button__collapse--active {
+          transform: rotate(180deg); }
+      .ResponseEditorEditableMessage__top-bar__button--delete {
+        margin: -4px; }
+    .ResponseEditorEditableMessage__top-bar__icon-container {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+      border-radius: 4px;
+      background-color: #44C73B; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--action {
+        background-color: #2AA7D9; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--operation {
+        background-color: #101820; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--action_integration {
+        background-color: #FFFFFF;
+        border: 1px solid #101820; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--note {
+        background-color: #E3B640; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--bot-switch {
+        background-color: #0975EF; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--message {
+        background-color: #44C73B; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--red {
+        background-color: #E81641; }
+      .ResponseEditorEditableMessage__top-bar__icon-container__icon {
+        width: 20px;
+        height: 20px;
+        color: #FFFFFF; }
+        .ResponseEditorEditableMessage__top-bar__icon-container__icon--no-padding {
+          width: 24px;
+          height: 24px; }
+      .ResponseEditorEditableMessage__top-bar__icon-container--liveperson {
+        background-color: #30AABC !important; }
+    .ResponseEditorEditableMessage__top-bar__title {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 0; }
+      .ResponseEditorEditableMessage__top-bar__title__text {
+        justify-content: center;
+        align-items: flex-end;
+        font-size: 14px;
+        font-weight: 500; }
+        .ResponseEditorEditableMessage__top-bar__title__text--in-side-bar {
+          color: #101820;
+          margin-left: 4px;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+      .ResponseEditorEditableMessage__top-bar__title__icon {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        height: 20px; }
+        .ResponseEditorEditableMessage__top-bar__title__icon__wrapper {
+          opacity: 0;
+          transition: opacity 180ms ease;
+          -webkit-transition: opacity 180ms ease; }
+        .ResponseEditorEditableMessage__top-bar__title__icon--warning {
+          fill: #FB9804; }
+    .ResponseEditorEditableMessage__top-bar__reorder {
+      width: 24px;
+      height: 24px;
+      color: #C4C4CA; }
+      .ResponseEditorEditableMessage__top-bar__reorder--in-side-bar {
+        margin-left: auto; }
+  .ResponseEditorEditableMessage__body {
+    visibility: visible;
+    padding: 8px;
+    border-top: 1px solid #E8E8EB;
+    transition: max-height 190ms ease, padding 190ms ease; }
+    .ResponseEditorEditableMessage__body--collapsed {
+      visibility: collapse;
+      max-height: 0px;
+      overflow: hidden;
+      padding-top: 0;
+      padding-bottom: 0;
+      border-top: 0px solid #E8E8EB;
+      transition: padding 180ms ease, max-height 180ms ease, border-top 0ms ease 180ms, visibility 0ms ease 180ms; }
+    .ResponseEditorEditableMessage__body__variables {
+      line-height: 22px;
+      transition: max-height 0.2s ease, opacity 0.2s ease;
+      opacity: 0;
+      overflow: hidden;
+      max-height: 0; }
+      .ResponseEditorEditableMessage__body__variables__inner {
+        padding-top: 4px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap; }
+      .ResponseEditorEditableMessage__body__variables .HTTPBlock__list__cell__key__inner {
+        margin: 0 4px 4px 0; }
+      .ResponseEditorEditableMessage__body__variables--show {
+        opacity: 1;
+        max-height: 72px;
+        transition: max-height 0.2s ease, opacity 0.2s ease;
+        overflow-y: scroll; }
+      .ResponseEditorEditableMessage__body__variables--clickable {
+        cursor: pointer; }
+      .ResponseEditorEditableMessage__body__variables__title {
+        color: #656568;
+        font-size: 14px;
+        margin-right: 4px;
+        margin-bottom: 4px; }
+  .ResponseEditorEditableMessage__row {
+    display: flex;
+    margin-bottom: 8px; }
+    .ResponseEditorEditableMessage__row__field {
+      flex: 1 1 50%;
+      margin-right: 8px;
+      max-width: 100%; }
+      .ResponseEditorEditableMessage__row__field:last-child {
+        margin-right: 0; }
+      .ResponseEditorEditableMessage__row__field__label {
+        display: inline-block;
+        height: 24px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px; }
+    .ResponseEditorEditableMessage__row:last-child, .ResponseEditorEditableMessage__row--no-margin {
+      margin-bottom: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorToolbox {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 65px;
+  bottom: 80px;
+  right: 8px;
+  z-index: 2; }
+  .ResponseEditorToolbox--wrapper {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #E8E8EB;
+    border-radius: 12px;
+    display: flex;
+    max-height: 100%; }
+  .ResponseEditorToolbox__content {
+    max-height: 100%;
+    padding: 0 12px;
+    overflow-y: scroll; }
+    .ResponseEditorToolbox__content__search-bar-placeholder {
+      margin-top: 12px; }
+    .ResponseEditorToolbox__content__block-guide {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-top: 16px;
+      padding-top: 12px;
+      padding-left: 8px;
+      padding-right: 8px;
+      padding-bottom: 16px;
+      font-size: 14px;
+      border-top: 1px solid #E8E8EB; }
+      .ResponseEditorToolbox__content__block-guide__icon {
+        width: 26px;
+        margin-right: 8px; }
+      .ResponseEditorToolbox__content__block-guide a {
+        text-decoration: none;
+        color: #101820; }
+      .ResponseEditorToolbox__content__block-guide:hover a {
+        text-decoration: underline; }
+  .ResponseEditorToolbox__gradient {
+    position: absolute;
+    height: 16px;
+    width: calc(100% - 24px);
+    pointer-events: none;
+    transition: opacity 0.4s;
+    left: 12px; }
+    .ResponseEditorToolbox__gradient--top {
+      background: linear-gradient(white, rgba(255, 255, 255, 0));
+      top: 0; }
+    .ResponseEditorToolbox__gradient--bottom {
+      background: linear-gradient(rgba(255, 255, 255, 0), white);
+      bottom: 0; }
+  .ResponseEditorToolbox__section-title {
+    color: #ADADB3;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 3px;
+    padding-left: 4px; }
+  .ResponseEditorToolbox--collapsed {
+    right: -150px; }
+  .ResponseEditorToolbox--is-opening {
+    transform: translate3d(-158px, 0, 0); }
+  .ResponseEditorToolbox--is-closing {
+    transform: translate3d(158px, 0, 0); }
+  .ResponseEditorToolbox--is-transitioning {
+    transition: transform cubic-bezier(0.43, 1.2, 0.71, 1.1) 180ms; }
+  .ResponseEditorToolbox__open-close-panel-icon {
+    border: none;
+    border-radius: 6px;
+    height: 100%;
+    left: -32px;
+    opacity: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    transition: opacity ease 180ms;
+    width: 29px; }
+    .ResponseEditorToolbox__open-close-panel-icon #arrow-mask {
+      height: 40px;
+      width: 10px; }
+    .ResponseEditorToolbox__open-close-panel-icon--open {
+      transform: rotate(180deg); }
+    .ResponseEditorToolbox__open-close-panel-icon:hover {
+      cursor: pointer;
+      opacity: 0.3 !important; }
+  .ResponseEditorToolbox:hover .ResponseEditorToolbox__open-close-panel-icon {
+    opacity: 0.05; }
+  .ResponseEditorToolbox__loading-container {
+    height: 60px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorLanguages {
+  display: flex !important;
+  padding-bottom: 8px; }
+  .ResponseEditorLanguages__languages {
+    flex: 1;
+    overflow-x: hidden; }
+    .ResponseEditorLanguages__languages__scroller {
+      padding-bottom: 0;
+      overflow-x: auto; }
+    .ResponseEditorLanguages__languages__gradient {
+      position: absolute;
+      padding-bottom: 16px;
+      height: 24px;
+      min-width: 16px;
+      top: 0; }
+      .ResponseEditorLanguages__languages__gradient--right {
+        background: linear-gradient(to left, #F9F9F9, rgba(249, 249, 249, 0));
+        right: 0; }
+    .ResponseEditorLanguages__languages::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 30px;
+      pointer-events: none; }
+    .ResponseEditorLanguages__languages__languages-list {
+      display: flex; }
+    .ResponseEditorLanguages__languages__language-button {
+      color: #656568 !important; }
+      .ResponseEditorLanguages__languages__language-button--active {
+        background-color: #E8E8EB !important; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorOptionsEditorOption {
+  display: flex;
+  flex-wrap: wrap;
+  cursor: grab !important;
+  cursor: -webkit-grab !important;
+  padding: 8px;
+  border: 1px solid #E8E8EB;
+  border-radius: 6px; }
+  .ResponseEditorOptionsEditorOption--dragging {
+    pointer-events: none; }
+  .ResponseEditorOptionsEditorOption__content {
+    flex: 1; }
+    .ResponseEditorOptionsEditorOption__content__input {
+      margin-bottom: 4px; }
+    .ResponseEditorOptionsEditorOption__content__references {
+      width: 100%;
+      font-size: 14px;
+      color: #656568; }
+      .ResponseEditorOptionsEditorOption__content__references__link {
+        margin-left: 4px;
+        font-size: inherit;
+        color: inherit; }
+      .ResponseEditorOptionsEditorOption__content__references__status {
+        display: inline-block; }
+  .ResponseEditorOptionsEditorOption__remove {
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    margin-right: -7px;
+    opacity: 0;
+    height: 32px; }
+  .ResponseEditorOptionsEditorOption:hover .ResponseEditorOptionsEditorOption__remove {
+    opacity: 1; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorOptionsEditor {
+  padding-bottom: 0; }
+  .ResponseEditorOptionsEditor-option {
+    border-bottom: none !important; }
+  .ResponseEditorOptionsEditor__ResponseSelector {
+    margin-bottom: 8px; }
+  .ResponseEditorOptionsEditor__active-responses {
+    width: 350px;
+    border: 1px solid #E8E8EB;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 0 8px; }
+    .ResponseEditorOptionsEditor__active-responses--highlighted {
+      border: 2px solid #FFE560; }
+    .ResponseEditorOptionsEditor__active-responses__list {
+      border-radius: 8px; }
+      .ResponseEditorOptionsEditor__active-responses__list__item {
+        padding-bottom: 8px;
+        background-color: #FFFFFF; }
+  .ResponseEditorOptionsEditor strong {
+    font-weight: 700; }
+  .ResponseEditorOptionsEditor__tooltip {
+    display: inline-block;
+    vertical-align: middle;
+    transform: translate3d(0, -1px, 0);
+    z-index: 1; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorTrainerProgress {
+  display: inline-block; }
+  .ResponseEditorTrainerProgress__bar {
+    overflow: hidden;
+    height: 6px;
+    border-radius: 6px;
+    display: inline-block;
+    margin: 2px 12px;
+    background-color: #E8E8EB;
+    z-index: 0; }
+    .ResponseEditorTrainerProgress__bar__bar {
+      display: inline-block;
+      width: 0px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 180ms ease; }
+      .ResponseEditorTrainerProgress__bar__bar__gel {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: opacity 120ms ease; }
+        .ResponseEditorTrainerProgress__bar__bar__gel--red {
+          background: #FF4053;
+          z-index: 0;
+          opacity: 1; }
+        .ResponseEditorTrainerProgress__bar__bar__gel--yellow {
+          background: #FFBC33;
+          z-index: 1;
+          opacity: 0; }
+        .ResponseEditorTrainerProgress__bar__bar__gel--green {
+          background: #48C460;
+          z-index: 2;
+          opacity: 0; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorTrainerNotRequired {
+  display: inline-block;
+  margin-bottom: 16px; }
+  .ResponseEditorTrainerNotRequired__strong {
+    font-weight: 700;
+    font-size: 14px; }
+  .ResponseEditorTrainerNotRequired__container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 8px; }
+  .ResponseEditorTrainerNotRequired__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #101820; }
+  .ResponseEditorTrainerNotRequired__description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #656568; }
+  .ResponseEditorTrainerNotRequired__icon {
+    margin-left: 4px; }
+  .ResponseEditorTrainerNotRequired__no-training {
+    vertical-align: middle; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponseEditorTrainer__content {
+  padding: 8px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  border: 1px solid #E8E8EB; }
+  .ResponseEditorTrainer__content__input-container {
+    position: relative; }
+    .ResponseEditorTrainer__content__input-container__input {
+      padding-right: 40px !important; }
+    .ResponseEditorTrainer__content__input-container__button {
+      position: absolute;
+      right: 1px;
+      top: 0;
+      width: 32px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .ResponseEditorTrainer__content__input-container__button-icon svg {
+      transition: fill 180ms ease; }
+    .ResponseEditorTrainer__content__input-container__button:hover .ResponseEditorTrainer__content__input-container__button-icon svg {
+      fill: #656568 !important; }
+  .ResponseEditorTrainer__content__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px; }
+    .ResponseEditorTrainer__content__footer__counter {
+      color: #656568;
+      font-size: 12px; }
+
+.ResponseEditorTrainer__add {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto 1px auto 0 !important;
+  color: #0975EF !important; }
+  .ResponseEditorTrainer__add--inactive {
+    color: #E8E8EB !important; }
+
+.ResponseEditorTrainer__expressions {
+  border: 1px solid #E8E8EB;
+  border-radius: 8px;
+  margin-top: 8px; }
+  .ResponseEditorTrainer__expressions--empty {
+    display: none; }
+  .ResponseEditorTrainer__expressions--unsaved:after {
+    content: ""; }
+  .ResponseEditorTrainer__expressions--loading:after {
+    content: "Loading"; }
+
+.ResponseEditorTrainer__button {
+  margin-top: 8px; }
+
+.ResponseEditorTrainer strong {
+  font-weight: 700; }
+
+.ResponseEditorTrainer__management-controls {
+  display: flex;
+  margin-top: 8px;
+  justify-content: space-between; }
+
+.ResponseEditorTrainer__management-controls-move--button {
+  margin-right: 8px; }
+
+.ResponseEditorTrainer__management-controls-move, .ResponseEditorTrainer__management-controls-delete {
+  display: flex; }
+
+.ResponseEditorTrainer__training-hint {
+  color: #656568;
+  font-size: 12px;
+  margin-top: 7px; }
+  .ResponseEditorTrainer__training-hint--key {
+    background: #F3F3F5;
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin: 0 4px; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.ResponsesEditor__block__droppable {
+  border: none;
+  padding: 0;
+  border-radius: 12px;
+  width: 100%; }
+  .ResponsesEditor__block__droppable__droppable-area-highlight {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    left: -4px;
+    bottom: -4px;
+    border-radius: 12px; }
+    .ResponsesEditor__block__droppable__droppable-area-highlight--is-droppable {
+      border: dashed 1px #E8E8EB; }
+    .ResponsesEditor__block__droppable__droppable-area-highlight__nested--is-droppable {
+      bottom: 12px; }
+    .ResponsesEditor__block__droppable__droppable-area-highlight__nested__empty--is-droppable {
+      bottom: 18px;
+      border: dashed 1px #E8E8EB; }
+  .ResponsesEditor__block__droppable__empty-state {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: #C4C4CA; }
+    .ResponsesEditor__block__droppable__empty-state__message {
+      margin-left: 26px;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #C4C4CA;
+      border-radius: 8px; }
+      .ResponsesEditor__block__droppable__empty-state__message__icon {
+        margin-right: 8px;
+        background: #C4C4CA !important;
+        color: #ADADB3;
+        border-radius: 6px;
+        width: 20px;
+        height: 20px; }
+
+.ResponsesEditor__block__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 16px 0; }
+  .ResponsesEditor__block__buttons:last-child {
+    margin: 0; }
+  .ResponsesEditor__block__buttons__label {
+    width: 100%; }
+  .ResponsesEditor__block__buttons__button {
+    z-index: 0;
+    margin: 0 8px 8px 0; }
+    .ResponsesEditor__block__buttons__button__side {
+      display: flex !important; }
+
+.ResponsesEditor__block__title {
+  font-size: 20px;
+  margin: 0; }
+  .ResponsesEditor__block__title__icon {
+    padding: 0 5px;
+    color: #E8E8EB;
+    cursor: pointer; }
+    .ResponsesEditor__block__title__icon:hover {
+      color: #3C3C3F; }
+
+.ResponsesEditor__block__empty-messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-color: #E8E8EB;
+  border: 1px solid #FB9804;
+  height: 80px;
+  color: #656568; }
+  .ResponsesEditor__block__empty-messages__icon {
+    height: 30px;
+    width: 30px;
+    margin-right: 8px; }
+
+.ResponsesEditor__pastezone {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 8px;
+  margin: 5px 0 3px 0;
+  background: none;
+  border: none;
+  padding-top: 1px; }
+  .ResponsesEditor__pastezone:focus {
+    outline: none; }
+  .ResponsesEditor__pastezone__inner {
+    position: absolute;
+    top: 3px;
+    left: 8px;
+    right: 8px;
+    border-top: 2px dashed rgba(0, 0, 0, 0); }
+    .ResponsesEditor__pastezone__inner--selected {
+      border-top: 2px solid #0975EF; }
+  .ResponsesEditor__pastezone:hover .ResponsesEditor__pastezone__inner {
+    border-top: 2px dashed #E8E8EB !important; }
+  .ResponsesEditor__pastezone:hover .ResponsesEditor__pastezone__inner--selected {
+    border-top: 2px solid #0975EF !important; }
+  .ResponsesEditor__pastezone:hover .ResponsesEditor__pastezone__inner--inactive {
+    border-top: 2px dashed rgba(0, 0, 0, 0) !important; }
+  .ResponsesEditor__pastezone:hover .ResponsesEditor__pastezone__inner--selected {
+    border-top: 2px solid #0975EF !important; }
+
+@charset "UTF-8";
+/*
+ * ⚠️⚠️⚠️ STOP ⚠️⚠️⚠️
+ * Before adding a new colour variable, please ensure that your colour doesn't already exist,
+ * and that it has the same name as in our Figma designs.
+ */
+
+.Responses__main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #F9F9F9; }
+
+.Responses__scrollable {
+  flex: 1;
+  align-content: center;
+  overflow: auto; }
+
+.Responses__error-message {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #656568;
+  font-size: 14px; }
+
+
+/*# sourceMappingURL=chunk.5.bae0645522c03c605a89.min.css.map*/
