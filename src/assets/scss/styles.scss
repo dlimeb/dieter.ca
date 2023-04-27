@@ -1,0 +1,331 @@
+//========================================================================
+//
+//  STYLES
+//
+//========================================================================
+
+//
+// CONTAINERS AND NAV
+//
+body {
+  background-color: var(--background-color);
+  padding-left: $horiz-spacing;
+  padding-right: $horiz-spacing;
+
+  @media (min-width: theme('screens.md')) {
+    padding-left: $horiz-spacing--md;
+    padding-right: $horiz-spacing--md;
+  }
+}
+@media (min-width: theme('screens.md')) {
+  .container {
+    @apply max-w-screen-sm;
+  }
+}
+#site-header,
+#site-footer {
+  a {
+    @apply font-mono text-base;
+    color: var(--text-color--muted);
+  }
+  a:hover {
+    @apply decoration-2 underline underline-offset-4;
+    color: var(--action-color);
+  }
+}
+#site-header {
+  @apply flex mt-6;
+  margin-bottom: $vert-spacing--large;
+
+  h1 {
+    @apply flex-none ml-0;
+  }
+  nav {
+    @apply flex-grow text-right;
+  }
+  ul {
+    @apply m-0;
+  }
+  li {
+    @apply inline-block ml-2;
+  }
+}
+#site-footer {
+  @apply my-4;
+  margin-top: $vert-spacing--large;
+
+  li {
+    @apply inline mr-1;
+
+    &.social:before {
+      content: "•";
+      @apply mr-1;
+    }
+  }
+  svg {
+    @apply inline-block mb-1;
+  }
+  li.feed a:hover {
+    svg {
+      color: #f99000;
+    }
+  }
+}
+body > footer,
+.article-nav--label,
+.article-metadata {
+  @apply text-lg leading-relaxed;
+  color: var(--text-color--muted);
+}
+
+
+//
+// GLOBAL TYPOGRAPHY
+//
+body {
+  @apply font-sans font-light text-xl leading-normal box-border;
+  color: var(--text-color);
+}
+p,
+ol,
+ul {
+  margin-bottom: $vert-spacing--base;
+}
+strong {
+  @apply font-bold;
+}
+em {
+  @apply italic;
+}
+.caps {
+  font-variant: small-caps;
+  @apply text-lg;
+}
+.ord {
+  @apply text-base align-text-top leading-none;
+}
+
+
+//
+// BODY CONTENT ELEMENTS
+//
+main,
+article {
+  header {
+    margin-bottom: $vert-spacing--large;
+  }
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply font-bold mt-12 mb-6;
+
+    .direct-link {
+      @apply hidden;
+    }
+    &:hover {
+      .direct-link {
+        @apply inline;
+      }
+    }
+  }
+  a {
+    @apply underline underline-offset-2;
+    color: var(--action-color);
+
+    &:hover {
+      @apply no-underline;
+    }
+  }
+  ol,
+  ul {
+    @apply ml-4;
+
+    @media (min-width: theme('screens.md')) {
+      @apply ml-0;
+    }
+  }
+  ol li {
+    @apply list-decimal;
+  }
+  ul li {
+    @apply list-disc;
+  }
+  figure {
+    @apply my-12;
+  }
+  hr,
+  picture {
+    @apply block;
+    margin-left: -$horiz-spacing;
+    margin-right: -$horiz-spacing;
+
+    @media (min-width: theme('screens.md')) {
+      margin-left: -$horiz-spacing--md;
+      margin-right: -$horiz-spacing--md;
+    }
+    @media (min-width: theme('screens.lg')) {
+      margin-left: -$horiz-spacing--lg;
+      margin-right: -$horiz-spacing--lg;
+    }
+  }
+  pre {
+    @apply font-mono text-base mb-6 py-4;
+    margin-left: -$horiz-spacing;
+    margin-right: -$horiz-spacing;
+    padding-left: $horiz-spacing;
+    padding-right: $horiz-spacing;
+  }
+  blockquote {
+    @apply text-xl leading-relaxed py-2 pl-4;
+    border-left-width: 0.3rem;
+    color: var(--blockquote-color);
+    border-color: var(--blockquote-color--border);
+    margin-bottom: $vert-spacing--base;
+    
+    @media (min-width: theme('screens.md')) {
+      margin-left: -(calc($horiz-spacing + 0.3rem));
+    }
+    p {
+      @apply mb-0;
+    }
+  }
+  cite {
+    @apply block italic text-lg leading-tight mt-2;
+    color: var(--text-color--muted);
+    @apply ml-4 not-italic;
+    color: var(--blockquote-color);
+  }
+  figcaption {
+    @apply font-mono text-sm text-right py-1 px-2;
+    color: var(--text-color--muted);
+  }
+  code {
+    @apply text-base rounded py-0.5 px-1.5;
+    color: var(--code-color--text);
+    background-color: var(--code-color--bg);
+  }
+  mark {
+    @apply rounded px-1;
+    color: var(--text-color);
+    background-color: var(--highlight-background-color);
+  }
+  hr {
+    margin-bottom: $vert-spacing--base;
+    border-color: var(--divider-color);
+  }
+  footer {
+    margin-top: $vert-spacing--large;
+
+    div {
+      @apply flex;
+    }
+  }
+}
+
+
+//
+// SPECIFIC ELEMENTS
+//
+// Article cards
+.list-articles {
+  @apply flex flex-wrap grow-0;
+
+  article {
+    @apply w-80 mr-4 mb-4 overflow-hidden;
+    background-color: var(--background-color--muted);
+
+    &:hover {
+
+      h3 {
+        @apply underline;
+        color: var(--action-color);
+      }
+    }
+  }
+  a {
+    @apply no-underline;
+  }
+  picture {
+    margin: 0;
+  }
+}
+.article-content {
+  @apply p-4;
+
+  h3 {
+    @apply text-2xl leading-none;
+    color: var(--text-color);
+  }
+  p {
+    @apply text-lg leading-none mt-2 mb-2;
+    // color: var(--text-color--muted);
+    color: var(--text-color);
+  }
+  time {
+    @apply font-mono text-sm;
+    color: var(--text-color--muted);
+  }
+}
+// Topic tags
+.list-topics {
+  @apply ml-0;
+
+  li {
+    @apply list-none inline-block mb-3 mr-1.5;
+  }
+}
+.topic {
+  @apply font-mono text-sm uppercase px-3 py-1.5 border-2 no-underline;
+  border-color: var(--action-color);
+}
+.topic:hover,
+.topic-active {
+  @apply text-white;
+  background-color: var(--action-color);
+}
+
+// Footnotes
+.direct-link,
+.footnote-ref a,
+a.footnote-backref {
+  @apply no-underline leading-none rounded;
+  color: var(--text-color--muted);
+
+  &:hover {
+    color: var(--action-color);
+    background-color: var(--background-color--muted);
+  }
+}
+.direct-link {
+  @apply rounded font-normal px-1;
+}
+.footnote-ref a {
+  @apply rounded text-sm font-sans font-medium py-0.5 px-1;
+}
+a.footnote-backref {
+  @apply rounded text-lg font-bold pt-1 px-0.5 bg-transparent;
+}
+.footnotes-list {
+  @apply text-lg;
+}
+
+// Pre/next article nav
+.article-metadata {
+  @apply text-right;
+}
+.article-nav--label {
+  @apply flex-shrink-0 w-32;
+  margin-top: 0.15em; // fix baseline
+
+  @media (min-width: theme('screens.md')) {
+    @apply w-48;
+  }
+}
+
+// Misc
+.page-404 {
+  .direct-link {
+    @apply hidden;
+  }
+}

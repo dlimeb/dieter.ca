@@ -1,0 +1,22 @@
+{# 
+{% if selectedTag %}
+  {% set listLength = collections[tag].length %}
+  {{ listLength }} article{% if listLength > 1 %}s{% endif %} about "{{ tag }}"
+{% endif %}
+#}
+
+
+<div class="list-articles">
+{% for article in articlesList | reverse %}
+  <article class="article">
+    <a href="{{ article.url | url }}">
+      {% image article.data.image.filename, article.data.image.alt %}
+      <div class="article-content">
+        <h3>{% if article.data.title %}{{ article.data.title }}{% else %}{{ article.url }}{% endif %}</h3>
+        {% if article.data.summary %}<p>{{ article.data.summary }}</p>{% endif %}
+        <time datetime="{{ article.date | htmlDateString }}">{{ article.date | readableDate }}</time>
+      </div>
+    </a>
+  </article>
+{% endfor %}
+</div>

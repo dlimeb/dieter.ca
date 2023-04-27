@@ -1,0 +1,53 @@
+---
+layout: base
+---
+
+<article>
+  <header>
+    <h1 id="title">{{ title }}</h1>
+
+    {% if image %}
+      {% image image.filename, image.alt, image.caption %}
+    {% endif %}
+  </header>
+
+  {{ content | safe }}
+
+
+  <p class="article-metadata">
+    — <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+  </p>
+
+    {# List tags, if there are any. Note every post gets an `articles` tag (via
+    articles.json) so it's posts with only 1 tag that have *zero* added by me
+    via the front matter. #}
+
+    {# {%- if tags|length > 1 %} • {%- endif %}
+    {%- for tag in tags | filterTagList %}
+    {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+    <a href="{{ tagUrl | url }}" class="Article-tag">{{ tag }}</a>
+    {%- if not loop.last -%}, {%- endif -%}
+    {%- endfor %} #}
+
+  {% if collections.articles %}
+    {% set nextArticle = collections.articles | getNextCollectionItem(page) %}
+    {% set previousArticle = collections.articles | getPreviousCollectionItem(page) %}
+
+    {% if nextArticle or previousArticle %}
+      <footer>
+        {% if nextArticle %}
+          <div>
+            <span class="article-nav--label">Up next</span>
+            <span><a href="{{ nextArticle.url | url }}">{{ nextArticle.data.title }}</a></span>
+          </div>
+        {% endif %}
+        {% if previousArticle %}
+          <div>
+            <span class="article-nav--label">Previously</span>
+            <span><a href="{{ previousArticle.url | url }}">{{ previousArticle.data.title }}</a></span>
+          </div>
+        {% endif %}
+      </footer>
+    {% endif %}
+  {% endif %}
+</article>
