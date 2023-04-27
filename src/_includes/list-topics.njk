@@ -1,0 +1,12 @@
+<ul class="list-topics">
+{% for tag in collections.tagList %}
+  <li>
+    {# TODO like the idea of clicking on selected tag to clear it and go back to main list #}
+    {% set tagUrl %}/writing/{{ tag | slugify }}/{% endset %}
+    <a href="{{ tagUrl | url }}" class="topic{% if tag == selectedTag %} topic-active{% endif %}">
+      {{ tag }}
+      ({{ collections[tag].length }})
+    </a>
+  </li>
+{% endfor %}
+</ul>

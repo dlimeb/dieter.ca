@@ -1,0 +1,62 @@
+//========================================================================
+//
+//  VARIABLES
+//
+//========================================================================
+
+
+//
+// ALIGNMENT
+//
+$vert-spacing--base: 1.5rem;
+$vert-spacing--large: 8rem;
+
+$horiz-spacing: 1rem;
+$horiz-spacing--md: 2rem;
+$horiz-spacing--lg: 6rem;
+
+//
+// LIGHT/DARK MODE
+//
+ :root {
+  @media (prefers-color-scheme: light) {
+    --background-color: theme('colors.white');
+    --background-color--muted: theme('colors.stone.50');
+
+    --text-color: theme('colors.slate.800');
+    --text-color--muted: theme('colors.gray.500');
+
+    --action-color: theme('colors.pink.600');
+
+    --code-color--text: theme('colors.slate.700');
+    --code-color--bg: theme('colors.slate.200');
+
+    --highlight-background-color: theme('colors.amber.100');
+
+    --blockquote-color: theme('colors.sky.800');
+    --blockquote-color--border: theme('colors.sky.100');
+
+    --divider-color: theme('colors.slate.300');
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background-color: theme('colors.gray.900');
+    --background-color--muted: theme('colors.gray.800');
+
+    --text-color: theme('colors.slate.200');
+    --text-color--muted: theme('colors.gray.400');
+
+    --action-color: theme('colors.pink.700');
+
+    --code-color--text: theme('colors.slate.400');
+    --code-color--bg: theme('colors.slate.800');
+
+    --highlight-background-color: theme('colors.amber.900');
+
+    --blockquote-color: theme('colors.slate.300');
+    --blockquote-color--border: theme('colors.slate.700');
+
+    --divider-color: theme('colors.slate.600');
+  }
+}
+

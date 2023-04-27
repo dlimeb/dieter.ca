@@ -1,0 +1,30 @@
+{
+    "title": "dieter.ca",
+    "url": "https://dieter.ca/",
+    "language": "en",
+    "description": "Personal website of Dieter Limeback",
+    "feed": {
+      "subtitle": "Personal website of Dieter Limeback",
+      "filename": "feed.xml",
+      "path": "/feed/feed.xml",
+      "id": "https://dieter.ca/"
+    },
+    "jsonfeed": {
+      "path": "/feed/feed.json",
+      "url": "https://dieter.ca/feed/feed.json"
+    },
+    "author": {
+      "name": "Dieter Limeback",
+      "email": "dlimeb@gmail.com",
+      "url": "https://dieter.ca/about/"
+    },
+    "social": {
+        "twitter": {
+            "name": "Dieter Limeback",
+            "handle": "@dlimeb"
+        },
+        "images": {
+            "og": ""
+        }
+    }
+}
