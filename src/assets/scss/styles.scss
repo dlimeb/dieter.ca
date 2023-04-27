@@ -83,7 +83,7 @@ body > footer,
 // GLOBAL TYPOGRAPHY
 //
 body {
-  @apply font-sans font-light text-xl leading-normal box-border;
+  @apply font-serif text-xl leading-normal box-border mt-32;
   color: var(--text-color);
 }
 p,
@@ -130,11 +130,11 @@ article {
     }
   }
   a {
-    @apply underline underline-offset-2;
-    color: var(--action-color);
+    @apply underline decoration-1 underline-offset-4;
 
     &:hover {
       @apply no-underline;
+      background-color: var(--action-color);
     }
   }
   ol,

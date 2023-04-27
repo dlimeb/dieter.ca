@@ -10,15 +10,12 @@
 
     {# styling #}
     <link rel="stylesheet" href="/assets/main.css?<%- cacheBust.mainCss %>" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    {# <link rel="stylesheet" href="https://use.typekit.net/icc2gwv.css"> #}
+    <link rel="stylesheet" href="https://use.typekit.net/icc2gwv.css">
 
     {# favicons #}
     {# TODO create favicon #}
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    {# <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+    <link rel="icon" type="image/png" href="/images/favicon.png" /> #}
 
     {# feeds #}
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
@@ -26,7 +23,7 @@
 
     {# social #}
     {# TODO check images; see metadata.json #}
-    <meta property="og:site_name" content="{{ site.name }}">
+    {# <meta property="og:site_name" content="{{ site.name }}">
     <meta property="og:title" content="{% if title %}{{ title }} • {% endif %}{{ site.name }}">
     <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | truncate(140) }}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
@@ -35,10 +32,10 @@
     <meta name="twitter:title" content="{% if title %}{{ title }} • {% endif %}{{ site.name }}">
     <meta name="twitter:description" content="{{ description | truncate(140) if description else content | striptags | truncate(140) }}">
     <meta name="twitter:creator" content="{{ site.social.twitter.handle }}">
-    <meta name="twitter:image" content="{{ site.url }}{{ site.social.images.og }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ site.social.images.og }}"> #}
   </head>
 
-  <body class="motion-safe type-{{ layout | lower }} page-{{ page.fileSlug if page.fileSlug != '_pages' else 'home' }}">
+  <body class="container motion-safe type-{{ layout | lower }} page-{{ page.fileSlug if page.fileSlug != '_pages' else 'home' }}">
     <a class="sr-only" href="#main">Skip to content</a>
 
     {# {% include "header.njk" %} #}
