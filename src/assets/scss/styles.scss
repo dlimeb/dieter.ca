@@ -13,8 +13,8 @@ body {
   padding-right: $horiz-spacing;
 
   @media (min-width: theme('screens.md')) {
-    padding-left: $horiz-spacing--md;
-    padding-right: $horiz-spacing--md;
+    // padding-left: $horiz-spacing--md;
+    // padding-right: $horiz-spacing--md;
   }
 }
 @media (min-width: theme('screens.md')) {
@@ -51,7 +51,7 @@ body {
   }
 }
 #site-footer {
-  @apply my-4;
+  @apply my-6;
   margin-top: $vert-spacing--large;
 
   li {
@@ -83,7 +83,7 @@ body > footer,
 // GLOBAL TYPOGRAPHY
 //
 body {
-  @apply font-serif text-xl leading-normal box-border mt-32;
+  @apply font-serif text-xl leading-normal box-border mt-40;
   color: var(--text-color);
 }
 p,
@@ -115,7 +115,7 @@ article {
     margin-bottom: $vert-spacing--large;
   }
   h1 {
-    @apply text-5xl;
+    @apply font-bold text-xl mb-6;
   }
   h2 {
     @apply font-bold mt-12 mb-6;
@@ -130,12 +130,21 @@ article {
     }
   }
   a {
-    @apply underline decoration-1 underline-offset-4;
+    @apply underline decoration-2;
+    text-decoration-color: var(--action-color);
+    text-underline-offset: 3px;
 
     &:hover {
       @apply no-underline;
-      background-color: var(--action-color);
+      color: var(--action-color--hover);
     }
+
+    // &[target="_blank"]:after {
+    //   @apply inline-block font-sans text-base;
+    //   padding-left: 2px;
+    //   content: "↗";
+    //   color: var(--text-color--muted);
+    // }
   }
   ol,
   ul {
@@ -177,9 +186,9 @@ article {
     padding-right: $horiz-spacing;
   }
   blockquote {
-    @apply text-xl leading-relaxed py-2 pl-4;
+    @apply text-xl leading-normal py-2 pl-4;
     border-left-width: 0.3rem;
-    color: var(--blockquote-color);
+    color: var(--text-color--muted);
     border-color: var(--blockquote-color--border);
     margin-bottom: $vert-spacing--base;
     
@@ -201,7 +210,7 @@ article {
     color: var(--text-color--muted);
   }
   code {
-    @apply text-base rounded py-0.5 px-1.5;
+    @apply text-base rounded py-0.5 px-1;
     color: var(--code-color--text);
     background-color: var(--code-color--bg);
   }
@@ -211,7 +220,7 @@ article {
     background-color: var(--highlight-background-color);
   }
   hr {
-    margin-bottom: $vert-spacing--base;
+    @apply max-w-xs my-20 mx-auto;
     border-color: var(--divider-color);
   }
   footer {
@@ -289,12 +298,12 @@ article {
 .direct-link,
 .footnote-ref a,
 a.footnote-backref {
-  @apply no-underline leading-none rounded;
+  @apply font-sans no-underline leading-none rounded;
   color: var(--text-color--muted);
 
   &:hover {
-    color: var(--action-color);
-    background-color: var(--background-color--muted);
+    color: white;
+    background-color: var(--action-color);
   }
 }
 .direct-link {
