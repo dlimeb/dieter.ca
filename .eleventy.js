@@ -76,7 +76,7 @@ module.exports = function(eleventyConfig) {
   // Copy src/compiled-assets to /assets
   eleventyConfig.addPassthroughCopy({ 'src/compiled-assets': 'assets' });
   // Copy all images
-  eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('src/assets/images');
 
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
