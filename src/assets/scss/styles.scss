@@ -5,77 +5,25 @@
 //========================================================================
 
 //
-// CONTAINERS AND NAV
+// CONTAINERS
 //
 body {
+  @apply box-border p-4;
   background-color: var(--background-color);
-  padding-left: $horiz-spacing;
-  padding-right: $horiz-spacing;
-
-  @media (min-width: theme('screens.md')) {
-    // padding-left: $horiz-spacing--md;
-    // padding-right: $horiz-spacing--md;
-  }
 }
 @media (min-width: theme('screens.md')) {
   .container {
     @apply max-w-screen-sm;
   }
 }
-#site-header,
-#site-footer {
-  a {
-    @apply font-mono text-base;
-    color: var(--text-color--muted);
-  }
-  a:hover {
-    @apply decoration-2 underline underline-offset-4;
-    color: var(--action-color);
-  }
+main {
+  margin-top: $vert-spacer;
+  margin-bottom: $vert-spacer;
 }
 #site-header {
-  @apply flex mt-6;
-  margin-bottom: $vert-spacing--large;
-
-  h1 {
-    @apply flex-none ml-0;
-  }
-  nav {
-    @apply flex-grow text-right;
-  }
-  ul {
-    @apply m-0;
-  }
-  li {
-    @apply inline-block ml-2;
-  }
+  @apply flex;
 }
 #site-footer {
-  @apply my-6;
-  margin-top: $vert-spacing--large;
-
-  li {
-    @apply inline mr-1;
-
-    &.social:before {
-      content: "•";
-      @apply mr-1;
-    }
-  }
-  svg {
-    @apply inline-block mb-1;
-  }
-  li.feed a:hover {
-    svg {
-      color: #f99000;
-    }
-  }
-}
-body > footer,
-.article-nav--label,
-.article-metadata {
-  @apply text-lg leading-relaxed;
-  color: var(--text-color--muted);
 }
 
 
@@ -83,13 +31,13 @@ body > footer,
 // GLOBAL TYPOGRAPHY
 //
 body {
-  @apply font-serif text-xl leading-normal box-border mt-40;
+  @apply font-serif text-xl leading-normal;
   color: var(--text-color);
 }
 p,
 ol,
 ul {
-  margin-bottom: $vert-spacing--base;
+  @apply mb-6;
 }
 strong {
   @apply font-bold;
@@ -104,15 +52,10 @@ em {
 .ord {
   @apply text-base align-text-top leading-none;
 }
-
-
-//
-// BODY CONTENT ELEMENTS
-//
 main,
 article {
   header {
-    margin-bottom: $vert-spacing--large;
+    margin-bottom: $vert-spacer;
   }
   h1 {
     @apply font-bold text-xl mb-6;
@@ -136,12 +79,12 @@ article {
 
     &:hover {
       @apply no-underline;
-      color: var(--action-color--hover);
+      color: var(--action-color);
     }
 
     // &[target="_blank"]:after {
-    //   @apply inline-block font-sans text-base;
-    //   padding-left: 2px;
+    //   @apply inline-block font-sans text-sm pl-1;
+    //   vertical-align: text-top;
     //   content: "↗";
     //   color: var(--text-color--muted);
     // }
@@ -165,35 +108,48 @@ article {
   }
   hr,
   picture {
-    @apply block;
-    margin-left: -$horiz-spacing;
-    margin-right: -$horiz-spacing;
-
-    @media (min-width: theme('screens.md')) {
-      margin-left: -$horiz-spacing--md;
-      margin-right: -$horiz-spacing--md;
-    }
-    @media (min-width: theme('screens.lg')) {
-      margin-left: -$horiz-spacing--lg;
-      margin-right: -$horiz-spacing--lg;
-    }
+    @apply block my-16;
   }
   pre {
-    @apply font-mono text-base mb-6 py-4;
-    margin-left: -$horiz-spacing;
-    margin-right: -$horiz-spacing;
-    padding-left: $horiz-spacing;
-    padding-right: $horiz-spacing;
+    @apply font-mono text-base mb-6 p-4;
+  }
+  pre,
+  picture {
+    // outdent same as p-4 on body
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+  picture {
+    @media (min-width: theme('screens.md')) {
+      margin-left: -3rem;
+      margin-right: -3rem;
+    }
+    @media (min-width: theme('screens.lg')) {
+      margin-left: -6rem;
+      margin-right: -6rem;
+    }
+  }
+  figcaption {
+    @apply font-mono text-sm text-right py-1 px-4;
+    color: var(--text-color--muted);
+
+    @media (min-width: theme('screens.md')) {
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+    @media (min-width: theme('screens.lg')) {
+      margin-left: 5rem;
+      margin-right: 5rem;
+    }
   }
   blockquote {
-    @apply text-xl leading-normal py-2 pl-4;
+    @apply text-xl leading-normal py-2 pl-4 mb-6;
     border-left-width: 0.3rem;
     color: var(--text-color--muted);
     border-color: var(--blockquote-color--border);
-    margin-bottom: $vert-spacing--base;
     
     @media (min-width: theme('screens.md')) {
-      margin-left: -(calc($horiz-spacing + 0.3rem));
+      margin-left: -1.3rem;
     }
     p {
       @apply mb-0;
@@ -205,17 +161,13 @@ article {
     @apply ml-4 not-italic;
     color: var(--blockquote-color);
   }
-  figcaption {
-    @apply font-mono text-sm text-right py-1 px-2;
-    color: var(--text-color--muted);
-  }
   code {
     @apply text-base rounded py-0.5 px-1;
     color: var(--code-color--text);
     background-color: var(--code-color--bg);
   }
   mark {
-    @apply rounded px-1;
+    @apply px-1;
     color: var(--text-color);
     background-color: var(--highlight-background-color);
   }
@@ -223,76 +175,118 @@ article {
     @apply max-w-xs my-20 mx-auto;
     border-color: var(--divider-color);
   }
-  footer {
-    margin-top: $vert-spacing--large;
-
-    div {
-      @apply flex;
-    }
-  }
+  // footer {
+    // margin-top: $vert-spacing--large;
+  // }
 }
 
 
 //
 // SPECIFIC ELEMENTS
 //
-// Article cards
-.list-articles {
-  @apply flex flex-wrap grow-0;
+// Header and footer
+#site-header {
+  a {
+    @apply font-mono text-base;
+    color: var(--text-color--muted);
+  }
+  a:hover {
+    @apply decoration-2 underline underline-offset-4;
+    color: var(--action-color);
+  }
+  h1 {
+    @apply flex-none ml-0;
+  }
+  nav {
+    @apply flex-grow text-right;
+  }
+  ul {
+    @apply m-0;
+  }
+  li {
+    @apply inline-block ml-2;
 
-  article {
-    @apply w-80 mr-4 mb-4 overflow-hidden;
-    background-color: var(--background-color--muted);
-
-    &:hover {
-
-      h3 {
-        @apply underline;
-        color: var(--action-color);
+    &.feed {
+      svg {
+        @apply inline-block mb-1 mr-1.5;
+      }
+      a:hover {
+        color: #f99000;
+        svg {
+          color: #f99000;
+        }
       }
     }
   }
-  a {
-    @apply no-underline;
-  }
-  picture {
-    margin: 0;
-  }
 }
-.article-content {
-  @apply p-4;
+#site-footer {
+  @apply font-mono text-sm;
+  color: var(--text-color--muted);
+}
+// body > footer,
+// .article-nav--label,
+// .article-metadata {
+//   @apply text-lg leading-relaxed;
+//   color: var(--text-color--muted);
+// }
 
-  h3 {
-    @apply text-2xl leading-none;
-    color: var(--text-color);
-  }
-  p {
-    @apply text-lg leading-none mt-2 mb-2;
-    // color: var(--text-color--muted);
-    color: var(--text-color);
-  }
-  time {
-    @apply font-mono text-sm;
-    color: var(--text-color--muted);
-  }
-}
+// Article cards
+// .list-articles {
+//   @apply flex flex-wrap grow-0;
+
+//   article {
+//     @apply w-80 mr-4 mb-4 overflow-hidden;
+//     background-color: var(--background-color--muted);
+
+//     &:hover {
+
+//       h3 {
+//         @apply underline;
+//         color: var(--action-color);
+//       }
+//     }
+//   }
+//   a {
+//     @apply no-underline;
+//   }
+//   picture {
+//     margin: 0;
+//   }
+// }
+// .article-content {
+//   @apply p-4;
+
+//   h3 {
+//     @apply text-2xl leading-none;
+//     color: var(--text-color);
+//   }
+//   p {
+//     @apply text-lg leading-none mt-2 mb-2;
+//     // color: var(--text-color--muted);
+//     color: var(--text-color);
+//   }
+//   time {
+//     @apply font-mono text-sm;
+//     color: var(--text-color--muted);
+//   }
+// }
 // Topic tags
-.list-topics {
-  @apply ml-0;
+// .list-topics {
+//   @apply ml-0;
 
-  li {
-    @apply list-none inline-block mb-3 mr-1.5;
-  }
-}
-.topic {
-  @apply font-mono text-sm uppercase px-3 py-1.5 border-2 no-underline;
-  border-color: var(--action-color);
-}
-.topic:hover,
-.topic-active {
-  @apply text-white;
-  background-color: var(--action-color);
-}
+//   li {
+//     @apply list-none inline-block mb-3 mr-1.5;
+//   }
+// }
+// .topic {
+//   @apply font-mono text-sm uppercase px-3 py-1.5 border-2 no-underline;
+//   border-color: var(--action-color);
+// }
+// .topic:hover,
+// .topic-active {
+//   @apply text-white;
+//   background-color: var(--action-color);
+// }
 
 // Footnotes
 .direct-link,
@@ -320,17 +314,17 @@ a.footnote-backref {
 }
 
 // Pre/next article nav
-.article-metadata {
-  @apply text-right;
-}
-.article-nav--label {
-  @apply flex-shrink-0 w-32;
-  margin-top: 0.15em; // fix baseline
+// .article-metadata {
+//   @apply text-right;
+// }
+// .article-nav--label {
+//   @apply flex-shrink-0 w-32;
+//   margin-top: 0.15em; // fix baseline
 
-  @media (min-width: theme('screens.md')) {
-    @apply w-48;
-  }
-}
+//   @media (min-width: theme('screens.md')) {
+//     @apply w-48;
+//   }
+// }
 
 // Misc
 .page-404 {
