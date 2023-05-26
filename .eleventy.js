@@ -27,7 +27,7 @@ module.exports = function(eleventyConfig) {
       urlPath: "/images/",
       outputDir: "./dist/images"
     }
-    let file = "src/images/" + src;
+    let file = "src/assets/images/" + src;
 
     eleventyImage(file, options);
     metadata = eleventyImage.statsSync(file, options);

@@ -35,16 +35,20 @@
     <meta name="twitter:image" content="{{ site.url }}{{ site.social.images.og }}"> #}
   </head>
 
-  <body class="container motion-safe type-{{ layout | lower }} page-{{ page.fileSlug if page.fileSlug != '_pages' else 'home' }}">
+  <body class="motion-safe type-{{ layout | lower }} page-{{ page.fileSlug if page.fileSlug != '_pages' else 'home' }}">
     <a class="sr-only" href="#main">Skip to content</a>
 
-    {# {% include "header.njk" %} #}
+    {% if header != false %}
+      {% include "header.njk" %}
+    {% endif %}
 
-    <main id="main" class="" aria-labelledby="title">
+    <main id="main" class="container" aria-labelledby="title">
       {{ content | typogrify | safe }}
     </main>
 
-    {# {% include "footer.njk" %} #}
+    {% if footer != false %}
+      {% include "footer.njk" %}
+    {% endif %}
 
     <script src="/assets/main.js?<%- cacheBust.mainJs %>"></script>
   </body>
