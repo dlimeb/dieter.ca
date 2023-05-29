@@ -24,8 +24,8 @@ module.exports = function(eleventyConfig) {
     let options = {
       widths: [300,600,1200],
       formats: ["webp", "jpeg"],
-      urlPath: "/images/",
-      outputDir: "./dist/images"
+      urlPath: "/assets/images/",
+      outputDir: "./dist/assets/images"
     }
     let file = "src/assets/images/" + src;
 
