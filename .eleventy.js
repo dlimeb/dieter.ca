@@ -24,8 +24,8 @@ module.exports = function(eleventyConfig) {
     let options = {
       widths: [300,600,1200],
       formats: ["webp", "jpeg"],
-      urlPath: "/images/",
-      outputDir: "./dist/images"
+      urlPath: "/assets/images/",
+      outputDir: "./dist/assets/images"
     }
     let file = "src/assets/images/" + src;
 
@@ -76,6 +76,7 @@ module.exports = function(eleventyConfig) {
   // Copy src/compiled-assets to /assets
   eleventyConfig.addPassthroughCopy({ 'src/compiled-assets': 'assets' });
   // Copy all images
+  eleventyConfig.addPassthroughCopy('src/assets/favicon');
   eleventyConfig.addPassthroughCopy('src/assets/images');
 
   // Get the first `n` elements of a collection.

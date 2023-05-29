@@ -1,5 +1,4 @@
 ---
-# Metadata comes from _data/metadata.json
 permalink: "{{ metadata.jsonfeed.path }}"
 eleventyExcludeFromCollections: true
 ---
@@ -9,14 +8,16 @@ eleventyExcludeFromCollections: true
   "language": "{{ metadata.language }}",
   "home_page_url": "{{ metadata.url }}",
   "feed_url": "{{ metadata.jsonfeed.url }}",
-  "description": "{{ metadata.description }}",
-  "author": {
-    "name": "{{ metadata.author.name }}",
-    "url": "{{ metadata.author.url }}"
-  },
+  "description": "{{ metadata.jsonfeed.description }}",
+  "authors": [
+    {
+      "name": "{{ metadata.author.name }}",
+      "url": "{{ metadata.author.url }}"
+    }
+  ],
   "items": [
-    {%- for article in collections.articles | reverse %}
-    {%- set absolutePostUrl %}{{ post.url | url | absoluteUrl(metadata.url) }}{% endset -%}
+    {%- for article in collections.articles | reverse -%}
+    {%- set absolutePostUrl %}{{ article.url | url | absoluteUrl(metadata.url) }}{% endset -%}
     {
       "id": "{{ absolutePostUrl }}",
       "url": "{{ absolutePostUrl }}",
@@ -26,7 +27,7 @@ eleventyExcludeFromCollections: true
     }
     {%- if not loop.last -%}
     ,
-    {%- endif -%}
-    {%- endfor %}
+    {% endif %}
+    {% endfor %}
   ]
 }

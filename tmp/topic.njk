@@ -1,0 +1,24 @@
+---
+layout: page
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - article
+    - articles
+    - tagList
+  addAllPagesToCollections: true
+eleventyComputed:
+  title: Writing about “{{ tag }}”
+  description: List of writing posted about "{{ tag }}"
+permalink: /writing/{{ tag | slugify }}/
+---
+
+{% set articlesList = collections[tag] %}
+{% set selectedTag = tag %}
+
+{% include "list-articles.njk" %}
+
+<p class="list-topics">View <a href="/writing">all articles</a> or writing on {% include "list-topics.njk" %}</p>

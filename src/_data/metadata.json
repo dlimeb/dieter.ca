@@ -1,15 +1,15 @@
 {
     "title": "dieter.ca",
-    "url": "https://dieter.ca/",
+    "url": "https://dieter.ca",
     "language": "en",
-    "description": "Personal website of Dieter Limeback",
     "feed": {
-      "subtitle": "Personal website of Dieter Limeback",
+      "subtitle": "The personal website of Dieter Limeback, a designer, coach, and aspiring writer from Toronto, Canada",
       "filename": "feed.xml",
       "path": "/feed/feed.xml",
-      "id": "https://dieter.ca/"
+      "id": "https://dieter.ca"
     },
     "jsonfeed": {
+      "description": "The personal website of Dieter Limeback, a designer, coach, and aspiring writer from Toronto, Canada",
       "path": "/feed/feed.json",
       "url": "https://dieter.ca/feed/feed.json"
     },
@@ -19,10 +19,6 @@
       "url": "https://dieter.ca/about/"
     },
     "social": {
-        "twitter": {
-            "name": "Dieter Limeback",
-            "handle": "@dlimeb"
-        },
         "images": {
             "og": ""
         }

@@ -7,13 +7,14 @@
 //
 // ALIGNMENT
 //
-$vert-spacer: 8rem;
+$vert-spacer: 10rem;
 
 //
 // LIGHT/DARK MODE
 //
- :root {
-  @media (prefers-color-scheme: light) {
+:root {
+
+  body[data-theme="light"] {
     --background-color: theme('colors.white');
     --background-color--muted: theme('colors.gray.100');
 
@@ -27,24 +28,24 @@ $vert-spacer: 8rem;
 
     --highlight-background-color: theme('colors.amber.100');
 
-    --blockquote-color--border: theme('colors.gray.200');
+    --blockquote-color--border: theme('colors.gray.100');
 
     --divider-color: theme('colors.slate.400');
   }
 
-  @media (prefers-color-scheme: dark) {
+  body[data-theme="dark"] {
     --background-color: theme('colors.gray.900');
     --background-color--muted: theme('colors.slate.800');
 
     --text-color: theme('colors.neutral.300');
     --text-color--muted: theme('colors.gray.400');
 
-    --action-color: theme('colors.purple.600');
+    --action-color: theme('colors.violet.500');
 
     --code-color--text: theme('colors.slate.300');
     --code-color--bg: theme('colors.slate.700');
 
-    --highlight-background-color: theme('colors.amber.900');
+    --highlight-background-color: theme('colors.orange.900');
 
     --blockquote-color--border: theme('colors.slate.700');
 
