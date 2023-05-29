@@ -1,0 +1,15 @@
+---
+layout: page
+title: Writing
+description: List of all writing posted, on every topic
+eleventyNavigation:
+  key: Writing
+  order: 1
+permalink: "/writing/"
+---
+
+{% set articlesList = collections.articles %}
+
+{% include "list-articles.njk" %}
+
+<p class="list-topics">Or view writing on {% include "list-topics.njk" %}</p>

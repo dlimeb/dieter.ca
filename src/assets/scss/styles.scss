@@ -8,7 +8,7 @@
 // CONTAINERS
 //
 body {
-  @apply box-border p-4;
+  @apply box-border py-4 px-6;
   background-color: var(--background-color);
 }
 @media (min-width: theme('screens.md')) {
@@ -18,12 +18,11 @@ body {
 }
 main {
   margin-top: $vert-spacer;
-  margin-bottom: $vert-spacer;
+  margin-bottom: calc(2 * $vert-spacer);
 }
-#site-header {
-  @apply flex;
-}
+#site-header,
 #site-footer {
+  @apply flex leading-none items-baseline;
 }
 
 
@@ -52,6 +51,10 @@ em {
 .ord {
   @apply text-base align-text-top leading-none;
 }
+.small-label {
+  @apply text-lg;
+  color: var(--text-color--muted);
+}
 main,
 article {
   header {
@@ -74,12 +77,14 @@ article {
   }
   a {
     @apply underline decoration-2;
-    text-decoration-color: var(--action-color);
     text-underline-offset: 3px;
-
+    color: var(--action-color);
+    text-decoration-color: var(--action-color);
+ //
     &:hover {
       @apply no-underline;
       color: var(--action-color);
+      text-decoration-color: var(--action-color);
     }
 
     // &[target="_blank"]:after {
@@ -115,9 +120,9 @@ article {
   }
   pre,
   picture {
-    // outdent same as p-4 on body
-    margin-left: -1rem;
-    margin-right: -1rem;
+    // outdent same as px-6 on body
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
   }
   picture {
     @media (min-width: theme('screens.md')) {
@@ -130,7 +135,7 @@ article {
     }
   }
   figcaption {
-    @apply font-mono text-sm text-right py-1 px-4;
+    @apply font-mono text-sm py-1 px-4;
     color: var(--text-color--muted);
 
     @media (min-width: theme('screens.md')) {
@@ -143,17 +148,19 @@ article {
     }
   }
   blockquote {
-    @apply text-xl leading-normal py-2 pl-4 mb-6;
-    border-left-width: 0.3rem;
+    @apply text-xl leading-normal py-2 pl-6 mb-6;
     color: var(--text-color--muted);
+    border-left-width: 0.3rem;
     border-color: var(--blockquote-color--border);
     
     @media (min-width: theme('screens.md')) {
-      margin-left: -1.3rem;
+      @apply pl-8;
     }
+    
     p {
       @apply mb-0;
     }
+
   }
   cite {
     @apply block italic text-lg leading-tight mt-2;
@@ -175,9 +182,9 @@ article {
     @apply max-w-xs my-20 mx-auto;
     border-color: var(--divider-color);
   }
-  // footer {
-    // margin-top: $vert-spacing--large;
-  // }
+  footer {
+    margin-top: $vert-spacer;
+  }
 }
 
 
@@ -185,119 +192,94 @@ article {
 // SPECIFIC ELEMENTS
 //
 // Header and footer
-#site-header {
+#site-header,
+#site-footer {
+  .extras,
   a {
-    @apply font-mono text-base;
+    @apply font-mono text-sm;
     color: var(--text-color--muted);
   }
   a:hover {
     @apply decoration-2 underline underline-offset-4;
     color: var(--action-color);
   }
-  h1 {
-    @apply flex-none ml-0;
+  h1,
+  .extras {
+    @apply flex-none;
   }
-  nav {
+  nav,
+  .links {
     @apply flex-grow text-right;
   }
   ul {
     @apply m-0;
   }
   li {
-    @apply inline-block ml-2;
-
-    &.feed {
+    @apply inline-block mr-2;
+    &:last-child {
+      @apply mr-0;
+    }
+  }
+  .feed {
+    svg {
+      @apply inline-block mb-1 mr-1.5;
+    }
+    a:hover {
+      color: #f99000;
       svg {
-        @apply inline-block mb-1 mr-1.5;
-      }
-      a:hover {
         color: #f99000;
-        svg {
-          color: #f99000;
-        }
       }
     }
   }
 }
-#site-footer {
-  @apply font-mono text-sm;
-  color: var(--text-color--muted);
+#sun,
+#moon {
+  @apply w-5;
 }
-// body > footer,
-// .article-nav--label,
-// .article-metadata {
-//   @apply text-lg leading-relaxed;
-//   color: var(--text-color--muted);
-// }
+body[data-theme="light"] {
+  #sun {
+    @apply inline;
+  }
+  #moon {
+    @apply hidden;
+  }
+}
+body[data-theme="dark"] {
+  #sun {
+    @apply hidden;
+  }
+  #moon {
+    @apply inline;
+  }
+}
 
-// Article cards
-// .list-articles {
-//   @apply flex flex-wrap grow-0;
-
-//   article {
-//     @apply w-80 mr-4 mb-4 overflow-hidden;
-//     background-color: var(--background-color--muted);
-
-//     &:hover {
-
-//       h3 {
-//         @apply underline;
-//         color: var(--action-color);
-//       }
-//     }
-//   }
-//   a {
-//     @apply no-underline;
-//   }
-//   picture {
-//     margin: 0;
-//   }
-// }
-// .article-content {
-//   @apply p-4;
-
-//   h3 {
-//     @apply text-2xl leading-none;
-//     color: var(--text-color);
-//   }
-//   p {
-//     @apply text-lg leading-none mt-2 mb-2;
-//     // color: var(--text-color--muted);
-//     color: var(--text-color);
-//   }
-//   time {
-//     @apply font-mono text-sm;
-//     color: var(--text-color--muted);
-//   }
-// }
-// Topic tags
-// .list-topics {
-//   @apply ml-0;
-
-//   li {
-//     @apply list-none inline-block mb-3 mr-1.5;
-//   }
-// }
-// .topic {
-//   @apply font-mono text-sm uppercase px-3 py-1.5 border-2 no-underline;
-//   border-color: var(--action-color);
-// }
-// .topic:hover,
-// .topic-active {
-//   @apply text-white;
-//   background-color: var(--action-color);
-// }
+// Writing indexes
+.list-articles {
+  @apply m-0;
+  li {
+    @apply list-none;
+  }
+  a {
+    @apply mr-1;
+  }
+  time {
+    @apply ml-1;
+    color: var(--text-color--muted);
+  }
+}
+.list-topics {
+  @apply mt-16;
+}
 
 // Footnotes
 .direct-link,
 .footnote-ref a,
 a.footnote-backref {
-  @apply font-sans no-underline leading-none rounded;
-  color: var(--text-color--muted);
+  @apply font-sans text-base no-underline leading-none rounded;
+  color: var(--action-color);
 
   &:hover {
-    color: white;
-    background-color: var(--action-color);
+    background-color: var(--background-color--muted);
   }
 }
 .direct-link {
@@ -309,31 +291,35 @@ a.footnote-backref {
   }
 }
 .footnote-ref a {
-  @apply rounded text-sm font-sans font-medium py-0.5 px-1;
+  @apply text-sm font-bold py-0.5 px-1;
 }
 a.footnote-backref {
-  @apply rounded text-lg font-bold pt-1 px-0.5 bg-transparent;
+  @apply pt-1 px-0.5 bg-transparent;
 }
 .footnotes-list {
   @apply text-lg;
 }
 
-// Pre/next article nav
-// .article-metadata {
-//   @apply text-right;
-// }
-// .article-nav--label {
-//   @apply flex-shrink-0 w-32;
-//   margin-top: 0.15em; // fix baseline
+// Article footer 
+.article-datestamp {
+  @apply italic text-right;
+  color: var(--text-color--muted);
+}
+.article-nav-label {
+  @apply inline-block w-32;
 
-//   @media (min-width: theme('screens.md')) {
-//     @apply w-48;
-//   }
-// }
+  @media (min-width: theme('screens.md')) {
+    @apply w-48;
+  }
+}
 
-// Misc
-.page-404 {
-  .direct-link {
-    @apply hidden;
+// Avatar
+.avatar {
+  @apply text-center;
+  picture {
+    @apply ml-0 mr-0 mt-0 inline-block;
+  }
+  img {
+    @apply rounded-full;
   }
 }
