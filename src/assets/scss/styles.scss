@@ -301,7 +301,12 @@ a.footnote-backref {
   }
 }
 .direct-link {
-  @apply rounded font-normal px-1;
+  @apply font-normal px-1;
+}
+.hide-direct-links {
+  .direct-link {
+    @apply hidden;
+  }
 }
 .footnote-ref a {
   @apply rounded text-sm font-sans font-medium py-0.5 px-1;
