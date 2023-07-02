@@ -10,7 +10,6 @@
 
     {# styling #}
     <link rel="stylesheet" href="/assets/main.css?<%- cacheBust.mainCss %>" />
-    <link rel="stylesheet" href="https://use.typekit.net/icc2gwv.css">
 
     {# favicons #}
     <meta name="theme-color" content="#ffffff">
@@ -28,9 +27,6 @@
     <meta property="og:title" content="{% if title %}{{ title }} • {% endif %}{{ metadata.title }}">
     <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | truncate(140) }}">
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
-    {# <meta property="og:image" content="{{ metadata.url }}{{ metadata.social.images.og }}"> #}
-    <meta name="twitter:card" content="summary_large_image">
-    {# <meta name="twitter:image:alt" content="Alt text for image"> #}
   </head>
 
   <body class="motion-safe type-{{ layout | lower }} page-{{ page.fileSlug if page.fileSlug != '_pages' else 'home' }}">

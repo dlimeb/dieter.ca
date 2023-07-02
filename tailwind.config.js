@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [ "system-ui", "sans-serif" ],
-        serif: ["dolly-new", "Charter", "Bitstream Charter", "Sitka Text", "Cambria", "serif"],
-        mono: ["input-mono-narrow", "ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", "monospace"]
+        sans: [ "Standard", "system-ui", "sans-serif" ],
+        serif: ["Charter", "Bitstream Charter", "Sitka Text", "Cambria", "serif"],
+        mono: ["ui-monospace", "Cascadia Code", "Source Code Pro", "Menlo", "Consolas", "DejaVu Sans Mono", "monospace"]
       },
       container: {
         center: true,

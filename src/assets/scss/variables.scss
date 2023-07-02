@@ -21,16 +21,17 @@ $vert-spacer: 10rem;
     --text-color: theme('colors.slate.700');
     --text-color--muted: theme('colors.gray.500');
 
-    --action-color: theme('colors.pink.600');
+    // --action-color: theme('colors.pink.600');
+    --action-color: #00f;
 
-    --code-color--text: theme('colors.slate.800');
+    --code-color--text: theme('colors.red.700');
     --code-color--bg: theme('colors.slate.200');
 
-    --highlight-background-color: theme('colors.amber.100');
+    --highlight-background-color: theme('colors.yellow.100');
 
     --blockquote-color--border: theme('colors.gray.100');
 
-    --divider-color: theme('colors.slate.400');
+    --divider-color: theme('colors.slate.300');
   }
 
   body[data-theme="dark"] {
@@ -45,11 +46,11 @@ $vert-spacer: 10rem;
     --code-color--text: theme('colors.slate.300');
     --code-color--bg: theme('colors.slate.700');
 
-    --highlight-background-color: theme('colors.orange.900');
+    --highlight-background-color: theme('colors.yellow.900');
 
-    --blockquote-color--border: theme('colors.slate.700');
+    --blockquote-color--border: theme('colors.slate.800');
 
-    --divider-color: theme('colors.slate.600');
+    --divider-color: theme('colors.slate.700');
   }
 }
 

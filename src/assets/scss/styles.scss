@@ -30,7 +30,7 @@ main {
 // GLOBAL TYPOGRAPHY
 //
 body {
-  @apply font-serif text-xl leading-normal;
+  @apply font-sans text-lg leading-normal;
   color: var(--text-color);
 }
 p,
@@ -60,11 +60,12 @@ article {
   header {
     margin-bottom: $vert-spacer;
   }
-  h1 {
-    @apply font-bold text-xl mb-6;
+  h1,
+  h2 {
+    @apply font-bold mb-6;
   }
   h2 {
-    @apply font-bold mt-12 mb-6;
+    @apply mt-12;
 
     .direct-link {
       @apply hidden;
@@ -78,11 +79,10 @@ article {
   a {
     @apply underline decoration-2;
     text-underline-offset: 3px;
-    color: var(--action-color);
+    // color: var(--action-color);
     text-decoration-color: var(--action-color);
  //
     &:hover {
-      @apply no-underline;
       color: var(--action-color);
       text-decoration-color: var(--action-color);
     }
@@ -124,18 +124,8 @@ article {
     margin-left: -1.5rem;
     margin-right: -1.5rem;
   }
-  picture {
-    @media (min-width: theme('screens.md')) {
-      margin-left: -3rem;
-      margin-right: -3rem;
-    }
-    @media (min-width: theme('screens.lg')) {
-      margin-left: -6rem;
-      margin-right: -6rem;
-    }
-  }
   figcaption {
-    @apply font-mono text-sm py-1 px-4;
+    @apply text-sm py-1 px-4;
     color: var(--text-color--muted);
 
     @media (min-width: theme('screens.md')) {
@@ -148,15 +138,15 @@ article {
     }
   }
   blockquote {
-    @apply text-xl leading-normal py-2 pl-6 mb-6;
+    @apply text-lg leading-normal py-2 pl-6 mb-6;
     color: var(--text-color--muted);
     border-left-width: 0.3rem;
     border-color: var(--blockquote-color--border);
-    
+
     @media (min-width: theme('screens.md')) {
       @apply pl-8;
     }
-    
+
     p {
       @apply mb-0;
     }
@@ -196,7 +186,7 @@ article {
 #site-footer {
   .extras,
   a {
-    @apply font-mono text-sm;
+    @apply text-sm;
     color: var(--text-color--muted);
   }
   a:hover {
@@ -300,7 +290,7 @@ a.footnote-backref {
   @apply text-lg;
 }
 
-// Article footer 
+// Article footer
 .article-datestamp {
   @apply italic text-right;
   color: var(--text-color--muted);

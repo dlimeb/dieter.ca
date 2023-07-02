@@ -20,7 +20,7 @@ module.exports = function(eleventyConfig) {
     }
 
     let captionHtml = (caption !== undefined) ? `<figcaption>${caption}</figcaption>` : "";
-  
+
     let options = {
       widths: [300,600,1200],
       formats: ["webp", "jpeg"],
@@ -31,10 +31,10 @@ module.exports = function(eleventyConfig) {
 
     eleventyImage(file, options);
     metadata = eleventyImage.statsSync(file, options);
-  
+
     let lowsrc = metadata.jpeg[0];
     let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
-  
+
     return `<picture>
       ${Object.values(metadata).map(imageFormat => {
         return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
@@ -78,6 +78,8 @@ module.exports = function(eleventyConfig) {
   // Copy all images
   eleventyConfig.addPassthroughCopy('src/assets/favicon');
   eleventyConfig.addPassthroughCopy('src/assets/images');
+  // Copy all fonts
+  eleventyConfig.addPassthroughCopy('src/assets/fonts');
 
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
@@ -130,11 +132,11 @@ module.exports = function(eleventyConfig) {
   // strip [ and ] from footnote numbers
   markdownLibrary.renderer.rules.footnote_caption = (tokens, idx) => {
     let n = Number(tokens[idx].meta.id + 1).toString();
-  
+
     if (tokens[idx].meta.subId > 0) {
       n += ":" + tokens[idx].meta.subId;
     }
-  
+
     return n;
   };
   markdownLibrary.renderer.rules.footnote_block_open = (tokens, idx, options) => {
