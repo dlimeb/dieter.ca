@@ -1,9 +1,0 @@
-{% for tag in collections.tagList %}
-  {% set tagUrl %}/writing/{{ tag | slugify }}/{% endset %}
-
-  {%- if tag != selectedTag %}
-    <a href="{{ tagUrl | url }}" class="topic">{{ tag }}</a>
-    {#- ({{ collections[tag].length }}) #}
-    {%- if not loop.last %}, {%- endif %}
-  {%- endif -%}
-{% endfor %}
