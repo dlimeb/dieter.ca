@@ -7,6 +7,7 @@ tags:
 - testing
 hasCodeBlock: true
 eleventyExcludeFromCollections: true
+draft: true
 ---
 
 Reading is a timeless activity that offers _numerous benefits_ to individuals of all ages. Beyond the simple enjoyment of a good story, reading stimulates the mind and broadens horizons. When you immerse yourself in a book, you embark on a journey of imagination, exploring new worlds, cultures, and ideas. This mental exercise is akin to a workout for the brain, keeping it sharp and engaged.
