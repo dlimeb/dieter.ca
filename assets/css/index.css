@@ -5,7 +5,7 @@
 :root {
     /* Typography */
     --font-sans: system-ui, sans-serif;
-    --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+    --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
     --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     --font-size-base: 1.2rem;
     --font-size-small: calc(var(--font-size-base) - 0.125rem);
@@ -202,6 +202,13 @@ code {
 .ord {
   font-size: var(--font-size-small);
   vertical-align: top;
+}
+
+/* Widow prevention */
+/* Fix for Charter rendering an &nbsp; extra wide */
+.widont {
+	width: 0.33em;
+	display: inline-block;
 }
 
 /* Direct links and footnotes */

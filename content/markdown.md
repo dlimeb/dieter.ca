@@ -27,7 +27,7 @@ ChatGPT wrote most of this, if you can't tell. Cool beans.
 
 For students and professionals, reading is an essential tool for success. It fosters better communication skills, vocabulary development, and a broader perspective. Those who read regularly tend to excel in both written and spoken communication, which can open doors in various careers.
 
-Beyond the cognitive and emotional benefits, reading is a form of `entertainment` that can be enjoyed by people of all ages -- whether you're a child getting lost in the world of fairy tales or an adult exploring complex narratives, books offer a diverse range of experiences to suit every taste.
+Beyond the cognitive and emotional benefits, reading is a form of `entertainment` that can be enjoyed by people of all ages --- whether you're a child getting lost in the world of fairy tales or an adult exploring complex narratives --- because books offer a diverse range of experiences to suit every taste.
 
 ## Some more elements
 
