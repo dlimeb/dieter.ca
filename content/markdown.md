@@ -5,6 +5,8 @@ summary: Wherein I add every element
 tags:
 - markdown
 - testing
+hasCodeBlock: true
+eleventyExcludeFromCollections: true
 ---
 
 Reading is a timeless activity that offers _numerous benefits_ to individuals of all ages. Beyond the simple enjoyment of a good story, reading stimulates the mind and broadens horizons. When you immerse yourself in a book, you embark on a journey of imagination, exploring new worlds, cultures, and ideas. This mental exercise is akin to a workout for the brain, keeping it sharp and engaged.
@@ -13,9 +15,9 @@ One of the most profound benefits of reading is its impact on knowledge acquisit
 
 {% image "../assets/images/empty-when-full.jpg", "A photo of a dumpster with the label 'empty when full'" %}
 
-Moreover, reading can be a source of solace and relaxation. In a [hectic world](https://en.wikipedia.org/wiki/Climate_change) filled with digital distractions, _sitting down with a good book can provide a much-needed escape_. It allows you to detach from the pressures of everyday life and find respite in the pages of a compelling narrative.
+Moreover, reading can be a source of solace and relaxation. In a [hectic world](https://en.wikipedia.org/wiki/Climate_change) filled with digital distractions, _sitting down with a good book can provide a much-needed escape_. It allows you to detach from the ==pressures== of everyday life and find respite in the pages of a compelling narrative.
 
-Reading also enhances empathy and ==emotional intelligence==. When you delve into the lives and emotions of fictional[^1] characters, you develop a better understanding of human nature. This increased empathy can translate into improved relationships and a greater capacity to connect with others on a deeper level.
+Reading also enhances empathy and emotional intelligence. When you delve into the lives and emotions of fictional[^1] characters, you develop a better understanding of human nature. This increased empathy can translate into improved relationships and a greater capacity to connect with others on a deeper level.
 
 [^1]: Or non-fictional ones too for that matter. Duh.
 
@@ -38,7 +40,7 @@ Let's see some lists:
 3. Et cetera.
 4. The end.
 
-This one isn't ordered. Cool:
+This one isn't ordered, if you can't tell:
 
 - This is not in order
 - Well ok yeah top to bottom is a _kind_ of order
@@ -55,6 +57,7 @@ function myCommand() {
 // make sure it works
 console.log('Test');
 ```
+How about a quote:
 
 > In a place where people are only focused on survival, on the bare necessities, the obvious conclusion is that art must be, somehow, essential for life. The concentration camps were without money, without hope, without commerce, without recreation, without basic respect, but they were not without art. Art is part of survival. <cite>— Karl Paulnack, Welcome <em>address</em> at Boston Conservatory</cite>
 

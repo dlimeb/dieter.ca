@@ -20,7 +20,12 @@
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 
 		{#- styling #}
-		{%- set css %}{% include "assets/css/index.css" %}{% endset %}
+		{%- set css %}
+			{% include "assets/css/index.css" %}
+      {% if hasCodeBlock %}
+				{% include "node_modules/prismjs/themes/prism-okaidia.css" %}
+      {% endif %}
+		{% endset %}
 		<style>{{ css | cssmin | safe }}</style>
 
 		{#- social #}

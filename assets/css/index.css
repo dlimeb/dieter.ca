@@ -7,9 +7,11 @@
     --font-sans: system-ui, sans-serif;
     --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
     --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-    --font-size-base: 1.125rem;
+    --font-size-base: 1.2rem;
     --font-size-small: calc(var(--font-size-base) - 0.125rem);
-    --font-size-xsmall: calc(var(--font-size-base) - 0.375rem);
+    --font-size-xsmall: calc(var(--font-size-base) - 0.25rem);
+    --font-size-xxsmall: calc(var(--font-size-base) - 0.375rem);
+		--line-height: 1.4;
 
     /* Alignment */
     --spacing-base: var(--font-size-base);
@@ -30,6 +32,7 @@
 		--color-text-muted: hsl(215 6% 46%);
 
 		--color-action: hsl(240, 100%, 50%); /* #00f */
+		--color-action-hover: hsl(240, 100%, 95%);
 
 		--color-code-text: hsl(222 14% 38%);
 		--color-code-background: hsl(222 20% 93%);
@@ -49,6 +52,7 @@
 		--color-text-muted: hsl(215 3% 60%);
 
 		--color-action: hsl(249, 100%, 68%);
+		--color-action-hover: hsl(249, 57%, 25%);
 
 		--color-code-text: var(--color-text);
 		--color-code-background: hsl(215 4% 24%);
@@ -68,16 +72,11 @@
 }
 
 body {
-	padding: var(--spacing-large);
+	padding: var(--spacing-base);
 	margin: 0 auto;
 	max-width: 40em;
 	background-color: var(--color-background);
 }
-
-main {
-	padding: 1rem;
-}
-
 
 /*-----------------------------------------------------------------------------
   TYPOGRAPHY
@@ -86,7 +85,7 @@ main {
 body {
   font-family: var(--font-serif);
   font-size: var(--font-size-base);
-  line-height: 1.4;
+  line-height: var(--line-height);
   color: var(--color-text);
 }
 
@@ -106,7 +105,7 @@ h2 {
 p,
 ol,
 ul {
-	margin: 0 0 var(--font-size-base);
+	margin: 0 0 1em;
 }
 ol,
 ul {
@@ -141,7 +140,11 @@ hr {
 /* Images */
 picture {
 	display: block;
-	margin: var(--spacing-large) 0;
+	margin: var(--spacing-medium) 0;
+}
+img {
+	width: 100%;
+	height: 100%;
 }
 figcaption {
 	font-size: var(--font-size-small);
@@ -170,21 +173,71 @@ mark {
 }
 
 /* Code */
+/* !important needed to override styling in prismjs syntax highlighting CSS */
 pre,
 code {
 	font-family: var(--font-mono);
 	font-size: var(--font-size-small);
+  font-family: var(--font-mono) !important;
+  font-size: var(--font-size-xsmall) !important;
+  margin: var(--spacing-medium) 0 !important;
 }
 pre {
-	padding: var(--spacing-medium);
+	padding: var(--spacing-base) !important;
+	border-radius: 0 !important;
 }
 code {
 	color: var(--color-code-text);
 	background-color: var(--color-code-background);
 	padding: 0.125rem 0.25rem;
-	border-radius: var(--border-radius);
+	text-shadow: none !important;
 }
 
+/* Small caps */
+.caps {
+  font-size: var(--font-size-small);
+}
+
+/* Ordinals */
+.ord {
+  font-size: var(--font-size-small);
+  vertical-align: top;
+}
+
+/* Direct links and footnotes */
+.header-anchor,
+.footnote-ref a,
+a.footnote-backref {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-weight: normal;
+  padding: 0 0.25rem;
+  border-radius: var(--border-radius);
+}
+.header-anchor:hover,
+.footnote-ref a:hover,
+a.footnote-backref:hover {
+  color: var(--color-action);
+  background-color: var(--color-action-hover);
+}
+a.footnote-backref {
+       padding-top: 0.125rem;
+}
+.header-anchor {
+  display: none;
+       font-size: var(--font-size-small);
+}
+h2:hover .header-anchor {
+  display: inline-block;
+}
+sup {
+  font-size: var(--font-size-xxsmall);
+  vertical-align: top;
+}
+.footnotes-list {
+  font-size: var(--font-size-small);
+}
 
 /*-----------------------------------------------------------------------------
   UTILITIES
