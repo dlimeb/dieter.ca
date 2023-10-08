@@ -20,8 +20,8 @@
 		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 
 		{#- styling #}
-		{%- css %}{% include "assets/css/index.css" %}{% endcss %}
-		<style>{% getBundle "css" %}</style>
+		{%- set css %}{% include "assets/css/index.css" %}{% endset %}
+		<style>{{ css | cssmin | safe }}</style>
 
 		{#- social #}
 		<meta property="og:site_name" content="{{ metadata.name }}">
