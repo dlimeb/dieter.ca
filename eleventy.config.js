@@ -1,5 +1,10 @@
 const { DateTime } = require("luxon");
+const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItFootnote = require("markdown-it-footnote");
+const markdownItMark = require("markdown-it-mark");
+var mila = require("markdown-it-link-attributes");
+const typographyPlugin = require("@jamshop/eleventy-plugin-typography");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
@@ -37,6 +42,9 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
 	eleventyConfig.addPlugin(pluginBundle);
+
+	// Other plugins
+	eleventyConfig.addPlugin(typographyPlugin);
 
 	// Filters
 	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
@@ -80,18 +88,61 @@ module.exports = function(eleventyConfig) {
 	});
 
 	// Customize Markdown library settings:
+	let markdownItOptions = {
+		html: true,
+		linkify: true,
+		typographer: true,
+	};
+	let mdLib = markdownIt(markdownItOptions);
+
+	const milaOptions = {
+		matcher(href) {
+      return href.match(/^https?:\/\//);
+		},
+		attrs: {
+			target: "_blank",
+			rel: "noopener"
+		}
+	};
 	eleventyConfig.amendLibrary("md", mdLib => {
-		mdLib.use(markdownItAnchor, {
-			permalink: markdownItAnchor.permalink.ariaHidden({
-				placement: "after",
-				class: "header-anchor",
-				symbol: "#",
-				ariaHidden: false,
-			}),
-			level: [1,2,3,4],
-			slugify: eleventyConfig.getFilter("slugify")
-		});
+		mdLib
+			.use(markdownItAnchor, {
+				permalink: markdownItAnchor.permalink.ariaHidden({
+					placement: "after",
+					class: "header-anchor",
+					symbol: "#",
+					ariaHidden: false,
+				}),
+				level: [1,2,3,4],
+				slugify: eleventyConfig.getFilter("slugify")
+			})
+			.use(markdownItFootnote)
+			.use(markdownItMark)
+			.use(mila, milaOptions);
+
+		// strip [] from footnote numbers
+		mdLib.renderer.rules.footnote_caption = (tokens, idx) => {
+			let n = Number(tokens[idx].meta.id + 1).toString();
+			if (tokens[idx].meta.subId > 0) {
+				n += ":" + tokens[idx].meta.subId;
+			}
+			return n;
+		};
+
+		// update HTML used in footnotes list
+		mdLib.renderer.rules.footnote_block_open = (tokens, idx, options) => {
+    return '<aside class="footnotes">\n' +
+           '<h2>Footnotes</h2>\n' +
+           '<ol class="footnotes-list">\n';
+		};
+		mdLib.renderer.rules.footnote_block_close = () => {
+			return '</ol>\n</aside>\n';
+		};
 	});
+
+	eleventyConfig.setLibrary("md", mdLib);
+
+
 
 	// Features to make your build faster (when you need them)
 
