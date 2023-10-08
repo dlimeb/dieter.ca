@@ -50,8 +50,8 @@ This one isn't ordered, if you can't tell:
 ```js
 // here's a code block
 function myCommand() {
-	let counter = 0;
-	counter++;
+  let counter = 0;
+  counter++;
 }
 
 // make sure it works

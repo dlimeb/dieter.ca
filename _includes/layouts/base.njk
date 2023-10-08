@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		{#- title & description #}
+    {#- title & description #}
     <title>{% if title %}{{ title }} • {% endif %}{{ metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-		<meta name="generator" content="{{ eleventy.generator }}">
+    <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="generator" content="{{ eleventy.generator }}">
 
     {#- favicons #}
     <meta name="theme-color" content="#ffffff">
@@ -15,32 +15,32 @@
     <link rel="mask-icon" href="/assets/favicon/mask-icon.svg" color="#6D28D9">
     <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
 
-		{#- feeds #}
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
+    {#- feeds #}
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
 
-		{#- styling #}
-		{%- set css %}
-			{% include "assets/css/index.css" %}
+    {#- styling #}
+    {%- set css %}
+      {% include "assets/css/index.css" %}
       {% if hasCodeBlock %}
-				{% include "node_modules/prismjs/themes/prism-okaidia.css" %}
+        {% include "node_modules/prismjs/themes/prism-okaidia.css" %}
       {% endif %}
-		{% endset %}
-		<style>{{ css | cssmin | safe }}</style>
+    {% endset %}
+    <style>{{ css | cssmin | safe }}</style>
 
-		{#- social #}
-		<meta property="og:site_name" content="{{ metadata.name }}">
+    {#- social #}
+    <meta property="og:site_name" content="{{ metadata.name }}">
     <meta property="og:title" content="{% if title %}{{ title }} • {% endif %}{{ metadata.title }}">
     <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | truncate(140) }}">
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
-	</head>
+  </head>
 
-	<body>
-		<a href="#main" class="visually-hidden">Skip to main content</a>
+  <body>
+    <a href="#main" class="visually-hidden">Skip to main content</a>
 
-		<main id="main" aria-labelledby="title">
-			{{ content | typogrify | safe }}
-		</main>
+    <main id="main" aria-labelledby="title">
+      {{ content | typogrify | safe }}
+    </main>
 
-	</body>
+  </body>
 </html>
