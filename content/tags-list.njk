@@ -1,12 +1,12 @@
 ---
-permalink: /tags/
+permalink: /index/
 layout: page
 ---
 <h1>Tags</h1>
 
 <ul>
 {% for tag in collections.all | getAllTags | filterTagList %}
-	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
+	{% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
+	<li><a href="{{ tagUrl }}">{{ tag }}</a></li>
 {% endfor %}
 </ul>

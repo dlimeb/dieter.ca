@@ -3,4 +3,5 @@ module.exports = {
 		"posts"
 	],
 	"layout": "post",
+	"permalink": "/{{ title | slugify }}/"
 };
