@@ -1,12 +1,10 @@
 ---
-layout: page
+layout: base
 ---
 
 <article>
   <header>
-
     <h1>{{ title }}</h1>
-
     <ul class="post-metadata">
       <li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
       <li>
@@ -24,16 +22,4 @@ layout: page
   <div class="content">
     {{ content | safe }}
   </div>
-
-  {# <footer>
-    {%- if collections.posts %}
-    {%- set previousPost = collections.posts | getPreviousCollectionItem %}
-    {%- set nextPost = collections.posts | getNextCollectionItem %}
-    {%- if nextPost or previousPost %}
-    <ul>
-      {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-      {%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-    </ul>
-    {%- endif %}
-    {%- endif %}
-  </footer> #}
+</article>

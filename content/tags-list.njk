@@ -1,12 +1,12 @@
 ---
 permalink: /index/
 layout: page
+title: Index
 ---
-<h1>Tags</h1>
 
 <ul>
-{% for tag in collections.all | getAllTags | filterTagList %}
-	{% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
-	<li><a href="{{ tagUrl }}">{{ tag }}</a></li>
-{% endfor %}
+	{% for tag in collections.all | getAllTags | filterTagList %}
+		{% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
+		<li><a href="{{ tagUrl }}">{{ tag }}</a></li>
+	{% endfor %}
 </ul>
