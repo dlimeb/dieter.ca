@@ -1,12 +1,10 @@
 ---
-layout: page
 title: Full markdown test
 summary: Wherein I add every element
 tags:
 - markdown
 - testing
 hasCodeBlock: true
-eleventyExcludeFromCollections: true
 draft: true
 ---
 
@@ -14,7 +12,7 @@ Reading is a timeless activity that offers _numerous benefits_ to individuals of
 
 One of the most profound benefits of reading is its impact on knowledge acquisition. Books are like repositories of wisdom, containing the thoughts and experiences of countless individuals throughout history. By reading, you gain access to this treasure trove of information, expanding your understanding of various subjects and honing your **critical thinking skills**.
 
-{% image "../assets/images/empty-when-full.jpg", "A photo of a dumpster with the label 'empty when full'" %}
+{% image "../../assets/images/empty-when-full.jpg", "A photo of a dumpster with the label 'empty when full'" %}
 
 Moreover, reading can be a source of solace and relaxation. In a [hectic world](https://en.wikipedia.org/wiki/Climate_change) filled with digital distractions, _sitting down with a good book can provide a much-needed escape_. It allows you to detach from the ==pressures== of everyday life and find respite in the pages of a compelling narrative.
 

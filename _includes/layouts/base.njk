@@ -38,9 +38,16 @@
   <body>
     <a href="#main" class="visually-hidden">Skip to main content</a>
 
+    {% if header != false %}
+      {% include "site-header.njk" %}
+    {% endif %}
+
     <main id="main" aria-labelledby="title">
       {{ content | typogrify | safe }}
     </main>
 
+    {% if footer != false %}
+      {% include "site-footer.njk" %}
+    {% endif %}
   </body>
 </html>
