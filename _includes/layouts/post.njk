@@ -3,32 +3,37 @@ layout: page
 ---
 
 <article>
-	<header>
+  <header>
 
-		<h1>{{ title }}</h1>
+    <h1>{{ title }}</h1>
 
-		<ul class="post-metadata">
-			<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-			{%- for tag in tags | filterTagList %}
-			{%- set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
-			<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-			{%- endfor %}
-		</ul>
-	</header>
+    <ul class="post-metadata">
+      <li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+      <li>
+        <ul class="tags-list">
+          {%- for tag in tags | filterTagList %}
+            {%- set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
+            <li>
+              <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+          {%- endfor %}
+        </ul>
+      </li>
+    </ul>
+  </header>
 
-	<div class="article-content">
-		{{ content | safe }}
-	</div>
+  <div class="content">
+    {{ content | safe }}
+  </div>
 
-	<footer>
-		{%- if collections.posts %}
-		{%- set previousPost = collections.posts | getPreviousCollectionItem %}
-		{%- set nextPost = collections.posts | getNextCollectionItem %}
-		{%- if nextPost or previousPost %}
-		<ul class="links-nextprev">
-			{%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-			{%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-		</ul>
-		{%- endif %}
-		{%- endif %}
-	</footer>
+  {# <footer>
+    {%- if collections.posts %}
+    {%- set previousPost = collections.posts | getPreviousCollectionItem %}
+    {%- set nextPost = collections.posts | getNextCollectionItem %}
+    {%- if nextPost or previousPost %}
+    <ul>
+      {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+      {%- if nextPost %}<li>Next: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+    </ul>
+    {%- endif %}
+    {%- endif %}
+  </footer> #}
