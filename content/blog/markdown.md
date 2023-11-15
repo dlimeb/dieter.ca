@@ -4,7 +4,6 @@ summary: Wherein I add every element
 tags:
 - markdown
 - testing
-hasCodeBlock: true
 draft: true
 ---
 

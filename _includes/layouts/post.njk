@@ -6,11 +6,17 @@ layout: base
   <header>
     <h1>{{ title }}</h1>
     <ul class="post-metadata">
-      <li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+      <li>
+        Posted <br><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      </li>
+      <li>
+        Last updated <br><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time> <a href="#">View</a>
+      </li>
       <li>
         <ul class="tags-list">
+          <li>Tagged as</li>
           {%- for tag in tags | filterTagList %}
-            {%- set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
+            {%- set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
             <li>
               <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
           {%- endfor %}

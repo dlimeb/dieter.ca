@@ -1,6 +1,8 @@
 ---
 title: This is a fifth post (draft)
-date: 2023-01-23
+date: Last Modified
 draft: true
+tags:
+  - testing
 ---
 This is a draft post

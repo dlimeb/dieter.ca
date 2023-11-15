@@ -1,0 +1,12 @@
+---
+layout: page
+permalink: /posts/
+eleventyNavigation:
+  key: Posts
+  order: 1
+title: Posts
+---
+
+<p>View as <a href="/list/posts/">list of titles</a> only.
+{% set postslist = collections.posts %}
+{% include "list-posts.njk" %}

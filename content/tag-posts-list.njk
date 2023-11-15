@@ -1,0 +1,23 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: page
+eleventyComputed:
+  title: Posts tagged as “{{ tag }}”
+permalink: /list/posts/{{ tag | slugify }}/
+---
+
+<p>See <a href="/index/">all tags</a> or <a href="/posts/{{ tag | slugify }}">full posts</a>.</p>
+
+{% set postslist = collections[ tag ] %}
+{% set isList = true %}
+{% include "list-posts.njk" %}
+

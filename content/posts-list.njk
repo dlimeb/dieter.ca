@@ -1,0 +1,11 @@
+---
+layout: page
+title: Posts list
+permalink: /list/posts/
+---
+
+<p>View as <a href="/posts/">full posts</a>.
+
+{% set postslist = collections.posts %}
+{% set isList = true %}
+{% include "list-posts.njk" %}

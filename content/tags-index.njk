@@ -6,7 +6,7 @@ title: Index
 
 <ul>
 	{% for tag in collections.all | getAllTags | filterTagList %}
-		{% set tagUrl %}/tag/{{ tag | slugify }}/{% endset %}
+		{% set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
 		<li><a href="{{ tagUrl }}">{{ tag }}</a></li>
 	{% endfor %}
 </ul>

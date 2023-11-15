@@ -22,9 +22,7 @@
     {#- styling #}
     {%- set css %}
       {% include "assets/css/index.css" %}
-      {% if hasCodeBlock %}
-        {% include "node_modules/prismjs/themes/prism-okaidia.css" %}
-      {% endif %}
+      {% include "node_modules/prismjs/themes/prism-okaidia.css" %}
     {% endset %}
     <style>{{ css | cssmin | safe }}</style>
 
