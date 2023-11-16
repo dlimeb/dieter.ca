@@ -83,88 +83,37 @@ body {
 
 body{
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(8,1fr);
   grid-gap: var(--gap);
 }
 
 main {
-  grid-column: 2/6;
+  grid-column: 2/5;
 }
 
 .page,
-.posts-list article,
-main > article {
+article {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(3,1fr);
   grid-gap: var(--gap);
 }
 
 .page h1,
-.posts-list article header,
-main > article > header {
+article header {
   grid-column: 1/2;
   grid-row: 1;
 }
-.page .content,
-.posts-list article .content,
-main > article > .content {
+.content {
   grid-column: 2/4;
   grid-row: 1;
 }
 
 
-
-body > header {
-  /* grid-column: 1/2; */
-  /* grid-row: 1; */
-  /* padding-right: var(--gap); */
-}
-
 footer {
   grid-column: 1/2;
   grid-row: 2;
-  /* padding-right: var(--gap); */
 }
 
-main {
-  /* max-width: calc(var(--page-width) + var(--gap) * 20); */
-  /* margin: 0 auto; */
-  /* padding: var(--gap); */
-  /* grid-column: 1/6;
-  grid-row: 2; */
-}
-
-.page,
-article {
-  /* display: grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-gap: var(--gap); */
-
-  /* display: grid;
-  grid-template-columns: repeat(7,1fr);
-  grid-gap: var(--gap); */
-}
-
-.page {
-  /* display: grid;
-  grid-template-columns: repeat(7,1fr);
-  grid-gap: var(--gap); */
-}
-
-.page h1 {
-  /* grid-column: 2/3;
-  grid-row: 1; */
-}
-.page h1,
-article header {
-  /* grid-column: 1/2;
-  grid-row: 1; */
-}
-
-.page .content {
-  /* grid-column: 2/6;
-  grid-row: 1; */
-}
 
 /*-----------------------------------------------------------------------------
   TYPOGRAPHY
