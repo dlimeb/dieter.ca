@@ -2,30 +2,4 @@
 layout: base
 ---
 
-<article>
-  <header>
-    <h1>{{ title }}</h1>
-    <ul class="post-metadata">
-      <li>
-        Posted <br><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-      </li>
-      <li>
-        Last updated <br><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time> <a href="#">View</a>
-      </li>
-      <li>
-        <ul class="tags-list">
-          <li>Tagged as</li>
-          {%- for tag in tags | filterTagList %}
-            {%- set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
-            <li>
-              <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-          {%- endfor %}
-        </ul>
-      </li>
-    </ul>
-  </header>
-
-  <div class="content">
-    {{ content | safe }}
-  </div>
-</article>
+{% include "_post.njk" %}

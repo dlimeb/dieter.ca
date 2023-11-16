@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: posts-page
 title: Posts list
 permalink: /list/posts/
 ---
@@ -7,5 +7,5 @@ permalink: /list/posts/
 <p>View as <a href="/posts/">full posts</a>.
 
 {% set postslist = collections.posts %}
-{% set isList = true %}
+{% set titlesOnly = true %}
 {% include "list-posts.njk" %}

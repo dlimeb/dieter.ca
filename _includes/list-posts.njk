@@ -5,19 +5,10 @@
 <ol reversed class="posts-list">
 {% for post in postslist | reverse %}
 	<li>
-		<a href="{{ post.url }}">
-			{% if post.data.title %}
-				{{ post.data.title }}
-			{% else %}
-				<code>{{ post.url }}</code>
-			{% endif %}
-		</a>
-
-		<time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-
-		{% if not isList %}
-			{{ post.content | safe }}
-		{% endif %}
+		{% set title = post.data.title %}
+		{% set tags = post.data.tags %}
+		{% set content = post.content %}
+		{% include "_post.njk" %}
 	</li>
 {% endfor %}
 </ol>

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: posts-page
 permalink: /posts/
 eleventyNavigation:
   key: Posts
@@ -7,6 +7,7 @@ eleventyNavigation:
 title: Posts
 ---
 
-<p>View as <a href="/list/posts/">list of titles</a> only.
+<p>View as <a href="/list/posts/">list of titles</a> only.</p>
+
 {% set postslist = collections.posts %}
 {% include "list-posts.njk" %}
