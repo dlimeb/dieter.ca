@@ -4,9 +4,12 @@ layout: page
 title: Index
 ---
 
-<ul>
-	{% for tag in collections.all | getAllTags | filterTagList %}
-		{% set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
-		<li><a href="{{ tagUrl }}">{{ tag }}</a></li>
-	{% endfor %}
-</ul>
+{% for tagSet in collections.all | getAllTags | filterTagList | groupedByLetter %}
+  <h2>{{ tagSet.letter }}</h2>
+  <ul>
+    {% for tag in tagSet.tags %}
+      {% set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
+      <li><a href="{{ tagUrl }}">{{ tag }}</a> ({{ collections[tag].length }})</li>
+    {% endfor %}
+  </ul>
+{% endfor %}
