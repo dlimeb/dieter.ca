@@ -1,14 +1,14 @@
 {%- css %}
-	.posts-list { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }
+  .posts-list { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }
 {% endcss %}
 
 <ol reversed class="posts-list">
-{% for post in postslist | reverse %}
-	<li>
-		{% set title = post.data.title %}
-		{% set tags = post.data.tags %}
-		{% set content = post.content %}
-		{% include "_post.njk" %}
-	</li>
-{% endfor %}
+  {% for post in postslist | reverse %}
+    <li>
+      {% set title = post.data.title %}
+      {% set tags = post.data.tags %}
+      {% set content = post.content %}
+      {% include "_post.njk" %}
+    </li>
+  {% endfor %}
 </ol>
