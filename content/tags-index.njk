@@ -1,7 +1,9 @@
 ---
-permalink: /index/
 layout: page
 title: Index
+permalink: /index/
+eleventyComputed:
+  indexPage: true
 ---
 
 {% for tagSet in collections.all | getAllTags | filterTagList | groupedByLetter %}

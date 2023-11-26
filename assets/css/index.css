@@ -19,7 +19,9 @@
     --spacing-base: var(--font-size-base);
     --spacing-medium: calc(var(--line-height) * var(--font-size-base));
     --spacing-large: calc(2.5 * var(--font-size-base));
-    --spacing-xlarge: calc(4 * var(--font-size-base));
+    /* --spacing-xlarge: calc(4 * var(--font-size-base)); */
+    /* --spacing-xxlarge: calc(8 * var(--font-size-base)); */
+    /* --spacing-xxxlarge: calc(12 * var(--font-size-base)); */
 
     /* Borders */
     --border-radius: 3px;
@@ -72,49 +74,80 @@
 /*-----------------------------------------------------------------------------
   LAYOUT
 -----------------------------------------------------------------------------*/
-.int {
-  color: red;
-}
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   background-color: var(--color-background);
+  margin: 0;
+  padding: var(--spacing-medium);
 }
 
-body{
-  display: grid;
-  grid-template-columns: repeat(8,1fr);
-  grid-gap: var(--gap);
+body > header,
+main > header,
+main > article > header,
+.page h1 {
+  margin-bottom: 100px;
 }
+ article > header h1,
+.posts-list.hide-content article > header h1 {
+  margin-bottom: 1em;
+}
+
+.posts-list.hide-content article > header h1,
+h1 {
+  margin: 0;
+}
+
+main,
+.show-content article {
+  margin-bottom: 300px;
+}
+
+
+
+
+
+body {
+  /* display: grid;
+  grid-template-columns: repeat(8,1fr);
+  grid-gap: var(--gap); */
+
+}
+
+
+
 
 main {
-  grid-column: 2/5;
+  /* grid-column: 2/5; */
+  /* margin-top: 2.875rem; TODO */
 }
 
 .page,
 article {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3,1fr);
-  grid-gap: var(--gap);
+  grid-gap: var(--gap); */
+}
+article {
 }
 
 .page h1,
 article header {
-  grid-column: 1/2;
-  grid-row: 1;
+  /* grid-column: 1/2;
+  grid-row: 1; */
+  /* margin-bottom: 1rem; */
 }
 .content {
-  grid-column: 2/4;
-  grid-row: 1;
+  /* grid-column: 2/4;
+  grid-row: 1; */
 }
 
 
 footer {
-  grid-column: 1/2;
-  grid-row: 2;
+  /* grid-column: 1/2;
+  grid-row: 2; */
 }
 
 
@@ -124,6 +157,7 @@ footer {
 /* Global */
 body {
   font-family: var(--font-serif);
+  /* font-family: var(--font-sans); */
   font-size: var(--font-size-base);
   line-height: var(--line-height);
   color: var(--color-text);
@@ -131,11 +165,9 @@ body {
 
 /* Headings */
 h1,
-h2 {
+h2,
+h3 {
   font-size: var(--font-size-base);
-}
-h1 {
-  margin: 0;
 }
 h2 {
   margin: var(--spacing-large) 0 1em;
@@ -150,24 +182,51 @@ ul {
 ol,
 ul {
   padding-left: 0;
+  list-style: none;
 }
-p:last-child,
-li:last-child {
-  margin-bottom: 0;
+
+/* Lists */
+.content ul {
+  list-style: disc;
+}
+.content ol,
+.footnotes ol,
+.posts-list.hide-content {
+  list-style: decimal;
+}
+.content ul,
+.content ol,
+.posts-list.hide-content {
+  padding-left: 1em;
+}
+
+.posts-list.hide-content footer li {
+  display: inline;
 }
 
 /* Links */
 a {
   color: inherit;
-  text-decoration: underline;
   text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
 }
-a:hover,
-a:active {
+a:hover {
   color: var(--color-action);
+}
+.subnav a,
+footer a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+a:hover,
+.subnav a:hover,
+header a {
   text-decoration: none;
 }
+header a:hover {
+  text-decoration: underline;
+}
+
 
 /* Dividers */
 hr {
@@ -181,6 +240,7 @@ hr {
 picture {
   display: block;
   margin: var(--spacing-large) calc(-4 * var(--gap)) var(--spacing-large) 0;
+  max-width: 100%;
 }
 img {
   width: 100%;
@@ -274,11 +334,11 @@ a.footnote-backref:hover {
   background-color: var(--color-action-hover);
 }
 a.footnote-backref {
-       padding-top: 0.125rem;
+  padding-top: 0.125rem;
 }
 .header-anchor {
   display: none;
-       font-size: var(--font-size-small);
+  font-size: var(--font-size-small);
 }
 h2:hover .header-anchor {
   display: inline-block;
@@ -293,24 +353,40 @@ sup {
 
 
 /*-----------------------------------------------------------------------------
-  SPECIFIC ELEMENTS
+  OTHER SPECIFIC ELEMENTS
 -----------------------------------------------------------------------------*/
-nav ul {
-  margin: 0;
-}
+/* Nav */
+body > footer li,
 nav li {
   display: inline;
 }
-.post-metadata {
-  list-style-type: none;
+nav li::after {
+  content: ",";
+  margin-left: -0.2em;
+}
+nav li:first-child::after {
+  content: "—";
+  margin-left: 0;
+}
+nav li:last-child::after {
+  content: "";
+}
+nav .active {
+  /* font-weight: bold; */
+}
+.subnav,
+footer {
   font-size: var(--font-size-small);
-  margin-top: var(--spacing-medium);
   color: var(--color-text-muted);
 }
-.tags-list,
-.tags-list li {
-  display: inline;
+
+/* Posts list */
+.posts-list.hide-content {
+  list-style-type: decimal;
+  padding-left: 1em;
 }
+
+
 /*-----------------------------------------------------------------------------
   UTILITIES
 -----------------------------------------------------------------------------*/

@@ -11,13 +11,11 @@ pagination:
   addAllPagesToCollections: true
 layout: posts-tagged-page
 eleventyComputed:
-  title: Posts tagged as “{{ tag }}”
+  title: Tagged “{{ tag }}”
+  hideContent: true
 permalink: /list/posts/{{ tag | slugify }}/
 ---
 
-<p>See <a href="/index/">all tags</a> or <a href="/posts/{{ tag | slugify }}">full posts</a>.</p>
-
-{% set titlesOnly = true %}
 {% set postslist = collections[ tag ] %}
-{% include "list-posts.njk" %}
+{% include "_list-posts.njk" %}
 

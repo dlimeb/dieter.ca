@@ -1,28 +1,25 @@
 <article>
   <header>
-    <h1><a href="{{ post.url }}">{{ title }}</a></h1>
-    <ul class="post-metadata">
-      <li>
-        Posted <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-      </li>
-      {# <li>
-        Last updated <br><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time> <a href="#">View</a>
-      </li> #}
-      <li>
-        <ul>
-          <li>Tagged
-          {%- for tag in tags | filterTagList %}
-            {%- set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
-              <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}
-          {%- endfor %}
-        </ul>
-      </li>
-    </ul>
+    <h1{% if singlePost %} id="title"{% endif %}><a href="{{ post.url }}">{{ title }}</a></h1>
   </header>
 
-  {% if not titlesOnly %}
+  {% if not hideContent %}
     <div class="content">
       {{ content | safe }}
     </div>
   {% endif %}
+
+  <footer>
+    <ul>
+      <li>
+        <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+      </li>
+      <li>
+        {%- for tag in tags | filterTagList %}
+          {%- set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
+            <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}
+        {%- endfor %}
+      </li>
+    </ul>
+  </footer>
 </article>

@@ -7,7 +7,7 @@ tags:
 draft: true
 ---
 
-Reading is a timeless activity that offers _numerous benefits_ to individuals of all ages. Beyond the simple enjoyment of a good story, reading stimulates the mind and broadens horizons. When you immerse yourself in a book, you embark on a journey of imagination, exploring new worlds, cultures, and ideas. This mental exercise is akin to a workout for the brain, keeping it sharp and engaged.
+Reading is a timeless activity that offers _numerous benefits_ to individuals of all ages. Beyond the simple enjoyment of a good story, reading stimulates the mind and [broadens horizons](https://example.com). When you immerse yourself in a book, you embark on a journey of imagination, exploring new worlds, cultures, and ideas. This mental exercise is akin to a workout for the brain, keeping it sharp and engaged.
 
 One of the most profound benefits of reading is its impact on knowledge acquisition. Books are like repositories of wisdom, containing the thoughts and experiences of countless individuals throughout history. By reading, you gain access to this treasure trove of information, expanding your understanding of various subjects and honing your **critical thinking skills**.
 

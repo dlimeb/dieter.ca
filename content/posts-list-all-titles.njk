@@ -1,11 +1,9 @@
 ---
 layout: posts-page
-title: Posts list
+title: All posts
 permalink: /list/posts/
 ---
 
-<p>View as <a href="/posts/">full posts</a>.
-
+{# TODO probably don't need this page, since no way to access it from the main posts list. put it somewhere else? #}
 {% set postslist = collections.posts %}
-{% set titlesOnly = true %}
-{% include "list-posts.njk" %}
+{% include "_list-posts.njk" %}

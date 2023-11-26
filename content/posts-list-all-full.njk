@@ -4,10 +4,8 @@ permalink: /posts/
 eleventyNavigation:
   key: Posts
   order: 1
-title: Posts
+title: All posts
 ---
 
-<p>View as <a href="/list/posts/">list of titles</a> only.</p>
-
 {% set postslist = collections.posts %}
-{% include "list-posts.njk" %}
+{% include "_list-posts.njk" %}
