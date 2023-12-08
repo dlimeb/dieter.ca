@@ -17,7 +17,6 @@
     --spacing-2: calc(2 * var(--font-size-base));
     --spacing-3: calc(3 * var(--font-size-base));
     --spacing-4: calc(4 * var(--font-size-base));
-    --spacing-5: calc(5 * var(--font-size-base));
     --spacing-6: calc(6 * var(--font-size-base));
 }
 
@@ -118,24 +117,19 @@ body {
 }
 
 body > header,
-main > header,
-/* main > article > header, */
-.page h1 {
-  margin-bottom: 100px;
+main > header {
+  margin-bottom: var(--spacing-6);
 }
- article > header h1,
-.posts-list.hide-content article > header h1 {
+article > header h1 {
   margin-bottom: 1em;
 }
-
-.posts-list.hide-content article > header h1,
-h1 {
+.posts-list.hide-content article > header h1 {
   margin: 0;
 }
 
 main,
 .show-content article {
-  margin-bottom: 300px;
+  margin-bottom: calc(3 * var(--spacing-6));
 }
 
 
@@ -155,6 +149,9 @@ h1,
 h2,
 h3 {
   font-size: var(--font-size-base);
+}
+h1 {
+  margin: 0;
 }
 h2 {
   margin: var(--spacing-2) 0 1em;
