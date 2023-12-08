@@ -8,6 +8,7 @@
       {% set title = post.data.title %}
       {% set tags = post.data.tags %}
       {% set content = post.content %}
+      {% set post_date = post.date %}
       {% include "_post.njk" %}
     </li>
   {% endfor %}
