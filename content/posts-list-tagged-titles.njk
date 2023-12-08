@@ -12,6 +12,7 @@ pagination:
 layout: posts-tagged-page
 eleventyComputed:
   title: Posts tagged “{{ tag }}”
+  description: Entries to the blog tagged as “{{ tag }}”, listed by title
   hideContent: true
 permalink: /list/posts/{{ tag | slugify }}/
 ---

@@ -6,7 +6,7 @@
 
     {#- title & description #}
     <title>{% if title %}{{ title }} • {% endif %}{{ metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="description" content="{{ description | truncate(140) if description else content | striptags | replace(title, "") | trim | truncate(140) }}">
     <meta name="generator" content="{{ eleventy.generator }}">
 
     {#- favicons #}
@@ -29,7 +29,7 @@
     {#- social #}
     <meta property="og:site_name" content="{{ metadata.name }}">
     <meta property="og:title" content="{% if title %}{{ title }} • {% endif %}{{ metadata.title }}">
-    <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | truncate(140) }}">
+    <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | replace(title, "") | trim | truncate(140) }}">
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
   </head>
 
