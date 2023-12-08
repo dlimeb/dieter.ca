@@ -6,12 +6,16 @@ eleventyComputed:
   indexPage: true
 ---
 
-{% for tagSet in collections.all | getAllTags | filterTagList | groupedByLetter %}
-  <h2>{{ tagSet.letter }}</h2>
-  <ul>
-    {% for tag in tagSet.tags %}
-      {% set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
-      <li><a href="{{ tagUrl }}">{{ tag }}</a> ({{ collections[tag].length }})</li>
-    {% endfor %}
-  </ul>
-{% endfor %}
+<ul class="tags-index">
+  {% for tagSet in collections.all | getAllTags | filterTagList | groupedByLetter %}
+    <li>
+      {{ tagSet.letter }}
+      <ul>
+        {% for tag in tagSet.tags %}
+          {% set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
+          <li><a href="{{ tagUrl }}">{{ tag }}</a> ({{ collections[tag].length }})</li>
+        {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+</ul>

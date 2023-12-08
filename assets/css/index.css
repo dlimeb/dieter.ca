@@ -83,12 +83,14 @@ body {
   }
 }
 @media (min-width: 60rem) {
+  .page,
   article {
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-column-gap: var(--spacing-1-5);
     grid-template-rows: auto minmax(min-content, 1fr);
   }
+  .page > h1,
   article > header {
     grid-column: 1/2;
     grid-row: 1;
@@ -376,6 +378,20 @@ footer {
 }
 .posts-list.hide-content article footer li:first-child::after {
   content: "–";
+}
+
+/* Tags index */
+.content ul.tags-index,
+.content ul.tags-index ul {
+  padding: 0;
+  list-style: none;
+}
+.content ul.tags-index li {
+  margin-bottom: var(--spacing-3);
+  font-weight: bold;
+}
+.content ul.tags-index li li {
+  font-weight: normal;
 }
 
 
