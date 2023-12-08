@@ -90,9 +90,16 @@ body {
     grid-template-rows: auto minmax(min-content, 1fr);
   }
   .page > h1,
-  article > header {
+  article > header,
+  article > footer {
     grid-column: 1/2;
+  }
+  .page > h1,
+  article > header {
     grid-row: 1;
+  }
+  .hide-content article > header {
+    grid-column: 1/4;
   }
   .content {
     grid-column: 2/6;
@@ -100,8 +107,10 @@ body {
     max-width: 40em;
   }
   article > footer {
-    grid-column: 1/2;
     grid-row: 2;
+  }
+  .hide-content article > footer {
+    grid-column: 1/4;
   }
 }
 @media (min-width: 75rem) {
