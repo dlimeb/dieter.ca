@@ -32,7 +32,7 @@
     --color-action: hsl(240, 100%, 50%); /* #00f */
     --color-action-hover: hsl(240, 100%, 95%);
 
-    --color-code-text: hsl(215, 14%, 38%);
+    --color-code-text: var(--color-text);
     --color-code-background: hsl(215, 20%, 93%);
     --color-pre-background: hsl(215, 12%, 13%);
 
@@ -50,14 +50,14 @@
     --color-text: hsl(215, 3%, 80%);
     --color-text-muted: hsl(215, 3%, 60%);
 
-    --color-action: hsl(249, 100%, 75%);
+    --color-action: hsl(249, 100%, 78%);
     --color-action-hover: hsl(249, 57%, 40%);
 
-    --color-code-text: var(--color-text-muted);
-    --color-code-background: hsl(215, 12%, 9%);
+    --color-code-text: var(--color-text);
+    --color-code-background: hsl(215, 29%, 28%);
     --color-pre-background: hsl(215, 12%, 9%);
 
-    --color-highlight-background: hsl(26, 83%, 14%);
+    --color-highlight-background: hsl(51, 100%, 19%);
 
     --color-border: hsl(215, 3%, 19%);
   }
