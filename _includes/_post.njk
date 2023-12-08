@@ -3,11 +3,9 @@
     <h1{% if singlePost %} id="title"{% endif %}><a href="{{ post.url }}">{{ title }}</a></h1>
   </header>
 
-  {% if not hideContent %}
-    <div class="content">
-      {{ content | safe }}
-    </div>
-  {% endif %}
+  <div class="content" {% if hideContent %}style="display: none"{% endif %}>
+    {{ content | safe }}
+  </div>
 
   <footer>
     <ul>
