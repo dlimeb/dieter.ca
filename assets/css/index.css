@@ -109,6 +109,7 @@ body {
   }
   article > footer {
     grid-row: 2;
+    margin-top: 0.25rem;
   }
 }
 @media (min-width: 75rem) {
