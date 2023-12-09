@@ -6,7 +6,17 @@ eleventyNavigation:
   order: 1
 title: All posts
 description: The most recent entries posted to the blog
+numberOfLatestPostsToShow: 10
 ---
 
-{% set postslist = collections.posts %}
+{% set postsCount = collections.posts | length %}
+{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+
+{% set postsList = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+{% set postslistCounter = postsCount %}
 {% include "_list-posts.njk" %}
+
+{% set morePosts = postsCount - numberOfLatestPostsToShow %}
+{% if morePosts > 0 %}
+  <p>View {{ morePosts }} older post{% if morePosts != 1 %}s{% endif %} in the <a href="/list/posts/">archive</a>, or view the <a href="/index/">index</a>.</p>
+{% endif %}
