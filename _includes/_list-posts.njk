@@ -1,9 +1,9 @@
 {%- css %}
-  .posts-list { counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }} }
+  .posts-list { counter-reset: start-from {{ (postslistCounter or postsList.length) + 1 }} }
 {% endcss %}
 
 <ol reversed class="posts-list {% if hideContent %}hide-content{% else %}show-content{% endif %}">
-  {% for post in postslist | reverse %}
+  {% for post in postsList | reverse %}
     <li>
       {% set title = post.data.title %}
       {% set tags = post.data.tags %}
