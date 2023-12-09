@@ -98,7 +98,8 @@ body {
   article > header {
     grid-row: 1;
   }
-  .hide-content article > header {
+  .hide-content article > header,
+  .hide-content article > footer {
     grid-column: 1/4;
   }
   .content {
@@ -108,9 +109,6 @@ body {
   }
   article > footer {
     grid-row: 2;
-  }
-  .hide-content article > footer {
-    grid-column: 1/4;
   }
 }
 @media (min-width: 75rem) {
@@ -132,7 +130,7 @@ main > header {
 article > header h1 {
   margin-bottom: 1em;
 }
-.posts-list.hide-content article > header h1 {
+.hide-content article > header h1 {
   margin: 0;
 }
 
@@ -186,18 +184,18 @@ ul {
   list-style: disc;
 }
 .content ol,
-.footnotes ol,
-.posts-list.hide-content {
+.footnotes ol {
   list-style: decimal;
 }
 .content ul,
-.content ol,
-.posts-list.hide-content {
+.content ol {
   padding-left: 1em;
 }
-
-.posts-list.hide-content footer li {
-  display: inline;
+@media (min-width: 40rem) {
+  .content ul,
+  .content ol {
+    padding-left: 0;
+  }
 }
 
 /* Links */
@@ -209,22 +207,6 @@ a {
 a:hover {
   color: var(--color-action);
 }
-.subnav a,
-footer a {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-}
-a:hover,
-body > header a,
-article header a,
-.subnav a:hover {
-  text-decoration: none;
-}
-body > header a:hover,
-article header a:hover {
-  text-decoration: underline;
-}
-
 
 /* Dividers */
 hr {
@@ -254,7 +236,12 @@ blockquote {
   color: var(--color-text-muted);
   border-left: 4px solid var(--color-border);
   margin: var(--spacing-2) 0;
-  padding-left: var(--font-size-base);
+  padding-left: var(--spacing-1);
+}
+@media (min-width: 40rem) {
+  blockquote {
+    margin-left: calc(-1 * var(--spacing-1) - 4px);
+  }
 }
 cite {
   display: block;
@@ -293,6 +280,11 @@ pre {
   margin: var(--spacing-2) 0;
   overflow: auto;
 }
+@media (min-width: 40rem) {
+  pre {
+    margin-left: calc(-1 * var(--spacing-1));
+  }
+}
 code {
   color: var(--color-code-text);
   background-color: var(--color-code-background);
@@ -312,6 +304,74 @@ pre > code {
 .ord {
   font-size: var(--font-size-small);
   vertical-align: top;
+}
+
+
+/*-----------------------------------------------------------------------------
+  SPECIFIC ELEMENTS
+-----------------------------------------------------------------------------*/
+/* Nav */
+body > footer li,
+nav li {
+  display: inline;
+}
+nav li::after {
+  content: ",";
+  margin-left: -0.2em;
+}
+nav li:first-child::after {
+  content: "—";
+  margin-left: 0;
+}
+nav li:last-child::after {
+  content: "";
+}
+.subnav,
+footer {
+  font-size: var(--font-size-small);
+}
+
+/* Links */
+.subnav a,
+footer a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+a:hover,
+body > header a,
+article header a,
+.subnav a:hover {
+  text-decoration: none;
+}
+body > header a:hover,
+article header a:hover {
+  text-decoration: underline;
+}
+
+/* Posts list */
+.hide-content {
+  list-style: decimal;
+  padding-left: 1em;
+}
+.hide-content footer li {
+  display: inline;
+}
+.hide-content article footer li + li:last-child::before {
+  content: "–";
+}
+
+/* Tags index */
+.content ul.tags-index,
+.content ul.tags-index ul {
+  padding: 0;
+  list-style: none;
+}
+.content ul.tags-index li {
+  margin-bottom: var(--spacing-3);
+  font-weight: bold;
+}
+.content ul.tags-index li li {
+  font-weight: normal;
 }
 
 /* Direct links and footnotes */
@@ -349,56 +409,6 @@ sup {
   font-size: var(--font-size-small);
 }
 
-
-/*-----------------------------------------------------------------------------
-  OTHER SPECIFIC ELEMENTS
------------------------------------------------------------------------------*/
-/* Nav */
-body > footer li,
-nav li {
-  display: inline;
-}
-nav li::after {
-  content: ",";
-  margin-left: -0.2em;
-}
-nav li:first-child::after {
-  content: "—";
-  margin-left: 0;
-}
-nav li:last-child::after {
-  content: "";
-}
-nav .active {
-  /* font-weight: bold; */
-}
-.subnav,
-footer {
-  font-size: var(--font-size-small);
-}
-
-/* Posts list */
-.posts-list.hide-content {
-  list-style-type: decimal;
-  padding-left: 1em;
-}
-.posts-list.hide-content article footer li + li:last-child::before {
-  content: "–";
-}
-
-/* Tags index */
-.content ul.tags-index,
-.content ul.tags-index ul {
-  padding: 0;
-  list-style: none;
-}
-.content ul.tags-index li {
-  margin-bottom: var(--spacing-3);
-  font-weight: bold;
-}
-.content ul.tags-index li li {
-  font-weight: normal;
-}
 
 
 /*-----------------------------------------------------------------------------
