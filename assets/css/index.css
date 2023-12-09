@@ -219,8 +219,25 @@ hr {
 /* Images */
 picture {
   display: block;
-  margin: var(--spacing-3) calc(-4 * var(--spacing-3)) var(--spacing-3) 0;
-  max-width: 100%;
+  margin: var(--spacing-3) calc(-1 * var(--spacing-1-5));
+  max-width: calc(100% + (2 * var(--spacing-1-5)));
+}
+@media (min-width: 40rem) {
+  picture {
+    margin-left: calc(-1 * var(--spacing-3));
+    margin-right: calc(-1 * var(--spacing-3));
+    max-width: calc(100% + (2 * var(--spacing-3)));
+  }
+}
+@media (min-width: 60rem) {
+  picture {
+    margin-left: 0;
+  }
+}
+@media (min-width: 68rem) {
+  picture {
+    margin-right: calc(-1 * var(--spacing-4));
+  }
 }
 img {
   width: 100%;
