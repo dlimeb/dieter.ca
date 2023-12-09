@@ -217,25 +217,24 @@ hr {
 }
 
 /* Images */
-picture {
-  display: block;
+figure {
   margin: var(--spacing-3) calc(-1 * var(--spacing-1-5));
   max-width: calc(100% + (2 * var(--spacing-1-5)));
 }
 @media (min-width: 40rem) {
-  picture {
+  figure {
     margin-left: calc(-1 * var(--spacing-3));
     margin-right: calc(-1 * var(--spacing-3));
     max-width: calc(100% + (2 * var(--spacing-3)));
   }
 }
 @media (min-width: 60rem) {
-  picture {
+  figure {
     margin-left: 0;
   }
 }
 @media (min-width: 68rem) {
-  picture {
+  figure {
     margin-right: calc(-1 * var(--spacing-4));
   }
 }
@@ -246,6 +245,17 @@ img {
 figcaption {
   font-size: var(--font-size-small);
   color: var(--color-text-muted);
+  margin: 0 var(--spacing-1-5);
+}
+@media (min-width: 40rem) {
+  figcaption {
+    margin: 0 var(--spacing-3);
+  }
+}
+@media (min-width: 60rem) {
+  figcaption {
+    margin: 0;
+  }
 }
 
 /* Blockquotes */
