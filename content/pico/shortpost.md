@@ -1,1 +1,0 @@
-This is a very short post. I'm nearly finished with this blog setup.
