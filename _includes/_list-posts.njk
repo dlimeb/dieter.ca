@@ -1,0 +1,25 @@
+{%- css %}
+  .posts-list { counter-reset: start-from {{ (postslistCounter or postsList.length) + 1 }} }
+{% endcss %}
+
+{% if postsCount %}
+  <ol reversed class="posts-list {% if hideContent %}hide-content{% else %}show-content{% endif %}">
+    {% for post in postsList | reverse %}
+      <li>
+        {% if post.data.title %}
+          {% set title = post.data.title %}
+          {% set url = post.url %}
+        {% else %}
+          {% set title = post.content | striptags | truncate(32, false) %}
+          {% set url = title | slugify %}
+        {% endif %}
+        {% set tags = post.data.tags %}
+        {% set content = post.content %}
+        {% set post_date = post.date %}
+        {% include "_post.njk" %}
+      </li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <p>Sorry, there are no posts to display.</p>
+{% endif %}

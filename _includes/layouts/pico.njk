@@ -1,0 +1,10 @@
+---
+layout: post
+tags:
+  - pico
+eleventyComputed:
+  permalink: "/{{ page.date | readableDate('X') | slugify }}/"
+  title:
+---
+
+{{ content | safe }}

@@ -1,4 +1,5 @@
 const { DateTime } = require("luxon");
+const debug = require("debug")("dlimeb");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const markdownItFootnote = require("markdown-it-footnote");
@@ -51,7 +52,7 @@ module.exports = function(eleventyConfig) {
   // Filters
   eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
     // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "LLLL d, yyyy");
   });
 
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
@@ -82,11 +83,34 @@ module.exports = function(eleventyConfig) {
     for(let item of collection) {
       (item.data.tags || []).forEach(tag => tagSet.add(tag));
     }
-    return Array.from(tagSet);
+    return Array.from(tagSet).sort();
   });
 
+  // Strip out internal 11ty tags
   eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
     return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
+  });
+
+  // Group sets of tags together corresponding to their first letter
+  eleventyConfig.addFilter("groupedByLetter", function groupedByLetter(tags){
+    const groupedByFirstLetter = tags.reduce((result, tag) => {
+      const firstLetter = tag[0];
+
+      // Check if there is already an object with the same letter in the result array
+      const existingEntry = result.find(entry => entry.letter === firstLetter);
+
+      // If there is, add the current tag to its 'tags' array
+      if (existingEntry) {
+        existingEntry.tags.push(tag);
+      } else {
+        // If not, create a new entry with the current letter and the current tag
+        result.push({ letter: firstLetter, tags: [tag] });
+      }
+
+      return result;
+    }, []);
+
+    return (groupedByFirstLetter || []);
   });
 
   // Minify CSS

@@ -6,7 +6,7 @@
 
     {#- title & description #}
     <title>{% if title %}{{ title }} • {% endif %}{{ metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
+    <meta name="description" content="{{ description | truncate(140) if description else content | striptags | replace(title, "") | trim | truncate(140) }}">
     <meta name="generator" content="{{ eleventy.generator }}">
 
     {#- favicons #}
@@ -22,25 +22,30 @@
     {#- styling #}
     {%- set css %}
       {% include "assets/css/index.css" %}
-      {% if hasCodeBlock %}
-        {% include "node_modules/prismjs/themes/prism-okaidia.css" %}
-      {% endif %}
+      {% include "assets/css/prism-okaidia.css" %}
     {% endset %}
     <style>{{ css | cssmin | safe }}</style>
 
     {#- social #}
     <meta property="og:site_name" content="{{ metadata.name }}">
     <meta property="og:title" content="{% if title %}{{ title }} • {% endif %}{{ metadata.title }}">
-    <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | truncate(140) }}">
+    <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | replace(title, "") | trim | truncate(140) }}">
     <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
   </head>
 
   <body>
     <a href="#main" class="visually-hidden">Skip to main content</a>
 
+    {% if header != false %}
+      {% include "_site-header.njk" %}
+    {% endif %}
+
     <main id="main" aria-labelledby="title">
       {{ content | typogrify | safe }}
     </main>
 
+    {% if footer != false %}
+      {% include "_site-footer.njk" %}
+    {% endif %}
   </body>
 </html>

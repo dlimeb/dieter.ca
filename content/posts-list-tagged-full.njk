@@ -1,0 +1,22 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+layout: posts-tagged-page
+eleventyComputed:
+  title: Posts tagged “{{ tag }}”
+  description: Entries to the blog tagged as “{{ tag }}”
+  hideContent: false
+permalink: /posts/{{ tag | slugify }}/
+---
+
+{% set postsList = collections[ tag ] %}
+{% include "_list-posts.njk" %}
+

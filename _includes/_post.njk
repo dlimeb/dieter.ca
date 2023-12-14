@@ -1,0 +1,30 @@
+<article>
+  {% if title %}
+    <header>
+      <h1{% if singlePost %} id="title"{% endif %}><a href="{{ post.url }}">{{ title }}</a></h1>
+    </header>
+  {% endif %}
+
+  <div class="content" {% if hideContent %}style="display: none"{% endif %}>
+    {{ content | safe }}
+  </div>
+
+  <footer>
+    <ul>
+      <li>
+        <time datetime="{{ post_date | htmlDateString }}">{{ post_date | readableDate }}</time>
+        {% if not title %}
+          <a href="{{ post.url }}">#</a>
+        {% endif %}
+      </li>
+      {% if tags | length > 1 %}
+        <li>
+          {%- for tag in tags | filterTagList %}
+            {%- set tagUrl %}/posts/{{ tag | slugify }}/{% endset %}
+            <a href="{{ tagUrl }}">{{ tag }}</a>{%- if not loop.last %}, {% endif %}
+          {%- endfor %}
+        </li>
+      {% endif %}
+    </ul>
+  </footer>
+</article>
