@@ -8,7 +8,8 @@
     --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
     --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     --font-size-base: 1.125rem;
-    --font-size-small: calc(var(--font-size-base) - 0.25rem);
+    --font-size-small: 90%;
+    --font-size-tiny: 80%;
     --line-height: 1.5;
 
     /* Alignment */
@@ -291,8 +292,6 @@ pre,
 code {
   font-family: var(--font-mono);
   font-size: var(--font-size-small);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-small);
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -317,6 +316,7 @@ code {
   color: var(--color-code-text);
   background-color: var(--color-code-background);
   padding: 0.125rem 0.25rem;
+  border-radius: 3px;
 }
 pre > code {
   color: var(--color-text-inverted);
@@ -332,6 +332,18 @@ pre > code {
 .ord {
   font-size: var(--font-size-small);
   vertical-align: top;
+}
+
+/* Sup/sub */
+sup,
+sub {
+  font-size: var(--font-size-tiny);
+}
+sup {
+  vertical-align: top;
+}
+sub {
+  vertical-align: bottom;
 }
 
 
@@ -421,6 +433,7 @@ a.footnote-backref:hover {
 }
 a.footnote-backref {
   padding-top: 0.125rem;
+  vertical-align: middle;
 }
 .header-anchor {
   display: none;
@@ -428,10 +441,6 @@ a.footnote-backref {
 }
 h2:hover .header-anchor {
   display: inline-block;
-}
-sup {
-  font-size: var(--font-size-small);
-  vertical-align: top;
 }
 .footnotes-list {
   font-size: var(--font-size-small);
