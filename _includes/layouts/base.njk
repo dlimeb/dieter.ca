@@ -1,51 +1,53 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+		<meta name="generator" content="{{ eleventy.generator }}">
+		<link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
+		<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
 
-    {#- title & description #}
-    <title>{% if title %}{{ title }} • {% endif %}{{ metadata.title }}</title>
-    <meta name="description" content="{{ description | truncate(140) if description else content | striptags | replace(title, "") | trim | truncate(140) }}">
-    <meta name="generator" content="{{ eleventy.generator }}">
+		{% set css %}
+			{% include "css/variables.css" %}
+			{% include "css/typography.css" %}
+			{% include "css/layout.css" %}
+			{% include "css/utilities.css" %}
+		{% endset %}
+		<style>{{ css | cssmin | safe }}</style>
 
-    {#- favicons #}
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="/assets/favicon/favicon.svg">
-    <link rel="mask-icon" href="/assets/favicon/mask-icon.svg" color="#6D28D9">
-    <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
+	</head>
+	<body>
+		<a href="#main" class="visually-hidden">Skip to main content</a>
 
-    {#- feeds #}
-    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
+		{# <header>
+			<a href="/" class="home-link">{{ metadata.title }}</a>
 
-    {#- styling #}
-    {%- set css %}
-      {% include "assets/css/index.css" %}
-      {% include "assets/css/prism-okaidia.css" %}
-    {% endset %}
-    <style>{{ css | cssmin | safe }}</style>
+			<nav>
+				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<ul class="nav">
+				{%- for entry in collections.all | eleventyNavigation %}
+					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
+				{%- endfor %}
+				</ul>
+			</nav>
+		</header> #}
 
-    {#- social #}
-    <meta property="og:site_name" content="{{ metadata.name }}">
-    <meta property="og:title" content="{% if title %}{{ title }} • {% endif %}{{ metadata.title }}">
-    <meta property="og:description" content="{{ description | truncate(140) if description else content | striptags | replace(title, "") | trim | truncate(140) }}">
-    <meta property="og:url" content="{{ metadata.url }}{{ page.url }}">
-  </head>
+		<main id="main">
+			<heading-anchors>
+				{{ content | safe }}
+			</heading-anchors>
+		</main>
 
-  <body>
-    <a href="#main" class="visually-hidden">Skip to main content</a>
+		{# <footer>
+		</footer> #}
 
-    {% if header != false %}
-      {% include "_site-header.njk" %}
-    {% endif %}
-
-    <main id="main" aria-labelledby="title">
-      {{ content | typogrify | safe }}
-    </main>
-
-    {% if footer != false %}
-      {% include "_site-footer.njk" %}
-    {% endif %}
-  </body>
+		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
+		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
+	</body>
 </html>

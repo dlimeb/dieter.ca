@@ -1,44 +1,47 @@
 {
-  "name": "dlimeb.github.io",
-  "version": "8.0.0",
-  "description": "The website at dieter.ca",
-  "scripts": {
-    "build": "npx @11ty/eleventy",
-    "start": "npx @11ty/eleventy --serve --quiet",
-    "debug": "DEBUG=Eleventy* npx @11ty/eleventy",
-    "debugstart": "DEBUG=dlimeb* npx @11ty/eleventy --serve --quiet",
-    "benchmark": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/dlimeb/dlimeb.github.io.git"
-  },
-  "author": {
-    "name": "Dieter Limeback",
-    "email": "dlimeb@gmail.com",
-    "url": "https://dieter.ca/"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "@11ty/eleventy-img": "^3.1.1",
-    "@11ty/eleventy-navigation": "^0.3.5",
-    "@11ty/eleventy-plugin-bundle": "^1.0.4",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-    "@netlify/plugin-lighthouse": "^5.0.0",
-    "luxon": "^3.3.0",
-    "markdown-it-anchor": "^8.6.7"
-  },
-  "dependencies": {
-    "@jamshop/eleventy-plugin-typography": "^1.0.0",
-    "clean-css": "^5.3.2",
-    "debug": "^4.3.4",
-    "markdown-it": "^13.0.2",
-    "markdown-it-footnote": "^3.0.3",
-    "markdown-it-link-attributes": "^4.0.1",
-    "markdown-it-mark": "^3.0.1"
-  }
+	"name": "dieter.ca",
+	"version": "9.0.0",
+	"description": "Website at dieter.ca",
+	"type": "module",
+	"scripts": {
+		"build": "npx @11ty/eleventy",
+		"build-nocolor": "cross-env NODE_DISABLE_COLORS=1 npx @11ty/eleventy",
+		"build-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/",
+		"start": "npx @11ty/eleventy --serve --quiet",
+		"start-ghpages": "npx @11ty/eleventy --pathprefix=/eleventy-base-blog/ --serve --quiet",
+		"debug": "cross-env DEBUG=Eleventy* npx @11ty/eleventy",
+		"debugstart": "cross-env DEBUG=Eleventy* npx @11ty/eleventy --serve --quiet",
+		"benchmark": "cross-env DEBUG=Eleventy:Benchmark* npx @11ty/eleventy"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/dlimeb/dieter.ca.git"
+	},
+	"author": {
+		"name": "Dieter Limeback",
+		"email": "dlimeb@gmail.com",
+		"url": "https://dieter.ca/"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"bugs": {
+		"url": "https://github.com/dlimeb/dieter.ca/issues"
+	},
+	"homepage": "https://github.com/dlimeb/dieter.ca#readme",
+	"devDependencies": {
+		"@11ty/eleventy": "^3.0.0",
+		"@11ty/eleventy-img": "^6.0.1",
+		"@11ty/eleventy-navigation": "^0.3.5",
+		"@11ty/eleventy-plugin-rss": "^2.0.2",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+		"cross-env": "^7.0.3",
+		"luxon": "^3.5.0",
+		"zod": "^3.23.8",
+		"zod-validation-error": "^3.3.1"
+	},
+	"dependencies": {
+		"@zachleat/heading-anchors": "^1.0.1",
+		"clean-css": "^5.3.3"
+	}
 }

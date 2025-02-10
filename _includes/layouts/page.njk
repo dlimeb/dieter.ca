@@ -1,13 +1,5 @@
 ---
-layout: base
+layout: layouts/base
 ---
 
-<div class="page">
-  <h1 id="title">
-    {% if indexPage %}<a href="/posts/">Posts</a> / {% endif %}{{ title }}
-  </h1>
-
-  <div class="content">
-    {{ content | safe }}
-  </div>
-</div>
+{{ content | safe }}

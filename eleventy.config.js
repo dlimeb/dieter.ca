@@ -1,223 +1,161 @@
-const { DateTime } = require("luxon");
-const debug = require("debug")("dlimeb");
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const markdownItFootnote = require("markdown-it-footnote");
-const markdownItMark = require("markdown-it-mark");
-var mila = require("markdown-it-link-attributes");
-const typographyPlugin = require("@jamshop/eleventy-plugin-typography");
+import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+import pluginNavigation from "@11ty/eleventy-navigation";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import CleanCSS from "clean-css";
 
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const pluginBundle = require("@11ty/eleventy-plugin-bundle");
-const pluginNavigation = require("@11ty/eleventy-navigation");
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
+import pluginFilters from "./_config/filters.js";
 
-const CleanCSS = require("clean-css");
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
+export default async function(eleventyConfig) {
+	// Drafts, see also _data/eleventyDataSchema.js
+	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
+		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+			return false;
+		}
+	});
 
-const pluginDrafts = require("./eleventy.config.drafts.js");
-const pluginImages = require("./eleventy.config.images.js");
+	// Copy the contents of the `public` folder to the output folder
+	// For example, `./public/css/` ends up in `_site/css/`
+	eleventyConfig
+		.addPassthroughCopy({
+			"./assets/": "/assets"
+		})
+		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
-module.exports = function(eleventyConfig) {
-  // Copy the contents of the `assets` folder to the output folder
-  // For example, `./assets/css/` ends up in `_site/assets/css/`
-  // (Note this has been renamed; the eleventy-base-blog repo calls this `public`)
-  eleventyConfig.addPassthroughCopy({
-    "./assets/": "/assets/",
-    // "./node_modules/prismjs/themes/prism-okaidia.css": "/assets/css/prism-okaidia.css"
-  });
+	// Run Eleventy when these files change:
+	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
-  // Run Eleventy when these files change:
-  // https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
+	// Watch images for the image pipeline.
+	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpg,jpeg,gif}");
 
-  // Watch content images for the image pipeline.
-  eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
+	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
+	// Adds the {% css %} paired shortcode
+	eleventyConfig.addBundle("css", {
+		toFileDirectory: "dist",
+	});
+	// Adds the {% js %} paired shortcode
+	eleventyConfig.addBundle("js", {
+		toFileDirectory: "dist",
+	});
 
-  // App plugins
-  eleventyConfig.addPlugin(pluginDrafts);
-  eleventyConfig.addPlugin(pluginImages);
+	// Official plugins
+	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+		preAttributes: { tabindex: 0 }
+	});
+	eleventyConfig.addPlugin(pluginNavigation);
+	eleventyConfig.addPlugin(HtmlBasePlugin);
+	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
-  // Official plugins
-  eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight, {
-    preAttributes: { tabindex: 0 }
-  });
-  eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
-  eleventyConfig.addPlugin(pluginBundle);
+	eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom", // or "rss", "json"
+		outputPath: "/feed/feed.xml",
+		stylesheet: "pretty-atom-feed.xsl",
+		templateData: {
+			eleventyNavigation: {
+				key: "Feed",
+				order: 4
+			}
+		},
+		collection: {
+			name: "posts",
+			limit: 10,
+		},
+		metadata: {
+			language: "en",
+			title: "Dieter Limeback",
+			subtitle: "Personal website of Dieter Limeback",
+			base: "https://dieter.ca/",
+			author: {
+				name: "Dieter Limeback"
+			}
+		}
+	});
 
-  // Other plugins
-  eleventyConfig.addPlugin(typographyPlugin);
+	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		// Output formats for each image.
+		formats: ["avif", "webp", "auto"],
 
-  // Filters
-  eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
-    // Formatting tokens for Luxon: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
-    return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "LLLL d, yyyy");
-  });
+		// widths: ["auto"],
 
-  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    // dateObj input: https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
-  });
+		failOnError: false,
+		htmlOptions: {
+			imgAttributes: {
+				// e.g. <img loading decoding> assigned on the HTML tag will override these values.
+				loading: "lazy",
+				decoding: "async",
+			}
+		},
 
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if(!Array.isArray(array) || array.length === 0) {
-      return [];
-    }
-    if( n < 0 ) {
-      return array.slice(n);
-    }
+		sharpOptions: {
+			animated: true,
+		},
+	});
 
-    return array.slice(0, n);
-  });
+	// Inlined minified CSS: https://www.11ty.dev/docs/quicktips/inline-css/
+	eleventyConfig.addFilter("cssmin", function (code) {
+		return new CleanCSS({}).minify(code).styles;
+	});
 
-  // Return the smallest number argument
-  eleventyConfig.addFilter("min", (...numbers) => {
-    return Math.min.apply(null, numbers);
-  });
+	// Filters
+	eleventyConfig.addPlugin(pluginFilters);
 
-  // Return all the tags used in a collection
-  eleventyConfig.addFilter("getAllTags", collection => {
-    let tagSet = new Set();
-    for(let item of collection) {
-      (item.data.tags || []).forEach(tag => tagSet.add(tag));
-    }
-    return Array.from(tagSet).sort();
-  });
+	eleventyConfig.addPlugin(IdAttributePlugin, {
+		// by default we use Eleventy’s built-in `slugify` filter:
+		// slugify: eleventyConfig.getFilter("slugify"),
+		// selector: "h1,h2,h3,h4,h5,h6", // default
+	});
 
-  // Strip out internal 11ty tags
-  eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-    return (tags || []).filter(tag => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
-  });
+	eleventyConfig.addShortcode("currentBuildDate", () => {
+		return (new Date()).toISOString();
+	});
 
-  // Group sets of tags together corresponding to their first letter
-  eleventyConfig.addFilter("groupedByLetter", function groupedByLetter(tags){
-    const groupedByFirstLetter = tags.reduce((result, tag) => {
-      const firstLetter = tag[0];
+	// Features to make your build faster (when you need them)
 
-      // Check if there is already an object with the same letter in the result array
-      const existingEntry = result.find(entry => entry.letter === firstLetter);
+	// If your passthrough copy gets heavy and cumbersome, add this line
+	// to emulate the file copy on the dev server. Learn more:
+	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
-      // If there is, add the current tag to its 'tags' array
-      if (existingEntry) {
-        existingEntry.tags.push(tag);
-      } else {
-        // If not, create a new entry with the current letter and the current tag
-        result.push({ letter: firstLetter, tags: [tag] });
-      }
+	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+};
 
-      return result;
-    }, []);
+export const config = {
+	// Control which files Eleventy will process
+	// e.g.: *.md, *.njk, *.html, *.liquid
+	templateFormats: [
+		"md",
+		"njk",
+		"html",
+		"liquid",
+		"11ty.js",
+	],
 
-    return (groupedByFirstLetter || []);
-  });
+	// Pre-process *.md files with: (default: `liquid`)
+	markdownTemplateEngine: "njk",
 
-  // Minify CSS
-  eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
-  });
+	// Pre-process *.html files with: (default: `liquid`)
+	htmlTemplateEngine: "njk",
 
-  // Customize Markdown library settings:
-  let markdownItOptions = {
-    html: true,
-    linkify: true,
-    typographer: true,
-  };
-  let mdLib = markdownIt(markdownItOptions);
+	// These are all optional:
+	dir: {
+		input: "content",          // default: "."
+		includes: "../_includes",  // default: "_includes" (`input` relative)
+		data: "../_data",          // default: "_data" (`input` relative)
+		output: "_site"
+	},
 
-  const milaOptions = {
-    matcher(href) {
-      return href.match(/^https?:\/\//);
-    },
-    attrs: {
-      target: "_blank",
-      rel: "noopener"
-    }
-  };
-  eleventyConfig.amendLibrary("md", mdLib => {
-    mdLib
-      .use(markdownItAnchor, {
-        permalink: markdownItAnchor.permalink.ariaHidden({
-          placement: "after",
-          class: "header-anchor",
-          symbol: "#",
-          ariaHidden: false,
-        }),
-        level: [1,2,3,4],
-        slugify: eleventyConfig.getFilter("slugify")
-      })
-      .use(markdownItFootnote)
-      .use(markdownItMark)
-      .use(mila, milaOptions);
+	// -----------------------------------------------------------------
+	// Optional items:
+	// -----------------------------------------------------------------
 
-    // strip [] from footnote numbers
-    mdLib.renderer.rules.footnote_caption = (tokens, idx) => {
-      let n = Number(tokens[idx].meta.id + 1).toString();
-      if (tokens[idx].meta.subId > 0) {
-        n += ":" + tokens[idx].meta.subId;
-      }
-      return n;
-    };
+	// If your site deploys to a subdirectory, change `pathPrefix`.
+	// Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
 
-    // update HTML used in footnotes list
-    mdLib.renderer.rules.footnote_block_open = (tokens, idx, options) => {
-    return '<aside class="footnotes">\n' +
-           '<h2>Footnotes</h2>\n' +
-           '<ol class="footnotes-list">\n';
-    };
-    mdLib.renderer.rules.footnote_block_close = () => {
-      return '</ol>\n</aside>\n';
-    };
-  });
+	// When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
+	// it will transform any absolute URLs in your HTML to include this
+	// folder name and does **not** affect where things go in the output folder.
 
-  eleventyConfig.setLibrary("md", mdLib);
-
-
-
-  // Features to make your build faster (when you need them)
-
-  // If your passthrough copy gets heavy and cumbersome, add this line
-  // to emulate the file copy on the dev server. Learn more:
-  // https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
-
-  // eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-
-  return {
-    // Control which files Eleventy will process
-    // e.g.: *.md, *.njk, *.html, *.liquid
-    templateFormats: [
-      "md",
-      "njk",
-      "html",
-      "liquid",
-    ],
-
-    // Pre-process *.md files with: (default: `liquid`)
-    markdownTemplateEngine: "njk",
-
-    // Pre-process *.html files with: (default: `liquid`)
-    htmlTemplateEngine: "njk",
-
-    // These are all optional:
-    dir: {
-      input: "content",          // default: "."
-      includes: "../_includes",  // default: "_includes"
-      layouts: "../_includes/layouts",
-      data: "../_data",          // default: "_data"
-      output: "_site"
-    },
-
-    // -----------------------------------------------------------------
-    // Optional items:
-    // -----------------------------------------------------------------
-
-    // If your site deploys to a subdirectory, change `pathPrefix`.
-    // Read more: https://www.11ty.dev/docs/config/#deploy-to-a-subdirectory-with-a-path-prefix
-
-    // When paired with the HTML <base> plugin https://www.11ty.dev/docs/plugins/html-base/
-    // it will transform any absolute URLs in your HTML to include this
-    // folder name and does **not** affect where things go in the output folder.
-    pathPrefix: "/",
-  };
+	// pathPrefix: "/",
 };
