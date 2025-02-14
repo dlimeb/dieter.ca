@@ -12,7 +12,7 @@
     --color-background: hsl(0, 0%, 100%);
     --color-text: hsl(203, 87%, 15%);
     --color-text-muted: hsl(215, 18%, 47%);
-    --color-action: #00f;
+    --color-action: #00F;
   }
 }
 
@@ -22,6 +22,6 @@
     --color-background: hsl(229, 85%, 5%);
     --color-text: hsl(214, 32%, 91%);
     --color-text-muted: hsl(215, 23%, 65%);
-    --color-action: #f00;
+    --color-action: #1DECAF;
   }
 }
