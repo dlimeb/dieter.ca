@@ -21,7 +21,7 @@
 
 		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 	</head>
-	<body>
+	<body class={% if page.url == '/' %}page-home{% else %}{% set slugParts = ['page', page.fileSlug] %}{{slugParts | join('-')}}{% endif %}>
 		<a href="#main" class="u-sr-only">Skip to main content</a>
 
 		{% if show_header != false %}
