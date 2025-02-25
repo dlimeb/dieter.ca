@@ -8,6 +8,8 @@ const pagination = {
 	// addAllPagesToCollections: true,
 };
 
+const layout = "layouts/page";
+
 const eleventyExcludeFromCollections = true;
 
 const eleventyComputed = {
@@ -17,7 +19,6 @@ const eleventyComputed = {
 	}
 };
 ---
-<h1>Posts tagged as “{{ tag }}”</h1>
 
 {% set postslist = collections[ tag ] %}
 {% include "components/posts-list.njk" %}

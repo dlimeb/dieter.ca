@@ -1,12 +1,13 @@
 ---js
+// <script>
 const title = "Index";
 const permalink = "/index/";
+const layout = "layouts/page";
 const eleventyNavigation = {
 	key: "Index",
 	order: 3
 };
 ---
-<h1>Index</h1>
 
 <ul class="tags-index">
   {% for tagSet in collections.all | getAllTags | filterTagList | groupedByLetter %}

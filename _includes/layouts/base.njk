@@ -12,23 +12,28 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
 
 		{% set css %}
+			{# Global #}
 			{% include "css/color.css" %}
 			{% include "css/typography.css" %}
 			{% include "css/layout.css" %}
 			{% include "css/utilities.css" %}
+			{# Components #}
+			{% include "components/site-header.css" %}
+			{% include "components/post.css" %}
+			{% include "components/site-footer.css" %}
 		{% endset %}
 		<style>{{ css | cssmin | safe }}</style>
 
 		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 	</head>
 	<body class={% if page.url == '/' %}page-home{% else %}{% set slugParts = ['page', page.fileSlug] %}{{slugParts | join('-')}}{% endif %}>
-		<a href="#main" class="u-sr-only">Skip to main content</a>
+		<a href="#main" class="u-visually-hidden">Skip to main content</a>
 
 		{% if show_header != false %}
 			{% include "components/site-header.njk" %}
 		{% endif %}
 
-		<main id="main">
+		<main id="main" class="u-container">
 			<heading-anchors>
 				{{ content | safe }}
 			</heading-anchors>
