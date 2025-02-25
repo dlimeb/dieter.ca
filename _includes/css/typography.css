@@ -2,11 +2,22 @@
  * VARIABLES
  */
 :root {
-  /* Typography */
+  /* Families */
   --font-sans: system-ui, sans-serif;
   --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-  --font-size-base: 1.125rem;
-  --font-size-small: calc(var(--font-size-base) - 0.375rem);
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  /* Sizing */
+  --font-size-base: 1.2rem;
+  --font-size-small: 1rem;
+
+  /* Spacing */
+  --line-height: 1.6;
+  --line-spacing-1: var(--font-size-base);
+  --line-spacing-2: calc(2 * var(--font-size-base));
+  --line-spacing-3: calc(3 * var(--font-size-base));
+  --line-spacing-4: calc(4 * var(--font-size-base));
+  --line-spacing-6: calc(6 * var(--font-size-base));
 }
 
 
@@ -16,10 +27,58 @@
 body {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);
-  line-height: 1.4;
+  line-height: var(--line-height);
   color: var(--color-text);
 }
 
+/* Headings */
+h1,
+h2,
+h3 {
+  font-size: var(--font-size-base);
+}
+h1 {
+  margin: 0;
+}
+h2 {
+  margin: var(--line-spacing-4) 0 var(--line-spacing-1);
+}
+h1 .widont {
+  display: inline-block;
+}
+
+/* Body copy */
+p,
+ol,
+ul {
+  margin: 0 0 1em;
+}
+ol,
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Lists */
+.content ul {
+  list-style: disc;
+}
+.content ol,
+.footnotes ol {
+  list-style: decimal;
+}
+.content ul,
+.content ol {
+  padding-left: 1em;
+}
+@media (min-width: 40rem) {
+  .content ul,
+  .content ol {
+    padding-left: 0;
+  }
+}
+
+/* Links */
 a {
   color: inherit;
   text-decoration-thickness: 1.5px;
@@ -27,5 +86,217 @@ a {
 }
 a:hover {
   color: var(--color-action);
-  text-decoration: none;
 }
+
+/* Dividers */
+hr {
+  display: block;
+  border: 1px solid var(--color-text-muted);
+  max-width: 2em;
+  margin: var(--line-spacing-3) auto;
+}
+
+/* Images */
+figure {
+  margin: var(--line-spacing-3) calc(-1 * var(--line-spacing-2));
+  max-width: calc(100% + (2 * var(--line-spacing-2)));
+}
+@media (min-width: 40rem) {
+  figure {
+    margin-left: calc(-1 * var(--line-spacing-3));
+    margin-right: calc(-1 * var(--line-spacing-3));
+    max-width: calc(100% + (2 * var(--line-spacing-3)));
+  }
+}
+@media (min-width: 60rem) {
+  figure {
+    margin-left: 0;
+  }
+}
+@media (min-width: 68rem) {
+  figure {
+    margin-right: calc(-1 * var(--line-spacing-4));
+  }
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+figcaption {
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+  margin: 0 var(--line-spacing-2);
+}
+@media (min-width: 40rem) {
+  figcaption {
+    margin: 0 var(--line-spacing-3);
+  }
+}
+@media (min-width: 60rem) {
+  figcaption {
+    margin: 0;
+  }
+}
+
+/* Blockquotes */
+blockquote {
+  color: var(--color-text-muted);
+  border-left: 4px solid var(--color-border);
+  margin: var(--line-spacing-2) 0;
+  padding-left: var(--line-spacing-1);
+}
+@media (min-width: 40rem) {
+  blockquote {
+    margin-left: calc(-1 * var(--line-spacing-1) - 4px);
+  }
+}
+cite {
+  display: block;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-left: 2rem;
+}
+
+/* Highlights */
+mark {
+  color: var(--color-text);
+  background-color: var(--color-highlight-background);
+  padding: 0 0.125rem;
+}
+
+/* Small caps */
+.caps {
+  font-size: var(--font-size-small);
+}
+
+/* Ordinals */
+.ord {
+  font-size: var(--font-size-small);
+  vertical-align: top;
+}
+
+/* Sup/sub */
+sup,
+sub {
+  font-size: var(--font-size-tiny);
+}
+sup {
+  vertical-align: top;
+}
+sub {
+  vertical-align: bottom;
+}
+
+/* Code */
+pre,
+code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-small);
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+}
+pre {
+  background-color: var(--color-pre-background);
+  padding: var(--line-spacing-1);
+  margin: var(--line-spacing-2) 0;
+  overflow: auto;
+}
+@media (min-width: 40rem) {
+  pre {
+    margin-left: calc(-1 * var(--line-spacing-1));
+  }
+}
+code {
+  color: var(--color-code-text);
+  background-color: var(--color-code-background);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+}
+pre > code {
+  color: var(--color-text-inverted);
+  background: none;
+}
+
+/* Syntax highlighting */
+/* okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia */
+ .token.comment,
+ .token.prolog,
+ .token.doctype,
+ .token.cdata {
+   color: #8292a2;
+ }
+
+ .token.punctuation {
+   color: #f8f8f2;
+ }
+
+ .token.namespace {
+   opacity: .7;
+ }
+
+ .token.property,
+ .token.tag,
+ .token.constant,
+ .token.symbol,
+ .token.deleted {
+   color: #FF4287;
+ }
+
+ .token.boolean,
+ .token.number {
+   color: #ae81ff;
+ }
+
+ .token.selector,
+ .token.attr-name,
+ .token.string,
+ .token.char,
+ .token.builtin,
+ .token.inserted {
+   color: #a6e22e;
+ }
+
+ .token.operator,
+ .token.entity,
+ .token.url,
+ .language-css .token.string,
+ .style .token.string,
+ .token.variable {
+   color: #f8f8f2;
+ }
+
+ .token.atrule,
+ .token.attr-value,
+ .token.function,
+ .token.class-name {
+   color: #e6db74;
+ }
+
+ .token.keyword {
+   color: #66d9ef;
+ }
+
+ .token.regex,
+ .token.important {
+   color: #fd971f;
+ }
+
+ .token.important,
+ .token.bold {
+   font-weight: bold;
+ }
+ .token.italic {
+   font-style: italic;
+ }
+
+ .token.entity {
+   cursor: help;
+ }
