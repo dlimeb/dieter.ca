@@ -1,10 +1,6 @@
-:root {
-  /* Typography */
-  --font-sans: system-ui, sans-serif;
-  --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-  --font-size-base: 1.125rem;
-  --font-size-small: calc(var(--font-size-base) - 0.375rem);
-}
+/*
+ * VARIABLES
+ */
 
 /* Light mode */
 @media (prefers-color-scheme: light) {

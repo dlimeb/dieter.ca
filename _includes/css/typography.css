@@ -1,3 +1,18 @@
+/*
+ * VARIABLES
+ */
+:root {
+  /* Typography */
+  --font-sans: system-ui, sans-serif;
+  --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  --font-size-base: 1.125rem;
+  --font-size-small: calc(var(--font-size-base) - 0.375rem);
+}
+
+
+/*
+ * GLOBAL STYLES
+ */
 body {
   font-family: var(--font-sans);
   font-size: var(--font-size-base);

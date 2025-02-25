@@ -1,10 +1,84 @@
-/* Global */
+/*
+ * VARIABLES
+ */
+:root {
+  /*
+  1rem = 16px
+  768px = 48rem
+	896px = 56rem
+  1024px = 64rem
+	1200px = 75rem
+  1440px = 90rem
+  */
+
+	--max-content-width: 96rem;
+  --num-cols: 12;
+  --col-gap: 1rem;
+}
+
+
+/*
+ * GLOBAL STYLES
+ */
 * {
 	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
-	padding: 2rem 3rem;
+	padding: 0;
 	background-color: var(--color-background);
+}
+
+/* Container */
+.u-container {
+	width: 100%;
+	max-width: var(--max-content-width);
+	margin: 0 auto;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+}
+@media (min-width: 48rem) {
+	.u-container {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+/* Grid */
+.u-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--num-cols), 1fr);
+	column-gap: var(--col-gap);
+}
+
+.main-content {
+	grid-column: var(--col-width-6);
+}
+@media (min-width: 70rem) {
+	.main-content {
+		grid-column: var(--col-width-5);
+	}
+}
+@media (min-width: 80rem) {
+	.main-content {
+		grid-column: var(--col-width-4);
+	}
+}
+
+/* Images */
+picture {
+	display: block;
+	margin-bottom: 2rem;
+}
+img {
+  max-width: 100%;
+}
+img[width][height] {
+  height: auto;
+}
+img[src$=".svg"] {
+  width: 100%;
+  height: auto;
+  max-width: none;
 }
