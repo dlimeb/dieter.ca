@@ -8,17 +8,21 @@ layout: layouts/base
 <article class="u-grid">
   <header class="page-title">
     <h1>{{ title | safe }}</h1>
-		<ul class="post-metadata">
-			<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-			{%- for tag in tags | filterTagList %}
-			{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
-			<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-			{%- endfor %}
-		</ul>
-  </header>
+	</header>
 
-  <div class="main-content">
-    {{ content | safe }}
+  <div class="main-content u-grid">
+		<aside>
+			<ul class="post-metadata">
+				<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+				{%- for tag in tags | filterTagList %}
+				{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
+				<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+				{%- endfor %}
+			</ul>
+		</aside>
+		<div class="post-content">
+			{{ content | safe }}
+		</div>
   </div>
 
 	<footer>
