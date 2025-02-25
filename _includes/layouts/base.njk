@@ -34,8 +34,9 @@
 			</heading-anchors>
 		</main>
 
-		{# <footer>
-		</footer> #}
+		{% if show_footer != false %}
+			{% include "components/site-footer.njk" %}
+		{% endif %}
 
 		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
