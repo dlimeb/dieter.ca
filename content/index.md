@@ -8,4 +8,4 @@ Hi, I'm Dieter. I'm a product designer and leader turned [certified coach](https
 
 Say hello via [Mastodon](https://mastodon.cloud/@dlimeb), [LinkedIn](https://www.linkedin.com/in/dlimeb/), or [email](mailto:dlimeb@pm.me).
 
-[posts](/posts) • [tags](/tags)
+[posts](/posts) • [index](/index/)
