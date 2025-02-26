@@ -2,6 +2,11 @@
  * VARIABLES
  */
 
+ :root {
+  --color-pre-background: hsl(232, 16%, 27%);
+  --color-pre-text: hsl(60, 30%, 95%);
+ }
+
 /* Light mode */
 @media (prefers-color-scheme: light) {
   :root {
@@ -10,6 +15,7 @@
     --color-text-muted: hsl(215, 18%, 47%);
     --color-action: #00F;
     --color-selection: hsl(59, 95%, 86%);
+    --color-code-background: hsl(220, 20%, 94%);
   }
 }
 

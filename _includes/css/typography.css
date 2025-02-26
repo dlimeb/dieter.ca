@@ -5,7 +5,7 @@
   /* Families */
   --font-sans: system-ui, sans-serif;
   --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
-  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Mono", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Consolas", "Courier New", monospace;
 
   /* Sizing */
   --font-size-base: 1.2rem;
@@ -235,97 +235,79 @@ pre {
   padding: var(--line-spacing-1);
   margin: var(--line-spacing-2) 0;
   overflow: auto;
-}
-@media (min-width: 40rem) {
-  pre {
-    margin-left: calc(-1 * var(--line-spacing-1));
-  }
+  border-radius: 4px;
 }
 code {
-  color: var(--color-code-text);
   background-color: var(--color-code-background);
   padding: 0.125rem 0.25rem;
   border-radius: 3px;
 }
 pre > code {
-  color: var(--color-text-inverted);
+  color: var(--color-pre-text);
   background: none;
 }
 
 /* Syntax highlighting */
-/* okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
- * @author ocodia */
  .token.comment,
  .token.prolog,
  .token.doctype,
  .token.cdata {
-   color: #8292a2;
+   color: #9CA3C1;
  }
-
  .token.punctuation {
-   color: #f8f8f2;
+   color: #F7F7F0;
  }
-
  .token.namespace {
    opacity: .7;
  }
-
  .token.property,
  .token.tag,
  .token.constant,
  .token.symbol,
  .token.deleted {
-   color: #FF4287;
+   color: #EA7C8B;
  }
-
  .token.boolean,
  .token.number {
-   color: #ae81ff;
+   color: #C49CF6;
  }
-
  .token.selector,
  .token.attr-name,
  .token.string,
  .token.char,
  .token.builtin,
  .token.inserted {
-   color: #a6e22e;
+   color: #9CDF97;
  }
-
  .token.operator,
  .token.entity,
  .token.url,
  .language-css .token.string,
  .style .token.string,
  .token.variable {
-   color: #f8f8f2;
+   color: #F7F7F0;
  }
-
  .token.atrule,
  .token.attr-value,
  .token.function,
  .token.class-name {
-   color: #e6db74;
+   color: #7EABF9;
  }
-
  .token.keyword {
-   color: #66d9ef;
+   color: #7ED7E8;
  }
-
  .token.regex,
  .token.important {
-   color: #fd971f;
+   color: #ED956B;
  }
-
  .token.important,
  .token.bold {
    font-weight: bold;
  }
+ .token.comment,
  .token.italic {
    font-style: italic;
  }
-
  .token.entity {
    cursor: help;
  }

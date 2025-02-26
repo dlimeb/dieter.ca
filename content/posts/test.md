@@ -13,16 +13,30 @@ Bring to the table win-win survival strategies to ensure proactive domination. A
 
 ## Section Header
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+Capitalize on low hanging fruit to `identify` a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
 
-```diff-js
- // this is a command
- function myCommand() {
-+  let counter = 0;
--  let counter = 1;
-   counter++;
- }
+```js
+// this is a command
+eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+  // Output formats for each image.
+  formats: ["avif", "webp", "auto"],
 
- // Test with a line break above this line.
- console.log('Test');
+  // widths: ["auto"],
+
+  failOnError: false,
+  htmlOptions: {
+    imgAttributes: {
+      // e.g. <img loading decoding> assigned on the HTML tag will override these values.
+      loading: "lazy",
+      decoding: "async",
+    }
+  },
+
+  sharpOptions: {
+    animated: true,
+  },
+});
+
+// Test with a line break above this line.
+console.log('Test');
 ```
