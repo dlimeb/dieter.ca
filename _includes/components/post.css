@@ -83,6 +83,10 @@ article footer {
 /**
  * POST LIST
  */
+.main-content .post-list {
+  max-width: none;
+  margin-bottom: 6rem;
+}
 .post-list-item {
   display: inline-block;
   align-items: baseline;
