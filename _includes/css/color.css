@@ -9,6 +9,7 @@
     --color-text: hsl(203, 87%, 15%);
     --color-text-muted: hsl(215, 18%, 47%);
     --color-action: #00F;
+    --color-selection: hsl(59, 95%, 86%);
   }
 }
 
@@ -19,5 +20,6 @@
     --color-text: hsl(214, 32%, 91%);
     --color-text-muted: hsl(215, 23%, 65%);
     --color-action: #1DECAF;
+    --color-selection: hsl(188, 70%, 16%);
   }
 }

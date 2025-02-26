@@ -30,7 +30,7 @@ body {
 	background-color: var(--color-background);
 }
 
-/* Container */
+/* Page wrapper */
 .u-container {
 	width: 100%;
 	max-width: var(--max-content-width);
@@ -53,19 +53,17 @@ body {
 	column-gap: var(--col-gap);
 }
 
-/* Images */
-picture {
-	display: block;
-	margin-bottom: 2rem;
+/* Page containers */
+.page-title {
+  grid-row-start: 1;
+  grid-column: 1 / 4;
 }
-img {
-  max-width: 100%;
+
+.main-content {
+  grid-row-start: 1;
+  grid-column: 5 / 13;
 }
-img[width][height] {
-  height: auto;
-}
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
+
+.page-home main {
+	margin-top: 3rem;
 }

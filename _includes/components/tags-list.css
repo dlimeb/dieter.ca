@@ -1,0 +1,6 @@
+.tags-index li {
+  font-weight: bold;
+}
+.tags-index li li {
+  font-weight: normal;
+}

@@ -4,6 +4,7 @@
   align-items: center;
   margin-top: 10rem;
   font-size: var(--font-size-small);
+  color: var(--color-text-muted);
 }
 .site-footer ul {
   margin: 0;

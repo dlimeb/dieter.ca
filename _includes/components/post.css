@@ -2,26 +2,21 @@ article {
   grid-template-rows: auto auto;
 }
 
-article .page-title {
-  grid-row-start: 1;
-  grid-column: 1 / 3;
-}
+/**
+ * SINGLE POST
+ */
+
+/* Header */
 article .post-metadata {
   margin-top: var(--line-spacing-1);
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
 }
 
-
-
-article .main-content {
-  grid-row-start: 1;
-  grid-column: 4 / 13;
-}
-
+/* Footer */
 article footer {
 	grid-row-start: 2;
-	grid-column: 4 / 13;
+	grid-column: 5 / 13;
   margin-top: 3rem;
   font-size: var(--font-size-small);
   color: var(--color-text-muted);
@@ -41,4 +36,35 @@ article footer {
 }
 .links-nextprev-next a {
   padding-right: 1.125rem;
+}
+
+/**
+ * POST LIST
+ * Note there is also a snippet of CSS in posts-list.njk
+ */
+.post-list-item {
+  display: inline-block;
+}
+.post-list-item a {
+  /* flex: 1; */
+}
+.post-list-item time {
+  color: var(--color-text-muted);
+}
+.post-list-item time:before {
+  content: " — ";
+}
+@media (min-width: 550px) {
+  .post-list-item {
+    display: flex;
+  }
+  .post-list-item a {
+    flex: 1;
+  }
+  .post-list-item time {
+    text-align: right;
+  }
+  .post-list-item time:before {
+    content: "";
+  }
 }
