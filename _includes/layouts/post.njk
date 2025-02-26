@@ -4,13 +4,15 @@ layout: layouts/base
 <article class="u-grid">
   <header class="page-title">
     <h1>{{ title | safe }}</h1>
-		<ul class="post-metadata">
-			<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
-			{%- for tag in tags | filterTagList %}
-			{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
-			<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
-			{%- endfor %}
-		</ul>
+		<div class="post-metadata">
+			<time class="post-timestamp" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
+			<ul class="post-tags">
+				{%- for tag in tags | filterTagList %}
+				{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
+				<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+				{%- endfor %}
+			</ul>
+		</div>
 	</header>
 
   <div class="main-content">

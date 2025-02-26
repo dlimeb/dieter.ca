@@ -55,13 +55,24 @@ body {
 
 /* Page containers */
 .page-title {
-  grid-row-start: 1;
-  grid-column: 1 / 4;
+	grid-row-start: 1;
+	grid-column: span 12;
+  margin-bottom: 6rem;
 }
-
 .main-content {
-  grid-row-start: 1;
-  grid-column: 5 / 13;
+	grid-row-start: 2;
+	grid-column: span 12;
+}
+@media (min-width: 900px) {
+	.page-title {
+		grid-row-start: 1;
+		grid-column: 1 / 4;
+		margin-bottom: 0;
+	}
+	.main-content {
+		grid-row-start: 1;
+		grid-column: 5 / 13;
+	}
 }
 
 .page-home main {

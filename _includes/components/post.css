@@ -7,19 +7,48 @@ article {
  */
 
 /* Header */
-article .post-metadata {
-  margin-top: var(--line-spacing-1);
+
+.post-metadata {
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
+}
+.post-timestamp {
+  display: inline-block;
+}
+.post-timestamp:after {
+  content: " · ";
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.post-tags,
+.post-tags li {
+  display: inline-block;
+}
+@media (min-width: 900px) {
+  .post-timestamp {
+    display: block;
+    margin-top: var(--line-spacing-1);
+  }
+  .post-timestamp:after {
+    content: "";
+  }
+  .post-tags li {
+  }
 }
 
 /* Footer */
 article footer {
-	grid-row-start: 2;
-	grid-column: 5 / 13;
+	grid-row-start: 3;
+	grid-column: span 12;
   margin-top: 3rem;
   font-size: var(--font-size-small);
   color: var(--color-text-muted);
+}
+@media (min-width: 900px) {
+  article footer {
+    grid-row-start: 2;
+    grid-column: 5 / 13;
+  }
 }
 .links-nextprev {
   display: flex;
@@ -44,9 +73,6 @@ article footer {
  */
 .post-list-item {
   display: inline-block;
-}
-.post-list-item a {
-  /* flex: 1; */
 }
 .post-list-item time {
   color: var(--color-text-muted);
