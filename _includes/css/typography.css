@@ -52,6 +52,11 @@ ol,
 ul {
   margin: 0 0 1em;
 }
+.main-content p,
+.main-content ol,
+.main-content ul {
+  max-width: 48rem;
+}
 ol,
 ul {
   padding-left: 0;
@@ -101,6 +106,7 @@ hr {
 /* Images */
 picture {
 	display: block;
+	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
 img {
