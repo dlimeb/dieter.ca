@@ -1,0 +1,35 @@
+<ol reversed class="post-previews">
+{%- for post in postslist | reverse %}
+	<li class="post-list-item{% if post.url == url %} active{% endif %}">
+		<article>
+			<header>
+				<h1 class="post-title">
+					<a href="{{ post.url }}">
+						{% if post.data.title %}
+							{{ post.data.title }}
+						{% else %}
+							{{ post.url }}
+						{% endif %}
+					</a>
+				</h1>
+				<div class="post-metadata">
+					<time class="post-timestamp" datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | readableDate }}</time>
+					<ul class="post-tags">
+						{%- for tag in post.data.tags | filterTagList %}
+							{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
+							<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+						{%- endfor %}
+					</ul>
+				</div>
+			</header>
+			<div class="post-excerpt">
+				{%- if post.data.summary %}
+					{{ post.data.summary }}
+				{%- else %}
+					{{ post.content | safe | striptags | truncate(200) }}
+				{%- endif %}
+			</div>
+		</article>
+	</li>
+{%- endfor %}
+</ol>

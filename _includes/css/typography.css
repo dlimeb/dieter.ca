@@ -39,10 +39,11 @@ h3 {
   font-size: var(--font-size-base);
   letter-spacing: -0.01em;
 }
-h1 {
+h1,
+h2 {
   margin: 0;
 }
-h2 {
+article h2 {
   margin: var(--line-spacing-4) 0 var(--line-spacing-1);
 }
 

@@ -3,32 +3,43 @@ article {
 }
 
 /**
- * SINGLE POST
+ * METADATA
  */
-
-/* Header */
 .post-metadata {
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
-}
-.post-timestamp {
-  display: inline-block;
-}
-.post-timestamp:after {
-  content: " · ";
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  display: flex;
 }
 .post-tags,
 .post-tags li {
   display: inline-block;
 }
+.post-tags {
+  margin-bottom: 0;
+}
+.post-timestamp:after {
+  content: "·";
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+
+
+/**
+ * SINGLE POST
+ */
+
+/* Header */
 @media (min-width: 900px) {
-  .post-timestamp {
-    display: block;
-    margin-top: var(--line-spacing-1);
+  .post .post-title {
+    margin-bottom: var(--line-spacing-1);
   }
-  .post-timestamp:after {
+}
+@media (min-width: 900px) {
+  .post .post-metadata,
+  .post .post-timestamp {
+    display: block;
+  }
+  .post .post-timestamp:after {
     content: "";
   }
 }
@@ -71,29 +82,23 @@ article footer {
 
 /**
  * POST LIST
- * Note there is also a snippet of CSS in posts-list.njk
  */
 .post-list-item {
   display: inline-block;
-  margin-bottom: 1em;
+  align-items: baseline;
+  margin-bottom: 1rem;
 }
-.post-list-item time {
-  color: var(--color-text-muted);
+.post-previews .post-list-item {
+  margin-bottom: 6rem;
 }
-.post-list-item time:before {
-  content: " — ";
+.post-excerpt {
+  margin-top: 1rem;
 }
 @media (min-width: 550px) {
   .post-list-item {
     display: flex;
   }
   .post-list-item a {
-    flex: 1;
-  }
-  .post-list-item time {
-    text-align: right;
-  }
-  .post-list-item time:before {
-    content: "";
+    flex-grow: 1;
   }
 }

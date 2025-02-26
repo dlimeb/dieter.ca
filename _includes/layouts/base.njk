@@ -22,6 +22,7 @@
 			{% include "components/site-footer.css" %}
 			{% include "components/post.css" %}
 			{% include "components/tags-list.css" %}
+			{% include "components/home.css" %}
 		{% endset %}
 		<style>{{ css | cssmin | safe }}</style>
 
@@ -35,9 +36,7 @@
 		{% endif %}
 
 		<main id="main" class="u-container">
-			<heading-anchors>
-				{{ content | safe }}
-			</heading-anchors>
+			{{ content | safe }}
 		</main>
 
 		{% if show_footer != false %}

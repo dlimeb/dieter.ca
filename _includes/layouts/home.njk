@@ -1,0 +1,35 @@
+---js
+// <script>
+const layout = "layouts/base";
+const title = "dieter.ca";
+const numberOfLatestPostsToShow = 3;
+---
+
+{%- css %}body { background-color: cyan }{% endcss %}
+<div class="u-grid intro">
+  <div class="page-title">
+    <h1>Hello!</h1>
+  </div>
+  <div class="main-content">
+    {{ content | safe }}
+  </div>
+</div>
+
+<div class="u-grid latest-posts">
+  <div class="page-title">
+    {% set postsCount = collections.posts | length %}
+    {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+    <h2>Latest {% if latestPostsCount != 1 %}{{ latestPostsCount }}{% endif %} post{% if latestPostsCount != 1 %}s{% endif %}</h2>
+  </div>
+  <div class="main-content">
+    {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+    {% set postslistCounter = postsCount %}
+    {% include "components/posts-previews.njk" %}
+
+    {% set morePosts = postsCount - numberOfLatestPostsToShow %}
+    {% if morePosts > 0 %}
+      <p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="posts.njk">the archive</a>.</p>
+    {% endif %}
+  </div>
+</div>
+
