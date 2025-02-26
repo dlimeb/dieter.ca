@@ -7,7 +7,6 @@ article {
  */
 
 /* Header */
-
 .post-metadata {
   color: var(--color-text-muted);
   font-size: var(--font-size-small);
@@ -31,8 +30,6 @@ article {
   }
   .post-timestamp:after {
     content: "";
-  }
-  .post-tags li {
   }
 }
 
@@ -73,6 +70,7 @@ article footer {
  */
 .post-list-item {
   display: inline-block;
+  margin-bottom: 1em;
 }
 .post-list-item time {
   color: var(--color-text-muted);

@@ -1,5 +1,19 @@
-.tags-index li {
+.tags-index {
+  column-count: 1;
+}
+@media (min-width: 900px) {
+  .tags-index {
+    column-count: 2;
+  }
+}
+
+.tags-index > li {
   font-weight: bold;
+  display: flex;
+  margin-bottom: 2rem;
+}
+.tags-index li ul {
+  margin-left: 1rem;
 }
 .tags-index li li {
   font-weight: normal;
