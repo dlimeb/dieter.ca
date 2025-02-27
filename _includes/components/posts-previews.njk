@@ -26,8 +26,9 @@
 				{%- if post.data.summary %}
 					{{ post.data.summary }}
 				{%- else %}
-					{{ post.content | safe | striptags | truncate(200) }}
+					{{ post.content | safe | striptags | truncate }}
 				{%- endif %}
+				<p class="read-more"><a href="">Continue reading</a> →</p>
 			</div>
 		</article>
 	</li>

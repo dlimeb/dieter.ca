@@ -16,6 +16,7 @@
     --color-action: #00F;
     --color-selection: hsl(59, 95%, 86%);
     --color-code-background: hsl(220, 20%, 94%);
+    --color-border: hsl(220, 13%, 91%);
   }
 }
 
@@ -27,5 +28,7 @@
     --color-text-muted: hsl(215, 23%, 65%);
     --color-action: #1DECAF;
     --color-selection: hsl(188, 70%, 16%);
+    --color-code-background: hsl(232, 16%, 27%);
+    --color-border: hsl(217, 21%, 27%);
   }
 }

@@ -30,7 +30,7 @@ layout: layouts/base
 				<ul class="links-nextprev">
 					<li class="links-nextprev-prev">
 						{%- if previousPost %}
-							<span class="nextprev-arrow">← </span>Previous
+							← Previous
 							<br>
 							<a href="{{ previousPost.url }}">
 								{% if previousPost.data.title %}
@@ -43,7 +43,7 @@ layout: layouts/base
 					</li>
 					<li class="links-nextprev-next">
 						{%- if nextPost %}
-							Next<span class="nextprev-arrow"> →</span>
+							Next →
 							<br>
 							<a href="{{ nextPost.url }}">
 								{% if nextPost.data.title %}

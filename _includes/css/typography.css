@@ -53,10 +53,16 @@ ol,
 ul {
   margin: 0 0 1em;
 }
-.main-content p,
-.main-content ol,
-.main-content ul {
+.post .main-content p,
+.post .main-content ol,
+.post .main-content ul {
   max-width: 48rem;
+}
+.post .main-content ul {
+  list-style-type: disc;
+}
+.post .main-content ol {
+  list-style-type: ordinal;
 }
 ol,
 ul {
@@ -168,11 +174,6 @@ blockquote {
   border-left: 4px solid var(--color-border);
   margin: var(--line-spacing-2) 0;
   padding-left: var(--line-spacing-1);
-}
-@media (min-width: 40rem) {
-  blockquote {
-    margin-left: calc(-1 * var(--line-spacing-1) - 4px);
-  }
 }
 cite {
   display: block;

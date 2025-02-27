@@ -1,4 +1,6 @@
-.latest-posts,
-.previous-posts {
+.latest-posts {
   margin-top: 10rem;
+}
+.previous-posts {
+  margin-top: 7rem;
 }
