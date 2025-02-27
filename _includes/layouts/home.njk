@@ -14,42 +14,41 @@ const numberOfLatestPostsToShow = 1;
   </div>
 </div>
 
-<div class="u-grid latest-posts">
-  <div class="page-title">
-    {% set postsCount = collections.posts | length %}
-    {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-    <h2>Latest {% if latestPostsCount != 1 %}{{ latestPostsCount }}{% endif %} post{% if latestPostsCount != 1 %}s{% endif %}</h2>
+{% set postsCount = collections.posts | length %}
+{%- if postsCount %}
+  <div class="u-grid latest-posts">
+    <div class="page-title">
+      {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
+      <h2>Latest {% if latestPostsCount != 1 %}{{ latestPostsCount }}{% endif %} post{% if latestPostsCount != 1 %}s{% endif %}</h2>
+    </div>
+    <div class="main-content">
+      {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+      {% set postslistCounter = postsCount %}
+      {% include "components/posts-previews.njk" %}
+    </div>
   </div>
-  <div class="main-content">
-    {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-    {% set postslistCounter = postsCount %}
-    {% include "components/posts-previews.njk" %}
 
+  <div class="u-grid previous-posts">
+    <div class="page-title">
+      <h2>Previously</h2>
+    </div>
+    <div class="main-content">
+      <p>
+      {% set morePosts = postsCount - numberOfLatestPostsToShow %}
+      {% if morePosts > 0 %}
+        {{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="posts.njk">the archive</a>.
+      {% endif %}
+
+      Or, view all posts with a specific tag:
+      </p>
+
+      <p>
+        {% for tag in collections | getKeys | filterTagList | sortAlphabetically %}
+          {% set tagUrl %}/{{ tag | slugify }}/{% endset %}
+          <a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
+          {%- if not loop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+    </div>
   </div>
-</div>
-
-
-<div class="u-grid previous-posts">
-  <div class="page-title">
-    <h2>Previously</h2>
-  </div>
-  <div class="main-content">
-    <p>
-    {% set morePosts = postsCount - numberOfLatestPostsToShow %}
-    {% if morePosts > 0 %}
-      {{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="posts.njk">the archive</a>.
-    {% endif %}
-
-    Or, view all posts with a specific tag:
-    </p>
-
-    <p>
-      {% for tag in collections | getKeys | filterTagList | sortAlphabetically %}
-        {% set tagUrl %}/{{ tag | slugify }}/{% endset %}
-        <a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
-        {%- if not loop.last %}, {% endif %}
-      {% endfor %}
-    </p>
-  </div>
-</div>
-
+{%- endif %}
