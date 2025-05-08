@@ -1,17 +1,29 @@
-import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
+import {
+	IdAttributePlugin,
+	InputPathToUrlTransformPlugin,
+	HtmlBasePlugin,
+} from "@11ty/eleventy";
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import CleanCSS from "clean-css";
+import markdownIt from "markdown-it";
+import markdownItFootnote from "markdown-it-footnote";
+import markdownItMark from "markdown-it-mark";
+import markdownItAbbr from "markdown-it-abbr";
+import markdownItSup from "markdown-it-sup";
+import markdownItSub from "markdown-it-sub";
+import markdownItAdmonition from "markdown-it-admonition";
+import mila from "markdown-it-link-attributes";
 
 import pluginFilters from "./_config/filters.js";
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
-export default async function(eleventyConfig) {
+export default async function (eleventyConfig) {
 	// Drafts, see also _data/eleventyDataSchema.js
 	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
-		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
+		if (data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 			return false;
 		}
 	});
@@ -20,7 +32,7 @@ export default async function(eleventyConfig) {
 	// For example, `./public/css/` ends up in `_site/css/`
 	eleventyConfig
 		.addPassthroughCopy({
-			"./assets/": "/assets"
+			"./assets/": "/assets",
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
 
@@ -42,7 +54,7 @@ export default async function(eleventyConfig) {
 
 	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
-		preAttributes: { tabindex: 0 }
+		preAttributes: { tabindex: 0 },
 	});
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(HtmlBasePlugin);
@@ -68,9 +80,9 @@ export default async function(eleventyConfig) {
 			subtitle: "Personal website of Dieter Limeback",
 			base: "https://dieter.ca/",
 			author: {
-				name: "Dieter Limeback"
-			}
-		}
+				name: "Dieter Limeback",
+			},
+		},
 	});
 
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
@@ -86,7 +98,7 @@ export default async function(eleventyConfig) {
 				// e.g. <img loading decoding> assigned on the HTML tag will override these values.
 				loading: "lazy",
 				decoding: "async",
-			}
+			},
 		},
 
 		sharpOptions: {
@@ -109,8 +121,60 @@ export default async function(eleventyConfig) {
 	});
 
 	eleventyConfig.addShortcode("currentBuildDate", () => {
-		return (new Date()).toISOString();
+		return new Date().toISOString();
 	});
+
+	// Typography plugins
+	//
+	// eleventyConfig.addPlugin(typographyPlugin);
+
+	// Customize Markdown library settings:
+	let markdownItOptions = {
+		html: true,
+		breaks: true,
+		linkify: true,
+		typographer: true,
+	};
+	let mdLib = markdownIt(markdownItOptions);
+
+	const milaOptions = {
+		matcher(href) {
+			return href.match(/^https?:\/\//);
+		},
+		attrs: {
+			target: "_blank",
+			rel: "noopener",
+		},
+	};
+	eleventyConfig.amendLibrary("md", (mdLib) => {
+		mdLib
+			.use(markdownItFootnote)
+			.use(markdownItMark)
+			.use(markdownItSup)
+			.use(markdownItSub)
+			.use(markdownItAdmonition)
+			.use(markdownItAbbr)
+			.use(mila, milaOptions);
+
+		// strip [] from footnote numbers
+		mdLib.renderer.rules.footnote_caption = (tokens, idx) => {
+			let n = Number(tokens[idx].meta.id + 1).toString();
+			if (tokens[idx].meta.subId > 0) {
+				n += ":" + tokens[idx].meta.subId;
+			}
+			return n;
+		};
+
+		// update HTML used in footnotes list
+		mdLib.renderer.rules.footnote_block_open = (tokens, idx, options) => {
+			return "<aside>\n" + "<h2>Footnotes</h2>\n" + "<ol>\n";
+		};
+		mdLib.renderer.rules.footnote_block_close = () => {
+			return "</ol>\n</aside>\n";
+		};
+	});
+
+	eleventyConfig.setLibrary("md", mdLib);
 
 	// Features to make your build faster (when you need them)
 
@@ -119,18 +183,12 @@ export default async function(eleventyConfig) {
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
 	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
-};
+}
 
 export const config = {
 	// Control which files Eleventy will process
 	// e.g.: *.md, *.njk, *.html, *.liquid
-	templateFormats: [
-		"md",
-		"njk",
-		"html",
-		"liquid",
-		"11ty.js",
-	],
+	templateFormats: ["md", "njk", "html", "liquid", "11ty.js"],
 
 	// Pre-process *.md files with: (default: `liquid`)
 	markdownTemplateEngine: "njk",
@@ -140,10 +198,10 @@ export const config = {
 
 	// These are all optional:
 	dir: {
-		input: "content",          // default: "."
-		includes: "../_includes",  // default: "_includes" (`input` relative)
-		data: "../_data",          // default: "_data" (`input` relative)
-		output: "_site"
+		input: "content", // default: "."
+		includes: "../_includes", // default: "_includes" (`input` relative)
+		data: "../_data", // default: "_data" (`input` relative)
+		output: "_site",
 	},
 
 	// -----------------------------------------------------------------

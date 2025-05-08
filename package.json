@@ -42,6 +42,13 @@
 	},
 	"dependencies": {
 		"@zachleat/heading-anchors": "^1.0.1",
-		"clean-css": "^5.3.3"
+		"clean-css": "^5.3.3",
+		"markdown-it-abbr": "^2.0.0",
+		"markdown-it-admonition": "^1.0.4",
+		"markdown-it-footnote": "^4.0.0",
+		"markdown-it-link-attributes": "^4.0.1",
+		"markdown-it-mark": "^4.0.0",
+		"markdown-it-sub": "^2.0.0",
+		"markdown-it-sup": "^2.0.0"
 	}
 }
