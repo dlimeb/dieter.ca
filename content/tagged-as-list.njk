@@ -13,7 +13,7 @@ const layout = "layouts/page";
 const eleventyExcludeFromCollections = true;
 
 const eleventyComputed = {
-	title: "Posts tagged as '{{ tag }}'",
+	title: 'Posts tagged as “{{ tag }}”',
 	permalink: function(data) {
 		return `/${this.slugify(data.tag)}/`;
 	}
