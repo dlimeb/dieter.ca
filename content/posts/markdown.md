@@ -13,7 +13,7 @@ I've written enough of these by hand over the years and they always end up tedio
 
 ## Headings
 
-<!-- Use `markdown-disable` and a rule number to have it ignore that rule. In the example below, I have 2 titles on this page, whic is usually a no-no but obviously intended in this case. -->
+<!-- Use `markdown-disable` and a rule number to have it ignore that rule. In the example below, I have 2 titles on this page, which is usually a no-no but obviously intended in this case. -->
 
 <!-- markdownlint-disable MD025 -->
 
