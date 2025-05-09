@@ -16,6 +16,7 @@ import markdownItSup from "markdown-it-sup";
 import markdownItSub from "markdown-it-sub";
 import markdownItAdmonition from "markdown-it-admonition";
 import mila from "markdown-it-link-attributes";
+import typographyPlugin from "@jamshop/eleventy-plugin-typography";
 
 import pluginFilters from "./_config/filters.js";
 
@@ -126,7 +127,7 @@ export default async function (eleventyConfig) {
 
 	// Typography plugins
 	//
-	// eleventyConfig.addPlugin(typographyPlugin);
+	eleventyConfig.addPlugin(typographyPlugin);
 
 	// Customize Markdown library settings:
 	let markdownItOptions = {

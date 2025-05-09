@@ -1,0 +1,28 @@
+{
+  // Default state for all rules
+  "default": true,
+
+	// See https://github.com/DavidAnson/markdownlint for all rules
+
+	// MD033
+	// Need raw html to create images like
+	// <img eleventy:widths="300,800" ... />
+	"no-inline-html": false,
+
+	// MD013
+  "line-length": false,
+
+	// MD028
+  "no-blanks-blockquote": false,
+
+	// MD010
+  "no-hard-tabs": false,
+
+	// MD012
+  "no-multiple-blanks": false,
+
+	// MD034
+	// markdown-it with linkify:true converts these to links
+	// (though they are ugly so should be avoided)
+	"no-bare-urls": false
+}
