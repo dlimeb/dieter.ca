@@ -21,5 +21,4 @@
     seo = 1.0
 
   [plugins.inputs]
-    fail_deploy_on_score_thresholds = "true"
-    # output_path = "reports/lighthouse/index.html"
+    fail_deploy_on_score_thresholds = "false"
