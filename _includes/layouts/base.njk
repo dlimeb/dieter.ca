@@ -12,11 +12,11 @@
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
 
 		{% set css %}
-			{% include "components/site-header.css" %}
-			{% include "components/site-footer.css" %}
-			{% include "components/post.css" %}
-			{% include "components/tags-list.css" %}
-			{% include "components/home.css" %}
+			{% include "node_modules/@dlimeb/cssium/css/color.css" %}
+			{% include "node_modules/@dlimeb/cssium/css/layout.css" %}
+			{% include "node_modules/@dlimeb/cssium/css/typography.css" %}
+			{% include "node_modules/@dlimeb/cssium/css/utilities.css" %}
+			{% include "node_modules/@dlimeb/cssium/css/content.css" %}
 		{% endset %}
 		<style>{{ css | cssmin | safe }}</style>
 
