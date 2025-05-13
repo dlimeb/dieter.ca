@@ -5,3 +5,4 @@ package-lock.json
 .cache
 .DS_Store
 Thumbs.db
+.env
