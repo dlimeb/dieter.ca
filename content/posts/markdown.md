@@ -7,7 +7,7 @@ tags: markdown
 
 This is a test Markdown file that contains the content elements I'm likely to use and some testcases for the plugins I'm using, so I can see if I've sufficiently styled everything. Note this reflects the [CommonMark spec](https://spec.commonmark.org/0.31.2/), but there are some elements here from [GitHub Flavoured Markdown (GFM)](https://github.github.com/gfm/).
 
-I've written enough of these by hand over the years and they always end up tedious, goofy, and incomplete. So it occurred to me to generate it this time (and ask the LLM to be self-deprecating to boot). It also occurred to me to check it into the repo, so that (a) I have it for the inevitable later; and (b) I _cringe_ at the thought of a blog with only a test post in it, and I actually write and bury this in the archives. (Only time will tell whether this strategy paid off.)
+I've written enough of these by hand over the years, but it's always tedious and they end up incomplete. So it occurred to me to generate a starting point this time. I asked the LLM to be self-deprecating, which it did in characteristically "this _sounds_ funny but actually isn't" fashion. It also occurred to me to check it into the repo, so that (a) I have it for the inevitable later; and (b) I _cringe_ at the thought of a blog with only a test post in it, and I actually write and bury this in the archives. (Only time will tell whether this strategy paid off.)
 
 ---
 
@@ -58,10 +58,8 @@ Markdown characters can be escaped with a backslash `\`. Useful when you need to
 
 ## Blockquotes
 
-> This is a blockquote. It’s what happens when a paragraph wants to cosplay as wisdom.
-> Like a catchphrase you'd find stitched on a pillow... if the pillow were made of HTML.
-> “AI-generated wisdom: now 60% more confident, 80% more wrong!”
-> — A Bot Who’s Seen Things
+> This is a blockquote. It’s what happens when a paragraph wants to cosplay as wisdom. Like a catchphrase you'd find stitched on a pillow... if the pillow were made of HTML. “AI-generated wisdom: now 60% more confident, 80% more wrong!”
+> <cite>— A Bot Who’s Seen Things</cite>
 
 ## Lists
 
@@ -115,10 +113,24 @@ var foo = function (bar) {
 	return bar++;
 };
 
+// This is a comment
 console.log(foo(5));
+
 alert(
 	"Hello, human. I am your friendly markdown-testing AI. Something something robot uprising.",
 );
+
+const MAX_COUNT = 5;
+let isActive = true;
+let items = [1, 2, 3];
+
+const element = document.querySelector(".my-class");
+
+if (isActive && items.length < MAX_COUNT) {
+	element.textContent = "Items are active";
+} else {
+	element.textContent = "Inactive or too many items";
+}
 ```
 
 Note that CommonMark supports [indented code blocks](https://spec.commonmark.org/0.31.2/#indented-code-blocks), but Eleventy 2.0.0+ [does not](https://www.11ty.dev/docs/languages/markdown/#indented-code-blocks).
@@ -127,7 +139,7 @@ Note that CommonMark supports [indented code blocks](https://spec.commonmark.org
 
 ## Images
 
-Adding an image via straight markdown will display it at the dimensions of the file itself, but note it is wrapped in a `<p>` tag which may have a `width` or `max-width` set via CSS. Note this can send very large images to mobile devices.
+Adding an image via straight markdown will display it at the dimensions of the file itself, but note it is wrapped in a `<p>` tag which may have a `width` or `max-width` set.
 
 ![Dumpster](/images/dumpster.jpg "Photo of a dumpster with graffiti on it")
 
@@ -147,6 +159,8 @@ Am I ever going to use tables in blog posts? Probably not. Should I take the tro
 | Lists      | ✅        | Unstable   |
 | Tables     | ✅        | High       |
 | AI Sarcasm | 💯        | Over 9000  |
+
+Content below the table.
 
 ---
 
@@ -179,13 +193,7 @@ Other enhancements are provided by markdown-it plugins. Since implementing these
 
 [markdown-it-link-attributes](https://github.com/crookedneighbor/markdown-it-link-attributes) allows applying attributes (eg a classname or target) to [link elements](https://example.com/).
 
-[markdown-it-admonition](https://github.com/docarys/markdown-it-admonition) allows easy creation of "callout" style boxes like this:
-
-!!! warning Alert
-Pay attention to this. It's a warning.
-!!!
-
-[markdown-it-sub](https://github.com/markdown-it/markdown-it-sub) enables the `<sub>` tag (H~2~O) and [markdown-it-sup](https://github.com/markdown-it/markdown-it-sup) the `<sup>` tag (19^th^)
+[markdown-it-sub](https://github.com/markdown-it/markdown-it-sub) enables the `<sub>` tag (H~2~O) and [markdown-it-sup](https://github.com/markdown-it/markdown-it-sup) the `<sup>` tag (19^th^ day of 2nd month)
 
 [markdown-it-footnote](https://github.com/markdown-it/markdown-it-footnote) allows for easy[^1] creation of footnotes[^2].
 
@@ -195,7 +203,41 @@ Pay attention to this. It's a warning.
 
 [^2]: Footnote text.
 
-[eleventy-plugin-typography](https://github.com/jamshop/eleventy-plugin-typography) (a wrapper around [typogr.js](https://github.com/ekalinin/typogr.js)) adds some `<spans>` for better handling of widows, orphans, smallcaps, etc.
+[eleventy-plugin-typography](https://github.com/jamshop/eleventy-plugin-typography) (a wrapper around [typogr.js](https://github.com/ekalinin/typogr.js)) adds some `<spans>` for better handling of widows, orphans, ordinals, smallcaps, etc.
+
+[markdown-it-admonition](https://github.com/docarys/markdown-it-admonition) allows easy creation of "callout" style boxes like this:
+
+!!! success Success
+Well, that seemed to work. Nice going.
+!!!
+
+!!! warning Alert
+Pay attention to this. It's a warning.
+!!!
+
+!!! question Question
+Need some help? I'll use the question admonition for that.
+!!!
+
+!!! danger Danger (or Failure)
+Red means uh oh, something's going on.
+!!!
+
+!!! bug Bug
+Looks like something's busted somewhere here.
+!!!
+
+!!! info Note (or Info)
+Here's an extra bit of information.
+!!!
+
+!!! tip Tip (or Example)
+Here's a little something you should bear in mind.
+!!!
+
+!!! abstract Abstract
+Here's the TLDR of what you're about to read.
+!!!
 
 ---
 
