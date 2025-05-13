@@ -17,6 +17,13 @@
 			{% include "node_modules/@dlimeb/cssium/css/typography.css" %}
 			{% include "node_modules/@dlimeb/cssium/css/utilities.css" %}
 			{% include "node_modules/@dlimeb/cssium/css/content.css" %}
+
+			{% include "components/page.css" %}
+			{% include "components/site-header.css" %}
+			{% include "components/site-footer.css" %}
+			{% include "components/home.css" %}
+			{% include "components/posts.css" %}
+			{% include "components/tags-list.css" %}
 		{% endset %}
 		<style>{{ css | cssmin | safe }}</style>
 

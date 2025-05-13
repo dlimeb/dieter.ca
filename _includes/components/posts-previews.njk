@@ -23,12 +23,14 @@
 				</div>
 			</header>
 			<div class="post-excerpt">
-				{%- if post.data.summary %}
-					{{ post.data.summary }}
-				{%- else %}
-					{{ post.content | safe | striptags | truncate }}
-				{%- endif %}
-				<p class="read-more"><a href="{{ post.url }}">Continue reading</a> →</p>
+				<p>
+					{%- if post.data.summary %}
+						{{ post.data.summary }}
+					{%- else %}
+						{{ post.content | safe | striptags | truncate }}
+					{%- endif %}
+					<a href="{{ post.url }}" class="read-more">Continue</a>
+				</p>
 			</div>
 		</article>
 	</li>

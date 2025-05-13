@@ -1,0 +1,124 @@
+/*
+* METADATA
+*/
+.post-metadata {
+	color: var(--color-text-muted);
+	font-size: var(--font-size--1);
+	display: flex;
+}
+.post-tags {
+	margin: 0;
+}
+.post-tags,
+.post-tags li {
+	display: inline-block;
+}
+.post-timestamp:after {
+	content: "·";
+	padding-left: var(--space-2xs);
+	padding-right: var(--space-2xs);
+}
+
+/*
+* SINGLE POST
+*/
+/* Header */
+/* @media (min-width: 900px) { */
+/* } */
+@media (min-width: 900px) {
+	.post .post-title {
+		margin-bottom: var(--space-s);
+	}
+	.post .post-metadata,
+	.post .post-timestamp {
+		display: block;
+	}
+	.post .post-timestamp:after {
+		content: "";
+	}
+}
+
+/* Content */
+.post-list-item h1.post-title,
+.post .main-content h2,
+.post .main-content h3 {
+	font-size: var(--font-size-default);
+}
+
+.post .main-content h2 {
+	margin: var(--space-2xl) 0 var(--space-default);
+}
+
+.post .main-content p,
+.post .main-content ol,
+.post .main-content ul {
+	max-width: 48rem;
+}
+
+.main-content aside {
+	margin-top: var(--space-2xl);
+}
+
+/* Footer */
+article footer {
+	grid-row-start: 3;
+	grid-column: span var(--grid-columns);
+	margin-top: 6rem;
+	font-size: var(--font-size--1);
+	color: var(--color-text-muted);
+}
+@media (min-width: 900px) {
+	article footer {
+		grid-row-start: 2;
+		grid-column: 5 / calc(1 + var(--grid-columns));
+	}
+}
+.links-nextprev {
+	display: flex;
+	list-style-type: none;
+}
+.links-nextprev a {
+	font-size: var(--font-size-default);
+	color: var(--color-text-default);
+}
+.links-nextprev-prev,
+.links-nextprev-next {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+/*
+* POST LIST
+*/
+.post-list {
+	margin-bottom: var(--space-2xl);
+}
+.post-previews header,
+.post-list-item {
+	display: inline-block;
+	align-items: baseline;
+	margin-bottom: var(--space-default);
+}
+.post-previews .post-list-item {
+	margin-bottom: var(--space-2xl);
+}
+.post-excerpt {
+	margin-top: var(--space-default);
+}
+@media (min-width: 550px) {
+	.post-previews header,
+	.post-list-item {
+		display: flex;
+	}
+	.post-previews h1,
+	.post-list-item a {
+		flex-grow: 1;
+	}
+}
+.read-more {
+	font-style: italic;
+	font-size: var(--font-size--1);
+	color: var(--color-text-muted);
+}

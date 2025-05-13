@@ -1,0 +1,41 @@
+/*
+* PAGE
+*/
+
+/* LAYOUT */
+body {
+	letter-spacing: -0.003em;
+}
+
+article {
+	grid-template-rows: auto auto;
+}
+
+.page-title {
+	grid-row-start: 1;
+	grid-column: span var(--grid-columns);
+	margin-bottom: var(--space-3xl);
+}
+
+.main-content {
+	grid-row-start: 2;
+	grid-column: span var(--grid-columns);
+}
+
+@media (min-width: 900px) {
+	.page-title {
+		grid-row-start: 1;
+		grid-column: 1 / 4;
+		margin-bottom: 0;
+	}
+	.main-content {
+		grid-row-start: 1;
+		grid-column: 5 / calc(1 + var(--grid-columns));
+	}
+}
+
+/* TYPOGRAPHY */
+.page-title h1,
+.page-title h2 {
+	font-size: var(--font-size-default);
+}

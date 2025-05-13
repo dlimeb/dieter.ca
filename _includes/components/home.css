@@ -1,6 +1,17 @@
+.page-home .page-title {
+	margin-bottom: var(--space-l);
+}
+.intro {
+	row-gap: 0;
+}
 .latest-posts {
-  margin-top: 10rem;
+	margin-top: 10rem;
+	row-gap: 0;
 }
 .previous-posts {
-  margin-top: 7rem;
+	margin-top: 7rem;
+	row-gap: 0;
+}
+.post-previews {
+	padding-left: 0;
 }

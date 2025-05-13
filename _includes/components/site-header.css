@@ -1,33 +1,33 @@
 .site-header {
-  display: flex;
-	margin-top: 3rem;
-	margin-bottom: 10rem;
- }
+	display: flex;
+	margin-top: var(--space-l);
+	margin-bottom: var(--space-3xl);
+}
 
- .site-header ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
- }
- .site-header li {
-  list-style-type: none;
-  display: flex;
- }
- .site-header li:after {
-  content: ",";
-  margin-right: 0.3rem;
- }
- .site-header li:first-child:after {
-  content: "/";
-  padding-left: 0.3rem;
- }
- .site-header li:last-child:after {
-  content: "";
- }
+.site-header ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+.site-header li {
+	list-style-type: none;
+	display: flex;
+}
+.site-header li:after {
+	content: ",";
+	margin-right: var(--space-3xs);
+}
+.site-header li:first-child:after {
+	content: "/";
+	padding-left: var(--space-3xs);
+}
+.site-header li:last-child:after {
+	content: "";
+}
 
- .site-header a {
-  text-decoration: none;
- }
- .site-header a:hover {
-  text-decoration: underline;
- }
+.site-header a {
+	text-decoration: none;
+}
+.site-header a:hover {
+	text-decoration: underline;
+}
