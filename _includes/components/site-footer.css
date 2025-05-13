@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	margin-top: var(--space-3xl);
-	font-size: var(--font-size--2);
+	font-size: var(--font-size--1);
 	color: var(--color-text-muted);
 }
 .site-footer ul {
