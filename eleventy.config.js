@@ -53,6 +53,9 @@ export default async function (eleventyConfig) {
 		toFileDirectory: "dist",
 	});
 
+	// Adds the {% year %} shortcode to get the current year
+	eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
 	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 },
