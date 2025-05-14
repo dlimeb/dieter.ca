@@ -41,7 +41,7 @@
 		"zod-validation-error": "^3.3.1"
 	},
 	"dependencies": {
-		"@dlimeb/cssium": "^1.1.0",
+		"@dlimeb/cssium": "^1.2.0",
 		"@jamshop/eleventy-plugin-typography": "^1.0.0",
 		"@zachleat/heading-anchors": "^1.0.1",
 		"clean-css": "^5.3.3",
