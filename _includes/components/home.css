@@ -1,17 +1,19 @@
+/*
+*
+* HOME
+*
+* Styling for just the home page.
+*
+*/
 .page-home .page-title {
-	margin-bottom: var(--space-l);
-}
-.intro {
-	row-gap: 0;
+  margin-bottom: var(--space-l);
 }
 .latest-posts {
-	margin-top: 10rem;
-	row-gap: 0;
+  margin-top: 10rem;
 }
 .previous-posts {
-	margin-top: 7rem;
-	row-gap: 0;
+  margin-top: 7rem;
 }
 .post-previews {
-	padding-left: 0;
+  padding-left: 0;
 }

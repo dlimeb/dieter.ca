@@ -1,26 +1,34 @@
+/*
+*
+* TAGS
+*
+* Styling for the index page.
+*
+*/
+
 .tags-index {
-	padding-left: 0;
-	column-count: 1;
+  padding-left: 0;
+  column-count: 1;
 }
 @media (min-width: 900px) {
-	.tags-index {
-		column-count: 2;
-	}
+  .tags-index {
+    column-count: 2;
+  }
 }
 
 .tags-index,
 .tags-index ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 .tags-index > li {
-	font-weight: bold;
-	display: flex;
-	margin-bottom: var(--space-l);
+  font-weight: bold;
+  display: flex;
+  margin-bottom: var(--space-l);
 }
 .tags-index li ul {
-	margin-left: var(--space-s);
+  margin-left: var(--space-s);
 }
 .tags-index li li {
-	font-weight: normal;
+  font-weight: normal;
 }
