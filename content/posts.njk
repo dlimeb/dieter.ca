@@ -2,12 +2,11 @@
 // <script>
 const title = "Posts";
 const layout = "layouts/page";
-/*
-const eleventyNavigation = {
-	key: "Posts",
-	order: 2
-};
-*/
+const eleventyComputed = {
+  subhead: function(data) {
+    return "A list of every post published";
+  },
+}
 ---
 
 {% set postslist = collections.posts %}
