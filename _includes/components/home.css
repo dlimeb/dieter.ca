@@ -5,14 +5,23 @@
 * Styling for just the home page.
 *
 */
+
+.intro {
+  padding-bottom: var(--space-l);
+}
+.intro p {
+  grid-column: span var(--grid-columns);
+  max-width: 40em;
+}
+
 .page-home .page-title {
   margin-bottom: var(--space-l);
 }
 .latest-posts {
-  margin-top: 10rem;
+  margin-top: var(--space-3xl);
 }
 .previous-posts {
-  margin-top: 7rem;
+  margin-top: var(--space-l);
 }
 .post-previews {
   padding-left: 0;

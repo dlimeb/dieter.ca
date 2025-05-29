@@ -28,10 +28,9 @@ layout: layouts/base
 			{%- set nextPost = collections.posts | getNextCollectionItem %}
 			{%- if nextPost or previousPost %}
 				<ul class="links-nextprev">
-					<li class="links-nextprev-prev">
+					<li class="link-prev">
 						{%- if previousPost %}
-							← Previous
-							<br>
+							<div class="link-label">Previous</div>
 							<a href="{{ previousPost.url }}">
 								{% if previousPost.data.title %}
 									{{ previousPost.data.title }}
@@ -41,10 +40,9 @@ layout: layouts/base
 							</a>
 						{% endif %}
 					</li>
-					<li class="links-nextprev-next">
+					<li class="link-next">
 						{%- if nextPost %}
-							Next →
-							<br>
+							<div class="link-label">Next</div>
 							<a href="{{ nextPost.url }}">
 								{% if nextPost.data.title %}
 									{{ nextPost.data.title }}

@@ -6,11 +6,17 @@
 *
 */
 
+@media (min-width: 64rem) {
+  .page-tags .main-content {
+    grid-column: 5 / calc(1 + var(--grid-columns));
+  }
+}
+
 .tags-index {
   padding-left: 0;
   column-count: 1;
 }
-@media (min-width: 900px) {
+@media (min-width: 40rem) {
   .tags-index {
     column-count: 2;
   }
@@ -19,16 +25,16 @@
 .tags-index,
 .tags-index ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 .tags-index > li {
-  font-weight: bold;
   display: flex;
   margin-bottom: var(--space-l);
 }
-.tags-index li ul {
-  margin-left: var(--space-s);
-}
-.tags-index li li {
-  font-weight: normal;
+
+.tag-group-label {
+  display: inline-block;
+  width: 1rem;
+  font-weight: bold;
 }

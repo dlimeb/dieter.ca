@@ -13,14 +13,15 @@ const layout = "layouts/page";
 const eleventyExcludeFromCollections = true;
 
 const eleventyComputed = {
-	title: 'Posts tagged as “{{ tag }}”',
+	title: 'Posts tagged “{{ tag }}”',
 	permalink: function(data) {
 		return `/${this.slugify(data.tag)}/`;
-	}
+	},
+  subhead: function(data) {
+    return '<span class="arrow">←</span> <a href="/index/">Index</a>';
+  }
 };
 ---
 
 {% set postslist = collections[ tag ] %}
 {% include "components/posts-list.njk" %}
-
-<p>View all tags in the <a href="tags.njk">Index</a>.</p>

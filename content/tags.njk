@@ -3,18 +3,19 @@
 const title = "Index";
 const permalink = "/index/";
 const layout = "layouts/page";
-/*
-const eleventyNavigation = {
-	key: "Index",
-	order: 3
-};
-*/
+const eleventyComputed = {
+  subhead: function(data) {
+    return "A list of tags used across all posts";
+  },
+}
 ---
 
 <ul class="tags-index">
   {% for tagSet in collections.all | getAllTags | filterTagList | groupedByLetter %}
     <li>
-      {{ tagSet.letter }}
+      <div class="tag-group-label">
+        {{ tagSet.letter }}
+      </div>
       <ul>
         {% for tag in tagSet.tags %}
           {% set tagUrl %}/{{ tag | slugify }}/{% endset %}

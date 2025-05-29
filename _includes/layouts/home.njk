@@ -5,12 +5,7 @@ numberOfLatestPostsToShow: 1
 ---
 
 <div class="u-grid intro">
-  <div class="page-title">
-    <h1>Hello!</h1>
-  </div>
-  <div class="main-content">
-    {{ content | safe }}
-  </div>
+  {{ content | safe }}
 </div>
 
 {% set postsCount = collections.posts | length %}
@@ -37,16 +32,16 @@ numberOfLatestPostsToShow: 1
 				<p>
 					You can find {{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} in <a href="posts.njk">the archive</a>.
 
-					Or, view all posts with a specific tag:
+					Or, find a specific tag of interest in the <a href="/index/">index</a>.
 				</p>
 
-				<p>
+        {#
 					{% for tag in collections | getKeys | filterTagList | sortAlphabetically %}
 						{% set tagUrl %}/{{ tag | slugify }}/{% endset %}
 						<a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
 						{%- if not loop.last %}, {% endif %}
 					{% endfor %}
-				</p>
+        #}
     </div>
   </div>
 	{% endif %}
