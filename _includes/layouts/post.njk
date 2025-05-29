@@ -12,7 +12,7 @@ layout: layouts/base
 			<ul class="post-tags">
 				{%- for tag in tags | filterTagList %}
 				{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
-				<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+				<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
 				{%- endfor %}
 			</ul>
 		</div>
@@ -22,14 +22,14 @@ layout: layouts/base
 		{{ content | safe }}
   </div>
 
-	<footer>
+	<p>
 		{%- if collections.posts %}
 			{%- set previousPost = collections.posts | getPreviousCollectionItem %}
 			{%- set nextPost = collections.posts | getNextCollectionItem %}
 			{%- if nextPost or previousPost %}
-				<ul class="links-nextprev">
-					<li class="link-prev">
-						{%- if previousPost %}
+				<p class="links-nextprev">
+          {%- if previousPost %}
+            <p class="link-prev">
 							<div class="link-label"><span class="arrow">←</span> Previous</div>
 							<a href="{{ previousPost.url }}">
 								{% if previousPost.data.title %}
@@ -38,10 +38,10 @@ layout: layouts/base
 									{{ previousPost.url }}
 								{% endif %}
 							</a>
-						{% endif %}
-					</li>
-					<li class="link-next">
-						{%- if nextPost %}
+            </p>
+          {% endif %}
+          {%- if nextPost %}
+            <p class="link-next">
 							<div class="link-label">Next <span class="arrow">→</span></div>
 							<a href="{{ nextPost.url }}">
 								{% if nextPost.data.title %}
@@ -50,9 +50,9 @@ layout: layouts/base
 									{{ nextPost.url }}
 								{% endif %}
 							</a>
-						{% endif %}
-					</li>
-				</ul>
+            </p>
+          {% endif %}
+				</div>
 			{%- endif %}
 		{%- endif %}
 	</footer>

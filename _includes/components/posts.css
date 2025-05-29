@@ -31,6 +31,10 @@
   display: inline-block;
 }
 
+.post-tags li:not(:last-child)::after {
+  content: ", ";
+}
+
 /*
 * POST HEADER
 */
@@ -67,6 +71,9 @@ article footer {
 .links-nextprev {
   display: flex;
   list-style-type: none;
+}
+.link-label {
+  font-size: var(--font-size--2);
 }
 .links-nextprev a {
   font-size: var(--font-size-default);
