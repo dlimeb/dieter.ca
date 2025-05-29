@@ -50,6 +50,13 @@
     content: "";
   }
 }
+.post-previews .post-title a,
+.post .post-title a {
+  text-decoration: none;
+}
+.post .post-title a:hover {
+  text-decoration: underline;
+}
 
 /*
 * POST FOOTER
@@ -122,7 +129,7 @@ article footer {
   .post-previews header {
     display: flex;
   }
-  .post-list .post-list-item a,
+  .post-list .post-list-item h1,
   .post-previews h1 {
     flex-grow: 1;
   }

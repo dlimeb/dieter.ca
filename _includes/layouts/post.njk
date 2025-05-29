@@ -4,9 +4,9 @@ layout: layouts/base
 <heading-anchors>
 <article class="post u-grid">
   <header class="page-title">
-		{%- if title %}
-			<h1 class="post-title">{{ title | safe }}</h1>
-		{% endif %}
+    {%- set title = title %}
+    {%- set url = page.url %}
+    {% include "components/post-title.njk" %}
 
     {%- set date = page.date %}
     {%- set tags = tags %}

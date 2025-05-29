@@ -1,17 +1,13 @@
+{# this could/should be the same file as posts-list.njk #}
+
 <ol reversed class="post-previews">
 {%- for post in postslist | reverse %}
-	<li class="post-list-item{% if post.url == url %} active{% endif %}">
+	<li class="post-list-item">
 		<article>
 			<header>
-				<h1 class="post-title">
-					<a href="{{ post.url }}">
-						{% if post.data.title %}
-							{{ post.data.title }}
-						{% else %}
-							{{ post.url }}
-						{% endif %}
-					</a>
-				</h1>
+        {%- set title = post.data.title %}
+        {%- set url = post.url %}
+        {% include "components/post-title.njk" %}
 
         {%- set date = post.data.date %}
         {%- set tags = post.data.tags %}
