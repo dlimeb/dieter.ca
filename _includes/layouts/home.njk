@@ -9,7 +9,7 @@ numberOfLatestPostsToShow: 1
 </div>
 
 {% set postsCount = collections.posts | length %}
-{%- if postsCount %}
+{% if postsCount %}
   <div class="u-grid latest-posts">
     <div class="page-title">
       {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
@@ -18,7 +18,8 @@ numberOfLatestPostsToShow: 1
     <div class="main-content">
       {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
       {% set postslistCounter = postsCount %}
-      {% include "components/posts-previews.njk" %}
+      {% set showSummary = true %}
+      {% include "components/posts-list.njk" %}
     </div>
   </div>
 
@@ -30,19 +31,9 @@ numberOfLatestPostsToShow: 1
     </div>
     <div class="main-content">
 				<p>
-					You can find {{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} in the <a href="posts.njk">archive</a>.
-
-					Or, find a specific tag of interest in the <a href="/index/">index</a>.
+					You can find {{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} in the <a href="posts.njk">archive</a>, or find a specific tag of interest in the <a href="/index/">index</a>.
 				</p>
-
-        {#
-					{% for tag in collections | getKeys | filterTagList | sortAlphabetically %}
-						{% set tagUrl %}/{{ tag | slugify }}/{% endset %}
-						<a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>
-						{%- if not loop.last %}, {% endif %}
-					{% endfor %}
-        #}
     </div>
   </div>
 	{% endif %}
-{%- endif %}
+{% endif %}

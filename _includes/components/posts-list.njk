@@ -1,15 +1,38 @@
-{# this could/should be the same file as posts-preview.njk #}
+<!-- this could/should be the same file as posts-preview.njk -->
+
+<!-- full post HTML is: -->
+<!-- article.post.u-grid -->
+<!--   header.page-title -->
+<!--   div.main-content -->
+<!--   footer -->
 
 <ol reversed class="post-list">
 {%- for post in postslist | reverse %}
 	<li class="post-list-item">
-    {%- set title = post.data.title %}
-    {%- set url = post.url %}
-    {% include "components/post-title.njk" %}
+    <article>
+      <header>
+        {%- set title = post.data.title %}
+        {%- set url = post.url %}
+        {% include "components/post-title.njk" %}
 
-    {%- set date = post.data.date %}
-    {%- set tags = post.data.tags %}
-    {% include "components/post-metadata.njk" %}
+        {%- set date = post.data.date %}
+        {%- set tags = post.data.tags %}
+        {% include "components/post-metadata.njk" %}
+      </header>
+
+      {% if showSummary %}
+        <div class="post-excerpt">
+          <p>
+            {%- if post.data.summary %}
+              {{ post.data.summary }}
+            {%- else %}
+              {{ post.content | safe | striptags | truncate }}
+            {%- endif %}
+            <a href="{{ post.url }}" class="read-more">Continue</a>
+          </p>
+        </div>
+      {% endif %}
+    </article>
 	</li>
 {%- endfor %}
 </ol>
