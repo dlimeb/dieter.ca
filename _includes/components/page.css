@@ -23,7 +23,7 @@ main {
 .main-content {
   grid-row-start: 2;
   grid-column: span var(--grid-columns);
-  padding-bottom: var(--space-2xl);
+  padding-bottom: var(--space-3xl);
 }
 @media (min-width: 64rem) {
   .page-title {

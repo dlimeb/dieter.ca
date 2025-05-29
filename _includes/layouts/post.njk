@@ -4,12 +4,12 @@ layout: layouts/base
 <heading-anchors>
 <article class="post u-grid">
   <header class="page-title">
-    {%- set title = title %}
-    {%- set url = page.url %}
+    {% set title = title %}
+    {% set url = page.url %}
     {% include "components/post-title.njk" %}
 
-    {%- set date = page.date %}
-    {%- set tags = tags %}
+    {% set date = page.date %}
+    {% set tags = tags %}
     {% include "components/post-metadata.njk" %}
 	</header>
 
@@ -19,13 +19,13 @@ layout: layouts/base
 
   {%- if collections.posts %}
     <footer>
-			{%- set previousPost = collections.posts | getPreviousCollectionItem %}
-			{%- set nextPost = collections.posts | getNextCollectionItem %}
+			{% set previousPost = collections.posts | getPreviousCollectionItem %}
+			{% set nextPost = collections.posts | getNextCollectionItem %}
 
-			{%- if nextPost or previousPost %}
+			{% if nextPost or previousPost %}
         <div class="links-nextprev">
 
-          {%- if previousPost %}
+          {% if previousPost %}
             <div class="link-prev">
 							<div class="link-label"><span class="arrow">←</span> Previous</div>
 							<a href="{{ previousPost.url }}">
@@ -36,9 +36,9 @@ layout: layouts/base
 								{% endif %}
 							</a>
             </div>
-          {%- endif %}
+          {% endif %}
 
-          {%- if nextPost %}
+          {% if nextPost %}
             <div class="link-next">
 							<div class="link-label">Next <span class="arrow">→</span></div>
 							<a href="{{ nextPost.url }}">
@@ -49,12 +49,12 @@ layout: layouts/base
 								{% endif %}
 							</a>
             </div>
-          {%- endif %}
+          {% endif %}
 
         </div>
-      {%- endif %}
+      {% endif %}
     </footer>
-  {%- endif %}
+  {% endif %}
 
 </article>
 </heading-anchors>

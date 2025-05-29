@@ -39,6 +39,9 @@
 * POST HEADER
 */
 @media (min-width: 64rem) {
+  .page-posts-full .page-title {
+    margin-bottom: var(--space-3xl);
+  }
   .post .post-title {
     margin-bottom: var(--space-s);
   }
@@ -96,9 +99,15 @@ article footer {
 /*
 * POST LIST
 */
+.page-tagged-as-list .main-content ol,
+.page-tagged-as-list .main-content ul,
+.page-posts .main-content ol,
+.page-posts .main-content ul,
+.post-list-full,
 .main-content .post-list {
   list-style-type: none;
   padding-left: 0;
+  max-width: none;
 }
 
 @media (min-width: 64rem) {
@@ -107,26 +116,25 @@ article footer {
   }
 }
 
-.page-tagged-as-list .main-content ol,
-.page-tagged-as-list .main-content ul,
-.page-posts .main-content ol,
-.page-posts .main-content ul {
-  max-width: none;
-  padding-left: 0;
-}
-
 .post-list-item header {
   display: block;
   align-items: baseline;
-  margin-bottom: var(--space-default);
+  margin-bottom: var(--space-l);
 }
 @media (min-width: 48rem) {
-  .post-list-item header {
+  .post-list-titles .post-list-item header {
     display: flex;
   }
   .post-list .post-list-item h1 {
     flex-grow: 1;
   }
+}
+
+.post-list-full li.post-list-item {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-2xl);
+  /* border-bottom: 1px solid var(--color-border); */
 }
 
 .post-excerpt {

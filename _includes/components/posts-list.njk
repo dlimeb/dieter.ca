@@ -1,36 +1,47 @@
-<!-- full post HTML is: -->
-<!-- article.post.u-grid -->
-<!--   header.page-title -->
-<!--   div.main-content -->
-<!--   footer -->
+<ol reversed class="post-list {% if showFullPosts %}post-list-full{% else %}post-list-titles{% endif %}">
 
-<ol reversed class="post-list">
-{%- for post in postslist | reverse %}
-	<li class="post-list-item">
-    <article>
-      <header>
-        {%- set title = post.data.title %}
-        {%- set url = post.url %}
-        {% include "components/post-title.njk" %}
+{% for post in postslist | reverse %}
 
-        {%- set date = post.data.date %}
-        {%- set tags = post.data.tags %}
-        {% include "components/post-metadata.njk" %}
-      </header>
+  {% set title = post.data.title %}
+  {% set url = post.url %}
+  {% set date = post.data.date %}
+  {% set tags = post.data.tags %}
 
-      {% if showSummary %}
-        <div class="post-excerpt">
-          <p>
-            {%- if post.data.summary %}
+  <li class="post-list-item">
+
+    {% if showFullPosts %}
+      <article class="post u-grid">
+        <header class="page-title">
+          {% include "components/post-title.njk" %}
+          {% include "components/post-metadata.njk" %}
+        </header>
+
+        <div class="main-content">
+          {{ post.content | safe }}
+        </div>
+      </article>
+
+    {% else %}
+      <article>
+        <header>
+          {% include "components/post-title.njk" %}
+          {% include "components/post-metadata.njk" %}
+        </header>
+
+        {% if showSummary %}
+          <p class="post-excerpt">
+            {% if post.data.summary %}
               {{ post.data.summary }}
-            {%- else %}
+            {% else %}
               {{ post.content | safe | striptags | truncate }}
-            {%- endif %}
+            {% endif %}
             <a href="{{ post.url }}" class="read-more">Continue</a>
           </p>
-        </div>
-      {% endif %}
-    </article>
-	</li>
-{%- endfor %}
+        {% endif %}
+      </article>
+    {% endif %}
+  </li>
+
+{% endfor %}
+
 </ol>

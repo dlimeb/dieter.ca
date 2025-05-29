@@ -1,0 +1,28 @@
+---js
+// <script>
+const title = "All posts";
+const layout = "layouts/base";
+const eleventyComputed = {
+  subhead: function(data) {
+    return '<a href="/posts/">Titles only</a> &middot; Full posts';
+  },
+}
+const permalink = "/posts/full/"
+---
+
+{% set showSummary = false %}
+{% set showFullPosts = true %}
+{% set postslist = collections.posts %}
+
+{# does not use page.njk layout bc content cannot go into .main-content #}
+<div class="u-grid">
+  <div class="page-title">
+    <h1>{{ title | safe }}</h1>
+    {% if subhead %}
+      <div class="subhead">{{ subhead | safe }}</div>
+    {% endif %}
+  </div>
+</div>
+
+{% include "components/posts-list.njk" %}
+

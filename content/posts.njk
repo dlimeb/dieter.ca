@@ -1,10 +1,10 @@
 ---js
 // <script>
-const title = "Posts";
+const title = "All posts";
 const layout = "layouts/page";
 const eleventyComputed = {
   subhead: function(data) {
-    return "A list of every post published";
+    return 'Titles only &middot; <a href="/posts/full/">Full posts</a>';
   },
 }
 ---
