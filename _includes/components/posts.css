@@ -120,9 +120,6 @@ article footer {
   align-items: baseline;
   margin-bottom: var(--space-default);
 }
-.post-excerpt {
-  margin-top: var(--space-default);
-}
 @media (min-width: 48rem) {
   .post-list-item header {
     display: flex;
@@ -130,6 +127,10 @@ article footer {
   .post-list .post-list-item h1 {
     flex-grow: 1;
   }
+}
+
+.post-excerpt {
+  margin-top: var(--space-default);
 }
 .read-more {
   font-style: italic;
