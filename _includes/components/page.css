@@ -9,8 +9,9 @@
 /*
 * LAYOUT
 */
-article {
-  /* grid-template-rows: auto auto; */
+main {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-3xl);
 }
 
 .page-title {
