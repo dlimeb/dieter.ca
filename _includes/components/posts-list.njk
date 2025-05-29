@@ -8,15 +8,10 @@
 				{{ post.url }}
 			{% endif %}
 		</a>
-		<div class="post-metadata">
-			<time class="post-timestamp" datetime="{{ post.data.date | htmlDateString }}">{{ post.data.date | readableDate }}</time>
-			<ul class="post-tags">
-				{%- for tag in post.data.tags | filterTagList %}
-					{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
-					<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
-				{%- endfor %}
-			</ul>
-		</div>
+
+    {%- set date = post.data.date %}
+    {%- set tags = post.data.tags %}
+    {% include "components/post-metadata.njk" %}
 	</li>
 {%- endfor %}
 </ol>

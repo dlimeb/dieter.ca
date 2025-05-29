@@ -7,29 +7,26 @@ layout: layouts/base
 		{%- if title %}
 			<h1 class="post-title">{{ title | safe }}</h1>
 		{% endif %}
-		<div class="post-metadata">
-			<time class="post-timestamp" datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
-			<ul class="post-tags">
-				{%- for tag in tags | filterTagList %}
-				{%- set tagUrl %}/{{ tag | slugify }}/{% endset %}
-				<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a></li>
-				{%- endfor %}
-			</ul>
-		</div>
+
+    {%- set date = page.date %}
+    {%- set tags = tags %}
+    {% include "components/post-metadata.njk" %}
 	</header>
 
   <div class="main-content">
 		{{ content | safe }}
   </div>
 
-	<p>
-		{%- if collections.posts %}
+  {%- if collections.posts %}
+    <footer>
 			{%- set previousPost = collections.posts | getPreviousCollectionItem %}
 			{%- set nextPost = collections.posts | getNextCollectionItem %}
+
 			{%- if nextPost or previousPost %}
-				<p class="links-nextprev">
+        <div class="links-nextprev">
+
           {%- if previousPost %}
-            <p class="link-prev">
+            <div class="link-prev">
 							<div class="link-label"><span class="arrow">←</span> Previous</div>
 							<a href="{{ previousPost.url }}">
 								{% if previousPost.data.title %}
@@ -38,10 +35,11 @@ layout: layouts/base
 									{{ previousPost.url }}
 								{% endif %}
 							</a>
-            </p>
-          {% endif %}
+            </div>
+          {%- endif %}
+
           {%- if nextPost %}
-            <p class="link-next">
+            <div class="link-next">
 							<div class="link-label">Next <span class="arrow">→</span></div>
 							<a href="{{ nextPost.url }}">
 								{% if nextPost.data.title %}
@@ -50,11 +48,13 @@ layout: layouts/base
 									{{ nextPost.url }}
 								{% endif %}
 							</a>
-            </p>
-          {% endif %}
-				</div>
-			{%- endif %}
-		{%- endif %}
-	</footer>
+            </div>
+          {%- endif %}
+
+        </div>
+      {%- endif %}
+    </footer>
+  {%- endif %}
+
 </article>
 </heading-anchors>
