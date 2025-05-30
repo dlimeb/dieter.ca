@@ -52,6 +52,13 @@ main {
   margin-top: 0;
   margin-bottom: 0;
 }
+@media (min-width: 64rem) {
+  .post-list-item h1.post-title,
+  .page-title h1,
+  .page-title h2 {
+    margin-bottom: 1em;
+  }
+}
 .post-list-item h1.post-title,
 .page-title h1,
 .page-title h2,

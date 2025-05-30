@@ -18,7 +18,7 @@ const eleventyComputed = {
 		return `/${this.slugify(data.tag)}/`;
 	},
   subhead: function(data) {
-    return '<span class="arrow">←</span> <a href="/index/">Index</a>';
+    return `Titles only &middot; <a href="/${this.slugify(data.tag)}/full/">Full posts</a><br><span class="arrow">←</span> <a href="/index/">Index</a>`;
   }
 };
 ---
