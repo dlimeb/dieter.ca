@@ -45,7 +45,7 @@
             {% else %}
               {{ post.content | safe | striptags | truncate }}
             {% endif %}
-            <a href="{{ post.url }}" class="read-more">Continue</a>
+            <a href="{{ post.url }}" class="read-more">Continue</a> <span class="arrow">→</span>
           </p>
         {% endif %}
       </article>

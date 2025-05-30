@@ -143,6 +143,5 @@ article footer {
 }
 .read-more {
   font-style: italic;
-  font-size: var(--font-size--1);
   color: var(--color-text-muted);
 }
