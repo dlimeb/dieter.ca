@@ -2,9 +2,19 @@
 
 {% for post in postslist | reverse %}
 
-  {% set title = post.data.title %}
+  {% if post.data.title %}
+    {% set title = post.data.title %}
+  {% else %}
+    {% set title = "#" %}
+  {% endif %}
+
+  {% if post.data.date %}
+    {% set date = post.data.date %}
+  {% else %}
+    {% set date = post.date %}
+  {% endif %}
+
   {% set url = post.url %}
-  {% set date = post.data.date %}
   {% set tags = post.data.tags %}
 
   <li class="post-list-item">

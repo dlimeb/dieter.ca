@@ -4,7 +4,11 @@ layout: layouts/base
 <heading-anchors>
 <article class="post u-grid">
   <header class="page-title">
-    {% set title = title %}
+    {% if title %}
+      {% set title = title %}
+    {% else %}
+      {% set title = "#" %}
+    {% endif %}
     {% set url = page.url %}
     {% include "components/post-title.njk" %}
 
@@ -17,7 +21,7 @@ layout: layouts/base
 		{{ content | safe }}
   </div>
 
-  {%- if collections.posts %}
+  {% if collections.posts %}
     <footer>
 			{% set previousPost = collections.posts | getPreviousCollectionItem %}
 			{% set nextPost = collections.posts | getNextCollectionItem %}
@@ -32,7 +36,7 @@ layout: layouts/base
 								{% if previousPost.data.title %}
 									{{ previousPost.data.title }}
 								{% else %}
-									{{ previousPost.url }}
+									#
 								{% endif %}
 							</a>
             </div>
@@ -45,7 +49,7 @@ layout: layouts/base
 								{% if nextPost.data.title %}
 									{{ nextPost.data.title }}
 								{% else %}
-									{{ nextPost.url }}
+									#
 								{% endif %}
 							</a>
             </div>
