@@ -3,11 +3,11 @@ layout: layouts/page
 title: Contact
 ---
 
-If you have something to share, a question about me or anything on this site, or just want to say hi, please feel free to reach out!
+If you have something to share, a question about me or anything on this site, or just want to say hi, please get in touch!
 
-[Email](mailto:dlimeb@pm.me) is probably best. You can find me on [Mastodon](https://mastodon.cloud/@dlimeb) or [LinkedIn](https://www.linkedin.com/in/dlimeb/) too, and I'll happily receive a message there, but my social media usage is pretty much limited to reading.
+[Email](mailto:hello@dieter.ca) is probably best. You can reach out via [Mastodon](https://mastodon.cloud/@dlimeb) or [LinkedIn](https://www.linkedin.com/in/dlimeb/) too, but my social media usage is pretty much limited to reading.
 
-If you'd like to automatically receive updates whenever I post them, add [this site's feed](/feed/feed.xml) to your reader of choice. (If you're not familiar with RSS, visit [About Feeds](https://aboutfeeds.com) to learn more.)
+If you'd like to automatically receive updates whenever I post them, add [this site's feed](/feed/feed.xml) to your reader of choice. (See [About Feeds](https://aboutfeeds.com) if you're not familiar with RSS.)
 
 This is my personal site, which is intended to be a playground of miscellany. I also maintain a couple of other more specific undertakings, both aimed at helping creative people reclaim joy in their work:
 
