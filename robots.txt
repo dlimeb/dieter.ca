@@ -7,6 +7,7 @@ Disallow:
 ## Block known AI-related crawlers
 ## Last updated 2025-07-21
 ## Source: https://github.com/ai-robots-txt/ai.robots.txt/releases/tag/v1.38
+## TODO: Even better https://developers.netlify.com/guides/blocking-ai-bots-and-controlling-crawlers/
 
 User-agent: AI2Bot
 User-agent: Ai2Bot-Dolma
