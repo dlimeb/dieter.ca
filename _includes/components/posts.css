@@ -120,7 +120,6 @@ article footer {
 .post-list-item header {
   display: block;
   align-items: baseline;
-  margin-bottom: var(--space-l);
 }
 @media (min-width: 48rem) {
   .post-list-titles .post-list-item header {

@@ -17,12 +17,19 @@
 .page-home .page-title {
   margin-bottom: var(--space-l);
 }
+
+.page-home .post-list-item h1.post-title {
+  margin-bottom: 0;
+}
+
 .latest-posts {
   margin-top: var(--space-3xl);
 }
+
 .previous-posts {
   margin-top: var(--space-l);
 }
+
 .post-previews {
   padding-left: 0;
 }
