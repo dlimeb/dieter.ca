@@ -4,7 +4,7 @@ description: The current state of my homelab
 date: 2025-09-19
 tags:
   - homelab
-draft: true
+draft:
 ---
 
 Picking up from the [prelude](/homelab-prelude/), here's where my homelab is at as of late summer 2025.
