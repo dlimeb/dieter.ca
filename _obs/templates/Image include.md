@@ -1,0 +1,1 @@
+<img eleventy:widths="300,640,850" src="/images/<% tp.file.cursor(1) %>" alt="<% tp.file.cursor(2) %>" />
