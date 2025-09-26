@@ -5,7 +5,7 @@ date: 2025-09-23
 tags:
   - homelab
   - diy
-draft: true
+draft: false
 ---
 Many homelabs take advantage of [SFF PCs](https://en.wikipedia.org/wiki/Small_form_factor_PC) because they are plentiful *and* don't take up space, but I have a bunch of micro-ATX motherboards sitting around. As I continued to fiddle with my [homelab](/homelab/), it quickly became apparent that keeping a server just standing on the floor, with network cables snaking hither and thither, was not a great idea.
 
