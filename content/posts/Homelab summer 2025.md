@@ -38,7 +38,7 @@ Top to bottom:
 
 Feel free to poke fun at my good-enough-for-now cable management, and the 3D printed shelf that's not quite cutting it.
 
-To keep this short, I'll put details on the other servers, networking, and the "rack" into separate posts, coming soon.
+To keep this short, I'll put details on the other servers and networking into separate posts, coming soon. Here are details on the [rack](/diy-server-rack/).
 
 ## Operating system
 
