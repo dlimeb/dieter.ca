@@ -1,7 +1,7 @@
 ---
 title: DIY server rack
 description: How and why I built a 12U server rack out of scrap material
-date: 2025-09-23
+date: 2025-09-26
 tags:
   - homelab
   - diy
