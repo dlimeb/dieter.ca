@@ -5,6 +5,7 @@ date: 2025-09-24
 tags:
 draft: false
 ---
+
 _Colophon_ is a $10 word to describe providing details of the publication process. It has a long history in [print](<https://en.wikipedia.org/wiki/Colophon_(publishing)>), but has been evolved to be a convention used by [websites](https://indieweb.org/colophon) as well, where it's often one of many [slash pages](https://slashpages.net).
 
 ## History
@@ -23,13 +24,13 @@ I also love the technical side, and want to focus on that here too.
 
 - A simple design means easier templates and CSS to jump back into.
 - Using [OS default typography](https://modernfontstacks.com) helps performance and keeps the bytes you need to download low.
-- The [rule of least power](https://adactio.com/journal/14327) is a philosophy that always bears repeating. 
-- I want a reminder that what I'm looking at when I design this site is likely *not* what you're seeing. You might be using another OS, have browser overrides, be reading in RSS, maybe I cross-post to a newsletter, maybe I [POSSE](https://indieweb.org/POSSE) this to who knows where, maybe I get wacky and do something with [Gopher](https://en.wikipedia.org/wiki/Gopher_(protocol)) or [Gemini](https://en.wikipedia.org/wiki/Gemini_(protocol)).
+- The [rule of least power](https://adactio.com/journal/14327) is a philosophy that always bears repeating.
+- I want a reminder that what I'm looking at when I design this site is likely _not_ what you're seeing. You might be using another OS, have browser overrides, be reading in RSS, maybe I cross-post to a newsletter, maybe I [POSSE](https://indieweb.org/POSSE) this to who knows where, maybe I get wacky and do something with [Gopher](<https://en.wikipedia.org/wiki/Gopher_(protocol)>) or [Gemini](<https://en.wikipedia.org/wiki/Gemini_(protocol)>).
 - This site cares about your privacy and will not track you via analytics or anything similar.
-  
+
 ## Technology
 
-This site is built using [11ty](11ty.dev), a simple static site generator that processes Markdown files. I also use a handful of plugins for a bit nicer default typography:
+This site is built using [11ty](https://11ty.dev), a simple static site generator that processes Markdown files. I also use a handful of plugins for a bit nicer default typography:
 
 - [eleventy-plugin-typography](https://github.com/jamshop/eleventy-plugin-typography) (a wrapper around [typogr.js](https://github.com/ekalinin/typogr.js)) adds `<spans>` for better handling of widows, orphans, ordinals, smallcaps, etc
 - [markdown-it-mark](https://github.com/markdown-it/markdown-it-mark) allows text to be marked for nice highlights
@@ -42,4 +43,5 @@ I code everything by hand in `vim` ([dotfiles](codeberg.org/dlimeb/dotfiles) for
 
 I also extracted a bunch of CSS I keep using into a lightweight personal framework I called [CSSium](https://github.com/dlimeb/cssium), because of course I did.
 
-The code for this site is stored on [GitHub](https://github.com/dlimeb/dieter.ca), which is set to automatically deploy to [Netlify](https://www.netlify.com) upon a commit to the `main` branch. Netlify also checks and reports on my [Lighthouse](https://developers.google.com/web/tools/lighthouse) score. This setup is quite frictionless, which I need. But I'm also in the process of extracting myself from big tech companies, especially where I'm on a free *I am the product* tier, which is the case for both of the above. I'll eventually switch to a VPS, where for bonus points I can also focus on green hosting.
+The code for this site is stored on [GitHub](https://github.com/dlimeb/dieter.ca), which is set to automatically deploy to [Netlify](https://www.netlify.com) upon a commit to the `main` branch. Netlify also checks and reports on my [Lighthouse](https://developers.google.com/web/tools/lighthouse) score. This setup is quite frictionless, which I need. But I'm also in the process of extracting myself from big tech companies, especially where I'm on a free _I am the product_ tier, which is the case for both of the above. I'll eventually switch to a VPS, where for bonus points I can also focus on green hosting.
+
