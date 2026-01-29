@@ -54,7 +54,6 @@ main {
 }
 @media (min-width: 64rem) {
   .post-list-item h1.post-title,
-  .page-title h1,
   .page-title h2 {
     margin-bottom: 1em;
   }
